@@ -1,0 +1,309 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hadi1373z.github.io/atlas-of-ideas/update.schema.json",
+  "title": "Atlas public publication record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "event_id",
+    "source_key",
+    "created_at",
+    "kind",
+    "person_id",
+    "base_revision",
+    "summary",
+    "profile"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "event_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 120
+    },
+    "source_key": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+    },
+    "kind": {
+      "enum": [
+        "daily-profile",
+        "profile-edit"
+      ]
+    },
+    "person_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 120
+    },
+    "base_revision": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "profile": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50000
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50000
+        },
+        "bio": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50000
+        },
+        "formula": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50000
+        },
+        "impact": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50000
+        },
+        "qualification": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50000
+        },
+        "ref": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50000
+        },
+        "tex": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50000
+        },
+        "born": {
+          "type": "integer",
+          "minimum": -4000,
+          "maximum": 2100
+        },
+        "field": {
+          "enum": [
+            "geometry",
+            "analysis",
+            "algebra",
+            "logic",
+            "systems",
+            "information",
+            "complexity",
+            "graphs",
+            "algorithms"
+          ]
+        },
+        "extended": {
+          "type": "boolean"
+        },
+        "approximateBirth": {
+          "type": "boolean"
+        },
+        "readMinutes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 240
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300
+          },
+          "maxItems": 30
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "title",
+              "text"
+            ],
+            "properties": {
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 50000
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 50000
+              },
+              "math": {
+                "type": "string",
+                "maxLength": 10000
+              },
+              "tex": {
+                "type": "string",
+                "maxLength": 10000
+              }
+            }
+          },
+          "minItems": 1,
+          "maxItems": 80
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label",
+              "url"
+            ],
+            "properties": {
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 50000
+              },
+              "url": {
+                "type": "string",
+                "pattern": "^https?://",
+                "maxLength": 3000
+              },
+              "type": {
+                "type": "string",
+                "maxLength": 80
+              }
+            }
+          },
+          "minItems": 1,
+          "maxItems": 30
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "minItems": 3,
+          "maxItems": 3
+        }
+      }
+    },
+    "connections_add": {
+      "type": "array",
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source",
+          "target",
+          "label",
+          "description"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 120
+          },
+          "target": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+            "maxLength": 120
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50000
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50000
+          }
+        }
+      }
+    },
+    "article_markdown": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 250000
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "daily-profile"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "article_markdown"
+        ],
+        "properties": {
+          "event_id": {
+            "pattern": "^daily-\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "source_key": {
+            "pattern": "^daily:\\d{4}-\\d{2}-\\d{2}$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "base_revision": {
+            "type": "null"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "profile": {
+            "required": [
+              "name",
+              "born",
+              "field",
+              "title",
+              "bio",
+              "formula",
+              "impact",
+              "sections",
+              "sources",
+              "questions"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

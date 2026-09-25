@@ -1,0 +1,16 @@
+name: Validate proposed changes
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: python3 -m unittest discover -s tests -p 'test_publish.py' -v
+      - run: python3 build.py
+      - run: node --check src/app.js

@@ -1,0 +1,60 @@
+name: Validate and publish Atlas
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: atlas-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    outputs:
+      build_id: ${{ steps.version.outputs.build_id }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Validate catalogue and update replay
+        run: python3 -m unittest discover -s tests -p 'test_publish.py' -v
+      - name: Build the actual Reader's Edition
+        run: ATLAS_SOURCE_COMMIT=$(git rev-parse HEAD) python3 build.py
+      - name: Check JavaScript
+        run: node --check src/app.js
+      - id: version
+        name: Record the expected artifact
+        run: python3 -c 'import json,os; v=json.load(open("_site/version.json")); open(os.environ["GITHUB_OUTPUT"],"a").write("build_id="+v["build_id"]+"\n")'
+      - name: Upload only the built public site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+  verify:
+    needs: [build, deploy]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify the public version and exact HTML
+        env:
+          EXPECTED_BUILD: ${{ needs.build.outputs.build_id }}
+        run: python3 tools/verify_live.py --build "$EXPECTED_BUILD" --attempts 18 --delay 10
