@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "event_id": "edit-2026-09-29-cook-worked-profile",
+  "source_key": "edit:2026-09-29:cook:worked-profile",
+  "created_at": "2026-09-28T22:38:09Z",
+  "kind": "profile-edit",
+  "person_id": "cook",
+  "base_revision": "9a20b7f095563389b2a63b091128ddd33fbda202eeb190a459a305b2473dba2a",
+  "summary": "Expand Stephen Cook with a worked example, proof reasoning, limitations, and specific further questions.",
+  "profile": {
+    "sections": [
+      {
+        "title": "Checking and finding are different tasks",
+        "text": "Stephen Cook’s 1971 theorem made it possible to compare apparently unrelated computational problems through efficient translations. In its familiar modern formulation, Boolean satisfiability, or SAT, is NP-complete: SAT belongs to NP, and every problem in NP has a polynomial-time many-one reduction to SAT.\n\nNP describes decision problems whose yes answers have certificates of polynomial length that a deterministic algorithm can check in polynomial time. A certificate is evidence for a particular input. The definition does not supply an efficient way to discover it. Read the theorem as a bridge from arbitrary efficient verification to one common logical language."
+      },
+      {
+        "title": "A certificate you can check",
+        "text": "Take the formula (a OR b) AND (NOT a OR c) AND (NOT b OR NOT c). The assignment a=true, b=false, c=true satisfies it: the three clauses become true OR false, false OR true, and true OR false. Checking the proposed assignment requires inspecting the clauses.\n\nTo find an assignment by brute force, however, one could try all 2^n assignments for n variables. This describes a simple algorithm, not a proof that every algorithm needs exponential time. The distinction between an obvious search cost and an unavoidable lower bound is central to reading complexity claims accurately."
+      },
+      {
+        "title": "A reduction preserves the answer",
+        "text": "A many-one reduction maps each input x of problem A to an input f(x) of problem B in polynomial time, with x a yes-instance exactly when f(x) is a yes-instance. Thus an efficient algorithm for B would give one for A: translate, then solve. The direction matters. To show that B is at least as hard as A, reduce A to B.\n\nAs a small illustration, encode a triangle’s three-coloring problem using variables x(v,c), one for each vertex v and color c. A clause for each vertex requires at least one color. Pairwise negative clauses prohibit two colors at one vertex. For each edge and color, another clause prohibits its endpoints from both having that color. A satisfying assignment now corresponds exactly to a proper coloring. For a triangle there are nine variables, and assigning its three vertices three distinct colors satisfies all these conditions.",
+        "math": "x ∈ A ⇔ f(x) ∈ B"
+      },
+      {
+        "title": "How a computation becomes a formula",
+        "text": "Cook’s proof encodes an accepting, polynomially bounded computation using Boolean variables for times, tape positions, symbols, states, and the head location. Clauses enforce a legal start, consistent configurations, legal transitions, and acceptance. The resulting formula has polynomial size and is satisfiable exactly when such a computation exists.\n\nThe original paper states its principal theorem using oracle reductions to tautologies. Its construction explicitly produces a conjunctive-normal-form formula satisfiable exactly when the machine accepts; this is the part underlying the modern SAT formulation. Keeping that distinction visible helps when moving from a textbook statement to the historical paper."
+      },
+      {
+        "title": "What completeness does and does not settle",
+        "text": "SAT’s completeness says that a polynomial-time SAT algorithm would yield polynomial-time algorithms for every problem in NP. It does not prove that such an algorithm is impossible. Nor does it mean that every individual SAT instance is hard: special structure and easy cases remain possible.\n\nRead Karp next for the spread of reductions across combinatorial problems, and Levin for the independently developed completeness viewpoint. Read Dijkstra for a contrast in method: his shortest-path argument constructs an efficient solution for a specific problem under explicit assumptions. Cook provides a way to transfer the implications of a hypothetical efficient solution across an entire class."
+      }
+    ],
+    "questions": [
+      "Write all the clauses in the triangle-coloring example. What changes if only two colors are allowed, and how can you prove that formula unsatisfiable?",
+      "If A reduces to B, which consequences follow from an efficient algorithm for B, and which do not follow merely from an efficient algorithm for A?",
+      "In the computation encoding, what breaks if local transition constraints are omitted? Can you build a satisfying assignment that invents an accepting computation?"
+    ],
+    "sources": [
+      {
+        "label": "Cook · The Complexity of Theorem-Proving Procedures (1971), transcription",
+        "url": "https://www.cs.cmu.edu/~15455/resources/Cook1971-complx-thm-proof.pdf",
+        "type": "primary"
+      }
+    ],
+    "extended": true,
+    "readMinutes": 5
+  },
+  "connections_add": [],
+  "article_markdown": "# Stephen Cook — The first universal NP problem\n\nCook proved that satisfiability can encode every polynomial-time nondeterministic computation. Levin independently developed closely related completeness ideas.\n\nCook–Levin establishes a starting point for NP-completeness. The theorem does not prove that SAT requires superpolynomial time.\n\n∀L∈NP, L ≤ₚ SAT\n\n## Checking and finding are different tasks\n\nStephen Cook’s 1971 theorem made it possible to compare apparently unrelated computational problems through efficient translations. In its familiar modern formulation, Boolean satisfiability, or SAT, is NP-complete: SAT belongs to NP, and every problem in NP has a polynomial-time many-one reduction to SAT.\n\nNP describes decision problems whose yes answers have certificates of polynomial length that a deterministic algorithm can check in polynomial time. A certificate is evidence for a particular input. The definition does not supply an efficient way to discover it. Read the theorem as a bridge from arbitrary efficient verification to one common logical language.\n\n## A certificate you can check\n\nTake the formula (a OR b) AND (NOT a OR c) AND (NOT b OR NOT c). The assignment a=true, b=false, c=true satisfies it: the three clauses become true OR false, false OR true, and true OR false. Checking the proposed assignment requires inspecting the clauses.\n\nTo find an assignment by brute force, however, one could try all 2^n assignments for n variables. This describes a simple algorithm, not a proof that every algorithm needs exponential time. The distinction between an obvious search cost and an unavoidable lower bound is central to reading complexity claims accurately.\n\n## A reduction preserves the answer\n\nA many-one reduction maps each input x of problem A to an input f(x) of problem B in polynomial time, with x a yes-instance exactly when f(x) is a yes-instance. Thus an efficient algorithm for B would give one for A: translate, then solve. The direction matters. To show that B is at least as hard as A, reduce A to B.\n\nAs a small illustration, encode a triangle’s three-coloring problem using variables x(v,c), one for each vertex v and color c. A clause for each vertex requires at least one color. Pairwise negative clauses prohibit two colors at one vertex. For each edge and color, another clause prohibits its endpoints from both having that color. A satisfying assignment now corresponds exactly to a proper coloring. For a triangle there are nine variables, and assigning its three vertices three distinct colors satisfies all these conditions.\n\nx ∈ A ⇔ f(x) ∈ B\n\n## How a computation becomes a formula\n\nCook’s proof encodes an accepting, polynomially bounded computation using Boolean variables for times, tape positions, symbols, states, and the head location. Clauses enforce a legal start, consistent configurations, legal transitions, and acceptance. The resulting formula has polynomial size and is satisfiable exactly when such a computation exists.\n\nThe original paper states its principal theorem using oracle reductions to tautologies. Its construction explicitly produces a conjunctive-normal-form formula satisfiable exactly when the machine accepts; this is the part underlying the modern SAT formulation. Keeping that distinction visible helps when moving from a textbook statement to the historical paper.\n\n## What completeness does and does not settle\n\nSAT’s completeness says that a polynomial-time SAT algorithm would yield polynomial-time algorithms for every problem in NP. It does not prove that such an algorithm is impossible. Nor does it mean that every individual SAT instance is hard: special structure and easy cases remain possible.\n\nRead Karp next for the spread of reductions across combinatorial problems, and Levin for the independently developed completeness viewpoint. Read Dijkstra for a contrast in method: his shortest-path argument constructs an efficient solution for a specific problem under explicit assumptions. Cook provides a way to transfer the implications of a hypothetical efficient solution across an entire class.\n\n## Three directions to explore\n\n1. Write all the clauses in the triangle-coloring example. What changes if only two colors are allowed, and how can you prove that formula unsatisfiable?\n\n2. If A reduces to B, which consequences follow from an efficient algorithm for B, and which do not follow merely from an efficient algorithm for A?\n\n3. In the computation encoding, what breaks if local transition constraints are omitted? Can you build a satisfying assignment that invents an accepting computation?\n\n## Sources\n\n- [Cook · The Complexity of Theorem-Proving Procedures (1971), transcription](https://www.cs.cmu.edu/~15455/resources/Cook1971-complx-thm-proof.pdf)\n"
+}

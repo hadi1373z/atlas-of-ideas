@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "event_id": "edit-2026-09-29-hoare-worked-profile",
+  "source_key": "edit:2026-09-29:hoare:worked-profile",
+  "created_at": "2026-09-28T22:38:09Z",
+  "kind": "profile-edit",
+  "person_id": "hoare",
+  "base_revision": "b10fc281bb4e83236913d3bf5dac7136361476ad951fcb1225111551cc53ee8d",
+  "summary": "Expand C. A. R. Hoare with a worked example, proof reasoning, limitations, and specific further questions.",
+  "profile": {
+    "sections": [
+      {
+        "title": "Make the claim precise",
+        "text": "C. A. R. Hoare’s 1969 paper gave a logical framework for reasoning about programs through assertions about their states. A proof can be assembled from rules for assignments, sequences, conditionals, and loops. This turns “the program works” into a claim with explicit assumptions and a specific promised result.\n\nWrite {P} C {Q}. Here P is a precondition, C a program, and Q a postcondition. In partial correctness, the claim is: every terminating execution of C that starts in a state satisfying P ends in a state satisfying Q. It does not by itself establish that execution terminates.",
+        "math": "{P} C {Q}"
+      },
+      {
+        "title": "An assignment changes which condition you need",
+        "text": "Suppose the program is x:=x+1 and the desired result is x=8. The old value must be 7. The assignment rule obtains this by substituting the expression x+1 for x in the desired postcondition: x+1=8.\n\nFor two assignments x:=x+1; y:=2*x, a starting value x=7 guarantees y=16. First establish x=8, then use that fact as the next command’s precondition. The intermediate assertion connects two small proofs into one larger proof. These examples assume mathematical integers; machine overflow would require a different arithmetic model or additional bounds."
+      },
+      {
+        "title": "Prove a complete loop",
+        "text": "Consider a program that sums the first n nonnegative integers, where n is a fixed nonnegative integer. Initialize i:=0 and s:=0. While i<n, execute i:=i+1 followed by s:=s+i. The desired final result is s=n(n+1)/2.\n\nChoose the invariant 0≤i≤n and s=i(i+1)/2. Initialization establishes it because both i and s are zero. For preservation, call the old value of i k. The body first sets i=k+1, then adds k+1 to s. The new sum is k(k+1)/2+(k+1)=(k+1)(k+2)/2, exactly the formula required for the new i. The guard k<n also ensures i≤n afterward.\n\nAt exit, i<n is false. Together with i≤n, this gives i=n, so the invariant implies the desired answer. For n=3, the successive pairs (i,s) are (0,0), (1,1), (2,3), and (3,6).",
+        "math": "Invariant: 0 ≤ i ≤ n and s = i(i+1)/2"
+      },
+      {
+        "title": "A correct result and a terminating program",
+        "text": "The loop proof needs one more argument for total correctness. The quantity n−i is a nonnegative integer at every loop head and decreases by one on each iteration. It cannot decrease forever, so the loop terminates. This decreasing measure is often called a variant.\n\nContrast the loop “while true do skip.” A partial-correctness statement about its final state can hold vacuously because no execution reaches a final state. This is why the word “terminating” in the meaning of a Hoare triple matters. A useful specification should make clear whether eventual completion is part of the promise."
+      },
+      {
+        "title": "What the proof actually certifies",
+        "text": "A proof establishes a chosen specification under a chosen model. The summation proof assumes that n does not change and that arithmetic has no overflow. It also proves only the stated sum, not an unstated promise about memory usage or execution speed. Writing these boundaries down is part of correctness, not an optional footnote.\n\nDijkstra’s weakest preconditions provide a complementary backward view: start from the result and derive acceptable initial states. Turing provides a different boundary, showing why no general algorithm can decide termination for every arbitrary program and input. That limitation does not prevent us from proving termination of particular programs, as the decreasing measure above demonstrates."
+      }
+    ],
+    "questions": [
+      "If the summation loop adds i to s before incrementing i, what result does it compute, and which invariant describes that different program?",
+      "What upper bound on n would make the same calculation safe using a fixed-width integer type, including the intermediate multiplication in n(n+1)?",
+      "Can a loop have a simple invariant but require a more subtle termination argument? Construct an example and identify a well-founded decreasing measure."
+    ],
+    "sources": [
+      {
+        "label": "Hoare · An Axiomatic Basis for Computer Programming (1969)",
+        "url": "https://www.cs.cmu.edu/~crary/819-f09/Hoare69.pdf",
+        "type": "primary"
+      },
+      {
+        "label": "Dijkstra · weakest preconditions, invariants and termination",
+        "url": "https://www.cs.utexas.edu/~EWD/transcriptions/EWD04xx/EWD472.html",
+        "type": "primary"
+      }
+    ],
+    "extended": true,
+    "readMinutes": 5
+  },
+  "connections_add": [],
+  "article_markdown": "# C. A. R. Hoare — Programs as mathematical claims\n\nHoare introduced a logic for program correctness and developed influential algorithms, including quicksort. His logic separates preconditions, execution and postconditions.\n\nA Hoare triple expresses that, when C terminates from a state satisfying P, the resulting state satisfies Q. Termination requires additional reasoning for total correctness.\n\n{P} C {Q}\n\n## Make the claim precise\n\nC. A. R. Hoare’s 1969 paper gave a logical framework for reasoning about programs through assertions about their states. A proof can be assembled from rules for assignments, sequences, conditionals, and loops. This turns “the program works” into a claim with explicit assumptions and a specific promised result.\n\nWrite {P} C {Q}. Here P is a precondition, C a program, and Q a postcondition. In partial correctness, the claim is: every terminating execution of C that starts in a state satisfying P ends in a state satisfying Q. It does not by itself establish that execution terminates.\n\n{P} C {Q}\n\n## An assignment changes which condition you need\n\nSuppose the program is x:=x+1 and the desired result is x=8. The old value must be 7. The assignment rule obtains this by substituting the expression x+1 for x in the desired postcondition: x+1=8.\n\nFor two assignments x:=x+1; y:=2*x, a starting value x=7 guarantees y=16. First establish x=8, then use that fact as the next command’s precondition. The intermediate assertion connects two small proofs into one larger proof. These examples assume mathematical integers; machine overflow would require a different arithmetic model or additional bounds.\n\n## Prove a complete loop\n\nConsider a program that sums the first n nonnegative integers, where n is a fixed nonnegative integer. Initialize i:=0 and s:=0. While i<n, execute i:=i+1 followed by s:=s+i. The desired final result is s=n(n+1)/2.\n\nChoose the invariant 0≤i≤n and s=i(i+1)/2. Initialization establishes it because both i and s are zero. For preservation, call the old value of i k. The body first sets i=k+1, then adds k+1 to s. The new sum is k(k+1)/2+(k+1)=(k+1)(k+2)/2, exactly the formula required for the new i. The guard k<n also ensures i≤n afterward.\n\nAt exit, i<n is false. Together with i≤n, this gives i=n, so the invariant implies the desired answer. For n=3, the successive pairs (i,s) are (0,0), (1,1), (2,3), and (3,6).\n\nInvariant: 0 ≤ i ≤ n and s = i(i+1)/2\n\n## A correct result and a terminating program\n\nThe loop proof needs one more argument for total correctness. The quantity n−i is a nonnegative integer at every loop head and decreases by one on each iteration. It cannot decrease forever, so the loop terminates. This decreasing measure is often called a variant.\n\nContrast the loop “while true do skip.” A partial-correctness statement about its final state can hold vacuously because no execution reaches a final state. This is why the word “terminating” in the meaning of a Hoare triple matters. A useful specification should make clear whether eventual completion is part of the promise.\n\n## What the proof actually certifies\n\nA proof establishes a chosen specification under a chosen model. The summation proof assumes that n does not change and that arithmetic has no overflow. It also proves only the stated sum, not an unstated promise about memory usage or execution speed. Writing these boundaries down is part of correctness, not an optional footnote.\n\nDijkstra’s weakest preconditions provide a complementary backward view: start from the result and derive acceptable initial states. Turing provides a different boundary, showing why no general algorithm can decide termination for every arbitrary program and input. That limitation does not prevent us from proving termination of particular programs, as the decreasing measure above demonstrates.\n\n## Three directions to explore\n\n1. If the summation loop adds i to s before incrementing i, what result does it compute, and which invariant describes that different program?\n\n2. What upper bound on n would make the same calculation safe using a fixed-width integer type, including the intermediate multiplication in n(n+1)?\n\n3. Can a loop have a simple invariant but require a more subtle termination argument? Construct an example and identify a well-founded decreasing measure.\n\n## Sources\n\n- [Hoare · An Axiomatic Basis for Computer Programming (1969)](https://www.cs.cmu.edu/~crary/819-f09/Hoare69.pdf)\n\n- [Dijkstra · weakest preconditions, invariants and termination](https://www.cs.utexas.edu/~EWD/transcriptions/EWD04xx/EWD472.html)\n"
+}

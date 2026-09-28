@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "event_id": "edit-2026-09-29-dijkstra-worked-profile",
+  "source_key": "edit:2026-09-29:dijkstra:worked-profile",
+  "created_at": "2026-09-28T22:38:09Z",
+  "kind": "profile-edit",
+  "person_id": "dijkstra",
+  "base_revision": "06965e51ebf7a2dbfd8a2271ed43b222fadd922a7bdf8db6605dcddcc7dc864e",
+  "summary": "Expand Edsger Dijkstra with a worked example, proof reasoning, limitations, and specific further questions.",
+  "profile": {
+    "sections": [
+      {
+        "title": "A program needs an argument",
+        "text": "Edsger Dijkstra helped establish programming as a mathematical discipline. His work on routes, structured programs, and program derivation shares a question: what fact remains true as a computation changes its state? A useful algorithm comes with a reason its next step is safe.\n\nHis shortest-path paper appeared in 1959. Later, his work on guarded commands and weakest preconditions made the relationship between programs and proofs explicit. These are different contributions, but an invariant provides a useful way to read them together."
+      },
+      {
+        "title": "Follow a route by hand",
+        "text": "Consider a directed network with edges S→A of cost 6, S→B of cost 2, B→A of cost 1, B→T of cost 7, and A→T of cost 2. We want the cheapest route from S.\n\nStart with distance 0 at S and infinity elsewhere. After examining S, the tentative distances are A=6 and B=2. Finalize B, the closest unsettled vertex. Its outgoing edges improve A to 3 and give T a tentative distance of 9. Finalize A next; its edge to T improves T to 5. The resulting route S→B→A→T costs 2+1+2=5.\n\nA tentative distance is the cost of a route already discovered, not a promise that no better route exists. Finalizing a vertex is the moment that this upper bound becomes a proven optimum.",
+        "math": "d(v) ← min(d(v), d(u) + w(u,v))"
+      },
+      {
+        "title": "Why the smallest tentative distance is safe",
+        "text": "Assume every edge weight is nonnegative. Keep the invariant that finalized vertices have their true shortest distances, and that outgoing edges from them have been examined. Let u have the smallest finite tentative distance among unsettled vertices. If a cheaper route to u existed, take its first unsettled vertex x. Its predecessor was finalized, so relaxation already gave x a tentative distance no larger than that route’s prefix. Nonnegative remaining edges make this prefix no more expensive than the whole route to u. That would give x a tentative distance smaller than u’s, contradicting the choice of u.\n\nThis proof explains the hypothesis. With edges S→A=2, S→B=5, and B→A=−4, finalizing A at 2 is premature: S→B→A costs 1. There is no negative cycle in this example; one negative edge is enough to break the argument."
+      },
+      {
+        "title": "The proof can guide the design",
+        "text": "Dijkstra’s weakest precondition wp(C,Q) describes exactly which initial states guarantee that program C terminates with result condition Q. For an assignment x:=x+1 and desired result x>10 over mathematical integers, the weakest precondition is x>9. Work backward from what must hold afterward to what must hold beforehand.\n\nHis guarded-command paper explicitly credits Hoare’s use of predicates to describe states. The distinction to watch is termination: a partial-correctness claim permits nontermination, whereas this weakest-precondition interpretation guarantees a terminating computation."
+      },
+      {
+        "title": "Where to go next",
+        "text": "Read Hoare for the rules that organize an invariant into a program proof. Read Bellman to compare methods that repeatedly improve distance estimates with Dijkstra’s irrevocable finalization. Read Cook to change the question from “why does this algorithm work?” to “what would an efficient algorithm for this whole problem class imply?” These are conceptual reading connections, not claims that one theorem historically caused another."
+      }
+    ],
+    "questions": [
+      "In the five-edge example, what changes if B→A has cost 10? Which distances become final in which order, and why?",
+      "Can you strengthen the shortest-path invariant to prove that following stored predecessor pointers reconstructs an optimal route, including when some edge weights are zero?",
+      "For a program that searches an unbounded space, what separates a precondition guaranteeing a correct answer if it returns from one guaranteeing that it returns?"
+    ],
+    "sources": [
+      {
+        "label": "Dijkstra · retrospective on his 1959 graph paper",
+        "url": "https://www.cs.utexas.edu/~EWD/ewd08xx/EWD841a.PDF",
+        "type": "primary"
+      },
+      {
+        "label": "Dijkstra · Guarded commands, non-determinacy and formal derivation of programs",
+        "url": "https://www.cs.utexas.edu/~EWD/transcriptions/EWD04xx/EWD472.html",
+        "type": "primary"
+      }
+    ],
+    "extended": true,
+    "readMinutes": 5
+  },
+  "connections_add": [],
+  "article_markdown": "# Edsger Dijkstra — Algorithms with invariants\n\nDijkstra developed influential algorithms and methods for structured programming and correctness. His shortest-path algorithm is a model of greedy reasoning.\n\nWith nonnegative edge weights, the closest unsettled vertex can be finalized safely. The proof invariant is as important as the implementation.\n\ndist(v) = minᵤ {dist(u)+w(u,v)}\n\n## A program needs an argument\n\nEdsger Dijkstra helped establish programming as a mathematical discipline. His work on routes, structured programs, and program derivation shares a question: what fact remains true as a computation changes its state? A useful algorithm comes with a reason its next step is safe.\n\nHis shortest-path paper appeared in 1959. Later, his work on guarded commands and weakest preconditions made the relationship between programs and proofs explicit. These are different contributions, but an invariant provides a useful way to read them together.\n\n## Follow a route by hand\n\nConsider a directed network with edges S→A of cost 6, S→B of cost 2, B→A of cost 1, B→T of cost 7, and A→T of cost 2. We want the cheapest route from S.\n\nStart with distance 0 at S and infinity elsewhere. After examining S, the tentative distances are A=6 and B=2. Finalize B, the closest unsettled vertex. Its outgoing edges improve A to 3 and give T a tentative distance of 9. Finalize A next; its edge to T improves T to 5. The resulting route S→B→A→T costs 2+1+2=5.\n\nA tentative distance is the cost of a route already discovered, not a promise that no better route exists. Finalizing a vertex is the moment that this upper bound becomes a proven optimum.\n\nd(v) ← min(d(v), d(u) + w(u,v))\n\n## Why the smallest tentative distance is safe\n\nAssume every edge weight is nonnegative. Keep the invariant that finalized vertices have their true shortest distances, and that outgoing edges from them have been examined. Let u have the smallest finite tentative distance among unsettled vertices. If a cheaper route to u existed, take its first unsettled vertex x. Its predecessor was finalized, so relaxation already gave x a tentative distance no larger than that route’s prefix. Nonnegative remaining edges make this prefix no more expensive than the whole route to u. That would give x a tentative distance smaller than u’s, contradicting the choice of u.\n\nThis proof explains the hypothesis. With edges S→A=2, S→B=5, and B→A=−4, finalizing A at 2 is premature: S→B→A costs 1. There is no negative cycle in this example; one negative edge is enough to break the argument.\n\n## The proof can guide the design\n\nDijkstra’s weakest precondition wp(C,Q) describes exactly which initial states guarantee that program C terminates with result condition Q. For an assignment x:=x+1 and desired result x>10 over mathematical integers, the weakest precondition is x>9. Work backward from what must hold afterward to what must hold beforehand.\n\nHis guarded-command paper explicitly credits Hoare’s use of predicates to describe states. The distinction to watch is termination: a partial-correctness claim permits nontermination, whereas this weakest-precondition interpretation guarantees a terminating computation.\n\n## Where to go next\n\nRead Hoare for the rules that organize an invariant into a program proof. Read Bellman to compare methods that repeatedly improve distance estimates with Dijkstra’s irrevocable finalization. Read Cook to change the question from “why does this algorithm work?” to “what would an efficient algorithm for this whole problem class imply?” These are conceptual reading connections, not claims that one theorem historically caused another.\n\n## Three directions to explore\n\n1. In the five-edge example, what changes if B→A has cost 10? Which distances become final in which order, and why?\n\n2. Can you strengthen the shortest-path invariant to prove that following stored predecessor pointers reconstructs an optimal route, including when some edge weights are zero?\n\n3. For a program that searches an unbounded space, what separates a precondition guaranteeing a correct answer if it returns from one guaranteeing that it returns?\n\n## Sources\n\n- [Dijkstra · retrospective on his 1959 graph paper](https://www.cs.utexas.edu/~EWD/ewd08xx/EWD841a.PDF)\n\n- [Dijkstra · Guarded commands, non-determinacy and formal derivation of programs](https://www.cs.utexas.edu/~EWD/transcriptions/EWD04xx/EWD472.html)\n"
+}
