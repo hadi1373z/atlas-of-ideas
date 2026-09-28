@@ -1,6 +1,6 @@
 # Connected ideas · 28 September 2026
 
-Presentation correction: the six added diagrams have been removed at the reader’s request. The original idea cards and artwork are retained; the six explanatory essays and twelve thematic links remain. The descriptions below record the initial update, before that visual correction.
+Presentation correction: the Ideas overview uses the original compact cards and orbit illustrations, without new diagram previews. Opening an individual idea retains its detailed diagram, explanatory essay, sources, and thematic links. All original artwork is retained.
 
 This edition adds Richard Hamming, Julia Robinson, and David Blackwell through five immutable `profile-edit` records, including expansions of Turing and Shannon. These are requested editorial updates, not scheduled daily articles.
 

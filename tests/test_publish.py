@@ -142,7 +142,7 @@ class EditorialTests(unittest.TestCase):
         self.assertGreaterEqual(len(data['people']),121)
         self.assertGreaterEqual(len(data['connections']),159)
         self.assertGreaterEqual(sum('kind' in e for e in data['connections']),14)
-        self.assertGreaterEqual(sum('explanation' in c for c in data['exploration']['concepts']),6)
+        self.assertGreaterEqual(sum('plate' in c for c in data['exploration']['concepts']),6)
         self.assertEqual([(e['source'],e['target'],e['label']) for e in original],[(e['source'],e['target'],e['label']) for e in data['connections']])
         for p in data['people']:
             if p['id'] in {'hamming','julia-robinson','blackwell'}:

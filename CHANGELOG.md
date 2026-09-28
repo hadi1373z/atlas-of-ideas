@@ -1,3 +1,8 @@
+# 2026-09-28 · Keep diagrams inside opened ideas
+
+- Keep the restored compact Ideas overview cards and original orbit illustrations.
+- Restore the six detailed diagrams inside individual idea pages, alongside explanations and links.
+
 # 2026-09-28 · Restore the original Ideas presentation
 
 - Remove the six newly introduced diagrams from idea cards and idea detail pages.

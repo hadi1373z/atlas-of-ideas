@@ -19,7 +19,9 @@
         "undecidable"
       ],
       "start": "turing",
+      "plate": "computation",
       "takeaway": "Search is not always a decision.",
+      "caption": "A finite tree and an unfinished chain illustrate two kinds of search. The drawing is schematic, not a runtime bound.",
       "explanation": "A solution can be easy to check even when a search has no known stopping point. For a finite Boolean formula, exhausting all assignments eventually yields YES or NO. For an integer polynomial, expanding the search box finds any existing solution, but an unsuccessful run may continue forever.\n\nTuring supplies the language for this distinction; Julia Robinson’s work helps carry it into arithmetic. Ask first whether a total algorithm exists, then what resources it needs. Decidability and efficiency are separate questions.",
       "sources": [
         {
@@ -60,7 +62,9 @@
         "sum-check"
       ],
       "start": "goldwasser",
+      "plate": "verification",
       "takeaway": "A witness and a search are different objects.",
+      "caption": "The highlighted five-edge tour is a certificate: it visits each vertex once and returns to its start. The faint diagonals are other graph edges.",
       "explanation": "A proposed Hamiltonian cycle can be checked by verifying its edges and its visits to vertices. The certificate tells the checker where to look. Finding such a certificate is a different task, and the absence of one proposed certificate does not prove that none exists.\n\nInteractive proofs replace a single handed-over witness with a conversation and a verifier’s random choices. Zero knowledge adds a further demand about what that conversation reveals. Neither interaction nor a short convincing transcript by itself establishes zero knowledge.",
       "sources": [
         {
@@ -95,7 +99,9 @@
         "pseudoexpectation"
       ],
       "start": "goemans",
+      "plate": "approximation",
       "takeaway": "A good answer needs a yardstick.",
+      "caption": "An original MAX-CUT example: filled and hollow vertices define the two sides. Four edges cross; the fifth stays on one side. An odd cycle cannot alternate all the way around.",
       "explanation": "For the five-cycle, four crossing edges are optimal: cutting all five would require a two-coloring of an odd cycle. This small example gives both a construction and an upper bound. On larger graphs, certifying closeness to the optimum is often the difficult part.\n\nGoemans and Williamson relax MAX-CUT into a problem about vectors and round a solution back to a cut. Approximation ratios compare the resulting value with the unknown optimum; they are not percentages of instances solved exactly. Nonnegative edge weights are part of the standard guarantee.",
       "sources": [
         {
@@ -181,7 +187,9 @@
         "isomorphism"
       ],
       "start": "babai",
+      "plate": "symmetry",
       "takeaway": "A new drawing need not be a new graph.",
+      "caption": "The two four-cycles are isomorphic. One matching is 1↔c, 2↔a, 3↔d, 4↔b; every edge is preserved. Coordinates are not part of the abstract graph.",
       "explanation": "A graph isomorphism is a bijection of vertices preserving adjacency. Moving the vertices on the page or changing their names does not change that structure. A useful invariant must therefore survive these operations.\n\nAn invariant is a test, not necessarily a complete description: the same degree sequence does not guarantee isomorphism. For example, one six-cycle and two disjoint triangles both have six degree-two vertices, yet only the first is connected. This is why refinement and stronger structural methods matter.",
       "sources": [
         {
@@ -236,7 +244,9 @@
         "redundancy"
       ],
       "start": "shannon",
+      "plate": "information",
       "takeaway": "Redundancy can protect a message.",
+      "caption": "An original worked example: 000 becomes 010 after one bit flips; majority decoding recovers 000. This is a repetition code, not the seven-bit Hamming code.",
       "explanation": "Represent a bit by either 000 or 111. Each valid word has a neighborhood of strings one flip away; the two neighborhoods do not overlap. That separation makes correction possible. Two flips can cause a wrong answer, so the error assumption is part of the claim.\n\nHamming studies explicit codes and decoding. Shannon asks which rates a channel can sustain reliably. Blackwell asks how an observation changes the decisions available to its recipient. These are connected meanings of information, with different success criteria.",
       "sources": [
         {
@@ -284,7 +294,9 @@
         "Blackwell"
       ],
       "start": "valiant",
+      "plate": "learning",
       "takeaway": "Better information means more possible decisions.",
+      "caption": "A finite experiment: E reveals a hidden bit; a state-independent random channel K flips it with probability 1/4 to produce F.",
       "explanation": "Imagine holding a perfect signal while another observer sees a randomly corrupted version. You can imitate their observation and then use their decision rule. They cannot generally reverse the corruption. This simulation explains one direction of Blackwell’s comparison of experiments.\n\nLearning a rule from examples adds its own questions about the hypothesis class, sample size, and generalization. The connection is a reading bridge: a more informative experiment is not automatically a faster learning algorithm.",
       "sources": [
         {

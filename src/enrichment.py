@@ -2,6 +2,7 @@
 import json
 from tools.catalogue import require, text, url
 
+PLATES={'computation','information','learning','verification','approximation','symmetry'}
 KINDS={'Thematic comparison','Mathematical connection','Documented research lineage','Documented mathematical equivalence','Documented supervision'}
 
 def enrich(root, data):
@@ -9,9 +10,10 @@ def enrich(root, data):
     ids={c['id'] for c in concepts}
     require(len(ids)==len(concepts),'Duplicate idea ID')
     for c in concepts:
-        if 'explanation' in c:
-            for key in ('takeaway','explanation'):text(c.get(key),'idea '+key)
-            require(bool(c.get('sources')),'Idea explanation needs sources')
+        if 'plate' in c:
+            require(c['plate'] in PLATES,'Unknown idea illustration')
+            for key in ('caption','takeaway','explanation'):text(c.get(key),'idea '+key)
+            require(bool(c.get('sources')),'Illustrated idea needs sources')
         for s in c.get('sources',[]):
             text(s.get('label'),'idea source');url(s.get('url'))
         for b in c.get('bridges',[]):
