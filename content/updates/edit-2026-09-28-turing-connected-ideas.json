@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "event_id": "edit-2026-09-28-turing-connected-ideas",
+  "source_key": "edit:2026-09-28:turing:connected-ideas",
+  "created_at": "2026-09-28T16:08:51Z",
+  "kind": "profile-edit",
+  "person_id": "turing",
+  "base_revision": "211659d121d2505686b4abf400cde1cf9e692bd633bda97818fa9740bf943786",
+  "summary": "Expand Turing with search versus decision and a route into integer equations.",
+  "profile": {
+    "sections": [
+      {
+        "title": "The universal machine",
+        "text": "A finite transition rule controls a tape, a read/write head and a state. Encoding such a rule lets a single universal machine simulate every other machine. Programs themselves become manipulable data.",
+        "math": "U(⟨M,x⟩) = M(x)",
+        "tex": "U(\\langle M,x\\rangle)=M(x)"
+      },
+      {
+        "title": "A diagonal contradiction",
+        "text": "Assume a total procedure decides whether any program halts on any input. Construct D so that D(M) loops if that procedure predicts M(M) halts, and halts otherwise. Applying D to itself forces either answer to be wrong.",
+        "math": "D(D): halt ⇔ do not halt"
+      },
+      {
+        "title": "Computability comes before efficiency",
+        "text": "SAT is decidable by exhaustive search, even when that is expensive. Halting has no total deciding algorithm at all. Turing’s later contributions to cryptanalysis and machine intelligence do not erase this fundamental distinction.",
+        "math": "decidable ≠ efficiently decidable"
+      },
+      {
+        "title": "From an endless search to an equation",
+        "text": "Run a search over all integer tuples and stop if a polynomial evaluates to zero. This procedure recognizes a solution when one exists; an endless unsuccessful run proves nothing by itself. Julia Robinson’s profile follows the deeper result that integer equations can represent arbitrary computably enumerable sets.\n\nContrast SAT: with finitely many Boolean variables there are only finitely many assignments to check. Both tasks admit a search, but only the bounded search is automatically a decision procedure. This is why “hard to find” and “impossible to decide in general” should remain separate ideas."
+      }
+    ],
+    "sources": [
+      {
+        "label": "MacTutor · historical biography",
+        "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Turing/",
+        "type": "biography"
+      },
+      {
+        "label": "Turing · On Computable Numbers (1936)",
+        "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Poonen · Hilbert’s Tenth Problem, slides 2–4 (2006)",
+        "url": "https://math.mit.edu/~poonen/slides/h10.pdf",
+        "type": "primary / scholarly"
+      }
+    ],
+    "readMinutes": 4
+  },
+  "connections_add": [],
+  "article_markdown": "# Alan Turing — A mathematical model of computation\n\nTuring defined an abstract computing machine, established universal simulation and proved an undecidability result. His later work included cryptanalysis, machine intelligence and morphogenesis.\n\nOne machine can simulate the description of another. Encoding programs as data makes universality and diagonal arguments possible.\n\nU(⟨M,x⟩) = M(x)\n\n## The universal machine\n\nA finite transition rule controls a tape, a read/write head and a state. Encoding such a rule lets a single universal machine simulate every other machine. Programs themselves become manipulable data.\n\nU(⟨M,x⟩) = M(x)\n\n```tex\nU(\\langle M,x\\rangle)=M(x)\n```\n\n## A diagonal contradiction\n\nAssume a total procedure decides whether any program halts on any input. Construct D so that D(M) loops if that procedure predicts M(M) halts, and halts otherwise. Applying D to itself forces either answer to be wrong.\n\nD(D): halt ⇔ do not halt\n\n## Computability comes before efficiency\n\nSAT is decidable by exhaustive search, even when that is expensive. Halting has no total deciding algorithm at all. Turing’s later contributions to cryptanalysis and machine intelligence do not erase this fundamental distinction.\n\ndecidable ≠ efficiently decidable\n\n## From an endless search to an equation\n\nRun a search over all integer tuples and stop if a polynomial evaluates to zero. This procedure recognizes a solution when one exists; an endless unsuccessful run proves nothing by itself. Julia Robinson’s profile follows the deeper result that integer equations can represent arbitrary computably enumerable sets.\n\nContrast SAT: with finitely many Boolean variables there are only finitely many assignments to check. Both tasks admit a search, but only the bounded search is automatically a decision procedure. This is why “hard to find” and “impossible to decide in general” should remain separate ideas.\n\n## Three directions to explore\n\n1. How is universal simulation encoded?\n\n2. How can halting reduce to a concrete combinatorial problem?\n\n3. Which statements about program behavior are decidable under restrictions?\n\n## Sources\n\n- [MacTutor · historical biography](https://mathshistory.st-andrews.ac.uk/Biographies/Turing/)\n\n- [Turing · On Computable Numbers (1936)](https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf)\n\n- [Poonen · Hilbert’s Tenth Problem, slides 2–4 (2006)](https://math.mit.edu/~poonen/slides/h10.pdf)\n"
+}

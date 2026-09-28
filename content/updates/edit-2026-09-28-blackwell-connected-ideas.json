@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "event_id": "edit-2026-09-28-blackwell-connected-ideas",
+  "source_key": "edit:2026-09-28:blackwell:connected-ideas",
+  "created_at": "2026-09-28T16:08:51Z",
+  "kind": "profile-edit",
+  "person_id": "blackwell",
+  "base_revision": null,
+  "summary": "Add Blackwell: statistical experiments, garbling, and an explicit two-state example.",
+  "profile": {
+    "name": "David Blackwell",
+    "aliases": [
+      "David Harold Blackwell"
+    ],
+    "born": 1919,
+    "field": "analysis",
+    "title": "When is one observation more useful?",
+    "bio": "David Blackwell worked across statistics, probability, game theory, and information theory. His comparison of experiments turns “better information” into a precise question about the decisions an observer can make.",
+    "formula": "F = EK  ⇒  every rule using F can be simulated using E",
+    "impact": "If one observation is obtained by randomly degrading another, the original observer can reproduce every decision available to the degraded observer. More useful information is defined relative to what decisions it enables.",
+    "extended": true,
+    "readMinutes": 4,
+    "sections": [
+      {
+        "title": "An experiment is a channel from a hidden state",
+        "text": "For finitely many states and signals, describe an experiment by a matrix E. Row θ gives the probabilities of its possible signals when the state is θ. A decision rule maps a signal to an action, possibly at random. A loss function then tells us how costly that action is in each state. This makes “useful” testable rather than impressionistic."
+      },
+      {
+        "title": "Garbling supplies a simulation",
+        "text": "Suppose a second experiment is F = EK, where K is a stochastic matrix that processes the first signal without access to the hidden state. The observer of E can sample K and then apply any rule designed for F. The distribution of actions, and hence the risk in every state, is the same.\n\nBlackwell’s comparison theory characterizes this ordering through performance across decision problems. The finite setting is enough to see the central idea: an experiment is better when it permits all the decisions of the other, not merely when it scores better on one chosen task."
+      },
+      {
+        "title": "A two-state example",
+        "text": "Let E reveal a hidden bit perfectly. Let K flip that bit with probability 1/4. Then F is a noisy observation with 3/4 chance of agreement. Someone holding E can imitate F by tossing a coin; someone holding F cannot generally reconstruct E.\n\nTo guess an equally likely hidden bit with zero-one loss, the perfect signal has error 0 and the noisy signal has minimum error 1/4. But if both states call for the same action, the signals are equally useful for that particular task. A strict difference on every task is not required."
+      },
+      {
+        "title": "A bridge, with a boundary",
+        "text": "Compare this with Shannon’s information quantities. A channel description is shared mathematical language, but a single information score for one prior does not settle comparison for every decision problem. The atlas uses this as a thematic bridge to communication and learning, not as evidence that all these theories ask the same question."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Blackwell · Equivalent Comparisons of Experiments (1953), abstract and publication record",
+        "url": "https://celebratio.org/Blackwell_DH/article/255/",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Bickel · David Blackwell: An explorer in mathematics and statistics (2020)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7703635/",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Shannon · A Mathematical Theory of Communication (1948)",
+        "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+        "type": "primary / scholarly"
+      }
+    ],
+    "questions": [
+      "Can you construct two experiments that are incomparable because each helps a different decision?",
+      "Why must the garbling matrix be independent of the hidden state?",
+      "When does compressing an observation preserve every decision you care about?"
+    ]
+  },
+  "connections_add": [
+    {
+      "source": "shannon",
+      "target": "blackwell",
+      "label": "Two meanings of information",
+      "description": "Thematic comparison: Shannon measures uncertainty and communication limits. Blackwell compares experiments by the decisions they permit. A channel matrix is a useful bridge, but mutual information for one prior is not a universal ranking of decision usefulness. This comparison asserts no direct historical influence."
+    },
+    {
+      "source": "bellman",
+      "target": "blackwell",
+      "label": "Decisions over time",
+      "description": "Thematic comparison: Bellman’s dynamic programming organizes choices by their future consequences. Blackwell also made substantial contributions to dynamic programming and statistical decisions. Read the two profiles to distinguish the quality of an observation from the recursive planning problem that uses it. The route is thematic, not a claim of joint authorship."
+    },
+    {
+      "source": "kolmogorov",
+      "target": "blackwell",
+      "label": "From probability to a decision",
+      "description": "Thematic comparison: A probability model specifies uncertainty; a decision problem adds available actions and losses. Blackwell’s experiments illustrate why two observers with different signals may have different achievable risks even when they agree on the underlying probability model. This is an explanatory connection, not a claim of mentorship."
+    }
+  ],
+  "article_markdown": "# David Blackwell — When is one observation more useful?\n\nDavid Blackwell worked across statistics, probability, game theory, and information theory. His comparison of experiments turns “better information” into a precise question about the decisions an observer can make.\n\nIf one observation is obtained by randomly degrading another, the original observer can reproduce every decision available to the degraded observer. More useful information is defined relative to what decisions it enables.\n\nF = EK  ⇒  every rule using F can be simulated using E\n\n## An experiment is a channel from a hidden state\n\nFor finitely many states and signals, describe an experiment by a matrix E. Row θ gives the probabilities of its possible signals when the state is θ. A decision rule maps a signal to an action, possibly at random. A loss function then tells us how costly that action is in each state. This makes “useful” testable rather than impressionistic.\n\n## Garbling supplies a simulation\n\nSuppose a second experiment is F = EK, where K is a stochastic matrix that processes the first signal without access to the hidden state. The observer of E can sample K and then apply any rule designed for F. The distribution of actions, and hence the risk in every state, is the same.\n\nBlackwell’s comparison theory characterizes this ordering through performance across decision problems. The finite setting is enough to see the central idea: an experiment is better when it permits all the decisions of the other, not merely when it scores better on one chosen task.\n\n## A two-state example\n\nLet E reveal a hidden bit perfectly. Let K flip that bit with probability 1/4. Then F is a noisy observation with 3/4 chance of agreement. Someone holding E can imitate F by tossing a coin; someone holding F cannot generally reconstruct E.\n\nTo guess an equally likely hidden bit with zero-one loss, the perfect signal has error 0 and the noisy signal has minimum error 1/4. But if both states call for the same action, the signals are equally useful for that particular task. A strict difference on every task is not required.\n\n## A bridge, with a boundary\n\nCompare this with Shannon’s information quantities. A channel description is shared mathematical language, but a single information score for one prior does not settle comparison for every decision problem. The atlas uses this as a thematic bridge to communication and learning, not as evidence that all these theories ask the same question.\n\n## Three directions to explore\n\n1. Can you construct two experiments that are incomparable because each helps a different decision?\n\n2. Why must the garbling matrix be independent of the hidden state?\n\n3. When does compressing an observation preserve every decision you care about?\n\n## Sources\n\n- [Blackwell · Equivalent Comparisons of Experiments (1953), abstract and publication record](https://celebratio.org/Blackwell_DH/article/255/)\n\n- [Bickel · David Blackwell: An explorer in mathematics and statistics (2020)](https://pmc.ncbi.nlm.nih.gov/articles/PMC7703635/)\n\n- [Shannon · A Mathematical Theory of Communication (1948)](https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf)\n"
+}

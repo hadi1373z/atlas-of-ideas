@@ -132,4 +132,37 @@ class PublishingTests(unittest.TestCase):
         e=self.event('daily-profile');e.pop('article_markdown')
         with self.assertRaisesRegex(ValidationError,'complete delivered article'):apply_events(self.base,[e])
 
+class EditorialTests(unittest.TestCase):
+    def test_editorial_content_integrity(self):
+        from src.enrichment import enrich
+        data,_,history=load(ROOT)
+        data['exploration']=json.loads((ROOT/'src/exploration.json').read_text(encoding='utf-8'))
+        original=copy.deepcopy(data['connections'])
+        enrich(ROOT,data)
+        self.assertGreaterEqual(len(data['people']),121)
+        self.assertGreaterEqual(len(data['connections']),159)
+        self.assertGreaterEqual(sum('kind' in e for e in data['connections']),14)
+        self.assertGreaterEqual(sum('plate' in c for c in data['exploration']['concepts']),6)
+        self.assertEqual([(e['source'],e['target'],e['label']) for e in original],[(e['source'],e['target'],e['label']) for e in data['connections']])
+        for p in data['people']:
+            if p['id'] in {'hamming','julia-robinson','blackwell'}:
+                self.assertEqual(len(p['questions']),3)
+                archived=next(h['article_markdown'] for h in history if h['person_id']==p['id'])
+                for section in p['sections']:self.assertIn(section['text'],archived)
+                self.assertTrue(any(e['source']==p['id'] or e['target']==p['id'] for e in data['connections']))
+
+    def test_editorial_bad_links_rejected(self):
+        from src.enrichment import enrich
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);(root/'content').mkdir()
+            data,_,_=load(ROOT)
+            data['exploration']=json.loads((ROOT/'src/exploration.json').read_text(encoding='utf-8'))
+            notes=json.loads((ROOT/'content/connection-notes.json').read_text(encoding='utf-8'))
+            for bad in [dict(notes[0],target='missing'),dict(notes[0],sources=[{'label':'unsafe','url':'javascript:alert(1)'}])]:
+                (root/'content/connection-notes.json').write_text(json.dumps([bad]),encoding='utf-8')
+                with self.assertRaises(ValidationError):enrich(root,copy.deepcopy(data))
+            (root/'content/connection-notes.json').write_text('[]',encoding='utf-8')
+            data['exploration']['concepts'][0]['bridges'][0]['to']='missing'
+            with self.assertRaises(ValidationError):enrich(root,data)
+
 if __name__=='__main__':unittest.main()

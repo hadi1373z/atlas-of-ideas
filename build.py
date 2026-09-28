@@ -2,6 +2,7 @@
 from pathlib import Path
 import hashlib,json,os,shutil
 from tools.catalogue import load,canonical,require,BASELINE_SHA256
+from src.enrichment import enrich
 ROOT=Path(__file__).resolve().parent
 SRC=ROOT/'src'
 SITE_URL='https://hadi1373z.github.io/atlas-of-ideas/'
@@ -10,6 +11,7 @@ def build(root:Path=ROOT):
     src=root/'src'
     data,index,history=load(root)
     data['exploration']=json.loads((src/'exploration.json').read_text(encoding='utf-8'))
+    enrich(root,data)
     ids={p['id'] for p in data['people']}
     require(len(ids)==len(data['people']),'Duplicate profile IDs')
     require(all(e['source'] in ids and e['target'] in ids for e in data['connections']),'Dangling edge')
@@ -33,11 +35,12 @@ def build(root:Path=ROOT):
       '__CONNECTION_COUNT__':str(len(data['connections'])),
       '__SITE_URL__':SITE_URL,
     }.items():site=site.replace(token,value)
-    (root/'index.html').write_text(site,encoding='utf-8')
+    html_bytes=site.encode('utf-8')
+    (root/'index.html').write_bytes(html_bytes)
     out=root/'_site'
     if out.exists():shutil.rmtree(out)
-    out.mkdir();(out/'index.html').write_text(site,encoding='utf-8');(out/'.nojekyll').touch()
-    digest=hashlib.sha256(site.encode()).hexdigest()
+    out.mkdir();(out/'index.html').write_bytes(html_bytes);(out/'.nojekyll').touch()
+    digest=hashlib.sha256(html_bytes).hexdigest()
     manifest={'schema_version':1,'build_id':build_id,'html_sha256':digest,'source_commit':data['publishing']['sourceCommit'],'baseline_sha256':BASELINE_SHA256,'profiles':len(ids),'connections':len(data['connections']),'reading_paths':len(data['trails']),'updates':len(history),'event_ids':index['event_ids'],'source_keys':index['source_keys']}
     index.update({'build_id':build_id,'source_commit':manifest['source_commit']})
     for file,contents in [('version.json',manifest),('catalogue-index.json',index),('updates.json',history)]:

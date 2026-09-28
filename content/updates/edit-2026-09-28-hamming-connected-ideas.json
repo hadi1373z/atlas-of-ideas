@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "event_id": "edit-2026-09-28-hamming-connected-ideas",
+  "source_key": "edit:2026-09-28:hamming:connected-ideas",
+  "created_at": "2026-09-28T16:08:51Z",
+  "kind": "profile-edit",
+  "person_id": "hamming",
+  "base_revision": null,
+  "summary": "Add Hamming: distance, redundancy, and a worked decoding example.",
+  "profile": {
+    "name": "Richard Hamming",
+    "born": 1915,
+    "field": "information",
+    "title": "Give a message room to survive",
+    "bio": "Richard Hamming turned unreliable digital operations into a mathematical question: how should valid messages be arranged so that a small error can be recognized and repaired?",
+    "formula": "d(x, y) = number of positions where x and y differ",
+    "impact": "Redundancy can create distance between valid messages. The receiver uses that distance to distinguish a damaged message from a different intended message.",
+    "extended": true,
+    "readMinutes": 4,
+    "sections": [
+      {
+        "title": "From a failed calculation to a code",
+        "text": "Working with computers at Bell Laboratories, Hamming studied parity checks and their limits. His 1950 paper gave explicit constructions for detecting and correcting errors; his later retrospective connects the work to the practical need for dependable computation. The mathematical object is a code: a chosen subset of all possible strings."
+      },
+      {
+        "title": "A small example you can decode",
+        "text": "Encode 0 as 000 and 1 as 111. If exactly one position flips, the received word still has a majority of the intended bit. Thus 010 decodes to 000 and 101 decodes to 111. The two valid words differ in three positions.\n\nThis is the repetition code, an elementary illustration rather than the more efficient seven-bit Hamming construction. It spends three transmitted bits on one bit of information. Its simplicity lets you see the tradeoff before studying better codes."
+      },
+      {
+        "title": "Distance turns noise into geometry",
+        "text": "For a code to correct every pattern of at most t bit errors, distinct codewords must have distance at least 2t + 1. Otherwise their radius-t neighborhoods can overlap, leaving the receiver unable to identify the sender’s choice uniquely. A minimum distance of three therefore permits single-error correction.\n\nHamming’s seven-bit code carries four information bits. Three parity checks produce a syndrome; for a single-bit error, it identifies which of the seven positions changed. Two errors are outside that correction guarantee.",
+        "math": "d_min ≥ 2t + 1"
+      },
+      {
+        "title": "Existence and construction ask different questions",
+        "text": "Shannon describes achievable communication rates for a channel model; Hamming supplies explicit finite codes and a decoding rule. Read them together to distinguish a limit theorem from an actual method. A guarantee against one arbitrary error in a short block is different from a probability of error tending to zero as blocks grow."
+      }
+    ],
+    "sources": [
+      {
+        "label": "Hamming · Error Detecting and Error Correcting Codes (1950)",
+        "url": "https://ineffectivetheory.com/edu/papers/hamming-codes-1950.pdf",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Naval Postgraduate School · Richard Hamming",
+        "url": "https://library.nps.edu/richard-w-hamming",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Hamming · Retrospective on error correction (1982)",
+        "url": "https://garfield.library.upenn.edu/classics1982/A1982NY35700001.pdf",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Shannon · A Mathematical Theory of Communication (1948)",
+        "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+        "type": "primary / scholarly"
+      }
+    ],
+    "questions": [
+      "Why do overlapping error neighborhoods prevent unique decoding?",
+      "How can three parity checks identify seven possible single-bit errors?",
+      "What changes when errors arrive in bursts rather than independently?"
+    ]
+  },
+  "connections_add": [
+    {
+      "source": "shannon",
+      "target": "hamming",
+      "label": "Capacity meets construction",
+      "description": "Thematic comparison: Shannon asks how much information a noisy channel can carry reliably; Hamming asks how to build and decode a particular code. Compare a long-block probabilistic guarantee with correction of every single-bit error in a short block. This is a reading comparison, not a claim that the 1950 paper followed directly from the 1948 theorem."
+    },
+    {
+      "source": "lovasz",
+      "target": "hamming",
+      "label": "Separating confusable messages",
+      "description": "Thematic comparison: A distance code separates words that a bounded number of bit changes could confuse. Zero-error graph theory instead records which channel inputs can produce a common output. Both select mutually distinguishable messages, but their noise models and guarantees must be stated separately."
+    },
+    {
+      "source": "turing",
+      "target": "hamming",
+      "label": "Correct computation on imperfect machines",
+      "description": "Thematic comparison: A universal machine specifies what a computation means; an error-correcting code helps protect its representation against damage. These address different obstacles: repairing bits does not make an undecidable problem decidable. No personal influence is asserted by this route."
+    }
+  ],
+  "article_markdown": "# Richard Hamming — Give a message room to survive\n\nRichard Hamming turned unreliable digital operations into a mathematical question: how should valid messages be arranged so that a small error can be recognized and repaired?\n\nRedundancy can create distance between valid messages. The receiver uses that distance to distinguish a damaged message from a different intended message.\n\nd(x, y) = number of positions where x and y differ\n\n## From a failed calculation to a code\n\nWorking with computers at Bell Laboratories, Hamming studied parity checks and their limits. His 1950 paper gave explicit constructions for detecting and correcting errors; his later retrospective connects the work to the practical need for dependable computation. The mathematical object is a code: a chosen subset of all possible strings.\n\n## A small example you can decode\n\nEncode 0 as 000 and 1 as 111. If exactly one position flips, the received word still has a majority of the intended bit. Thus 010 decodes to 000 and 101 decodes to 111. The two valid words differ in three positions.\n\nThis is the repetition code, an elementary illustration rather than the more efficient seven-bit Hamming construction. It spends three transmitted bits on one bit of information. Its simplicity lets you see the tradeoff before studying better codes.\n\n## Distance turns noise into geometry\n\nFor a code to correct every pattern of at most t bit errors, distinct codewords must have distance at least 2t + 1. Otherwise their radius-t neighborhoods can overlap, leaving the receiver unable to identify the sender’s choice uniquely. A minimum distance of three therefore permits single-error correction.\n\nHamming’s seven-bit code carries four information bits. Three parity checks produce a syndrome; for a single-bit error, it identifies which of the seven positions changed. Two errors are outside that correction guarantee.\n\nd_min ≥ 2t + 1\n\n## Existence and construction ask different questions\n\nShannon describes achievable communication rates for a channel model; Hamming supplies explicit finite codes and a decoding rule. Read them together to distinguish a limit theorem from an actual method. A guarantee against one arbitrary error in a short block is different from a probability of error tending to zero as blocks grow.\n\n## Three directions to explore\n\n1. Why do overlapping error neighborhoods prevent unique decoding?\n\n2. How can three parity checks identify seven possible single-bit errors?\n\n3. What changes when errors arrive in bursts rather than independently?\n\n## Sources\n\n- [Hamming · Error Detecting and Error Correcting Codes (1950)](https://ineffectivetheory.com/edu/papers/hamming-codes-1950.pdf)\n\n- [Naval Postgraduate School · Richard Hamming](https://library.nps.edu/richard-w-hamming)\n\n- [Hamming · Retrospective on error correction (1982)](https://garfield.library.upenn.edu/classics1982/A1982NY35700001.pdf)\n\n- [Shannon · A Mathematical Theory of Communication (1948)](https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf)\n"
+}

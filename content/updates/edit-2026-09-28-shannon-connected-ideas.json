@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "event_id": "edit-2026-09-28-shannon-connected-ideas",
+  "source_key": "edit:2026-09-28:shannon:connected-ideas",
+  "created_at": "2026-09-28T16:08:51Z",
+  "kind": "profile-edit",
+  "person_id": "shannon",
+  "base_revision": "e5a7070c7157783126cdec89ea40eeeec9f12d9ff8d31b6e28a21802782d53f6",
+  "summary": "Expand Shannon with an explicit code example and routes to Hamming and Blackwell.",
+  "profile": {
+    "sections": [
+      {
+        "title": "The right unit of information",
+        "text": "An outcome of probability p has surprisal −log₂p. Averaging this over the source distribution gives entropy. A highly biased bit has entropy below one because its outcome is usually predictable.",
+        "math": "H(X) = −Σₓ p(x) log₂ p(x)",
+        "tex": "H(X)=-\\sum_x p(x)\\log_2 p(x)"
+      },
+      {
+        "title": "Two limits, not one",
+        "text": "Source coding concerns how far information can be compressed. Channel coding concerns how fast it can be transmitted reliably through noise. For a discrete memoryless channel, rates strictly below capacity allow codes with error tending to zero as block length grows.",
+        "math": "R < C ⇒ error → 0"
+      },
+      {
+        "title": "Where graph theory enters",
+        "text": "Zero-error communication is a different requirement from vanishing error. Confusability can be represented by a graph, leading to Shannon capacity and Lovász’s solution for the five-cycle.",
+        "math": "Θ(C₅) = √5"
+      },
+      {
+        "title": "Try a code before taking a limit",
+        "text": "Send one bit using 000 or 111. Majority decoding repairs one flipped position, at the cost of a rate of 1/3 information bit per transmitted bit. This finite example belongs to error correction. It makes the role of redundancy tangible before a channel-capacity theorem asks which rates are possible with increasingly long blocks.\n\nHamming’s profile takes this geometric view further. Blackwell’s profile asks another question: whether the received observation supports every decision available from a better one. Neither comparison turns entropy into a measure of meaning."
+      }
+    ],
+    "sources": [
+      {
+        "label": "MacTutor · historical biography",
+        "url": "https://mathshistory.st-andrews.ac.uk/Biographies/Shannon/",
+        "type": "biography"
+      },
+      {
+        "label": "Hamming · Error Detecting and Error Correcting Codes (1950)",
+        "url": "https://ineffectivetheory.com/edu/papers/hamming-codes-1950.pdf",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Blackwell · Equivalent Comparisons of Experiments (1953), abstract and publication record",
+        "url": "https://celebratio.org/Blackwell_DH/article/255/",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Shannon · A Mathematical Theory of Communication (1948)",
+        "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Lovász · On the Shannon Capacity of a Graph (1979)",
+        "url": "https://www.sfu.ca/~mdevos/notes/semidef/lovasz-theta.pdf",
+        "type": "primary / scholarly"
+      }
+    ],
+    "readMinutes": 4
+  },
+  "connections_add": [],
+  "article_markdown": "# Claude Shannon — Information becomes a quantity\n\nShannon linked Boolean algebra to switching circuits and founded information theory. Entropy, channel capacity and coding theorems made communication limits mathematically precise.\n\nEntropy measures average information under a distribution. For an independent identically distributed source, it controls asymptotic lossless compression rates.\n\nH(X) = −Σₓ p(x) log₂ p(x)\n\n## The right unit of information\n\nAn outcome of probability p has surprisal −log₂p. Averaging this over the source distribution gives entropy. A highly biased bit has entropy below one because its outcome is usually predictable.\n\nH(X) = −Σₓ p(x) log₂ p(x)\n\n```tex\nH(X)=-\\sum_x p(x)\\log_2 p(x)\n```\n\n## Two limits, not one\n\nSource coding concerns how far information can be compressed. Channel coding concerns how fast it can be transmitted reliably through noise. For a discrete memoryless channel, rates strictly below capacity allow codes with error tending to zero as block length grows.\n\nR < C ⇒ error → 0\n\n## Where graph theory enters\n\nZero-error communication is a different requirement from vanishing error. Confusability can be represented by a graph, leading to Shannon capacity and Lovász’s solution for the five-cycle.\n\nΘ(C₅) = √5\n\n## Try a code before taking a limit\n\nSend one bit using 000 or 111. Majority decoding repairs one flipped position, at the cost of a rate of 1/3 information bit per transmitted bit. This finite example belongs to error correction. It makes the role of redundancy tangible before a channel-capacity theorem asks which rates are possible with increasingly long blocks.\n\nHamming’s profile takes this geometric view further. Blackwell’s profile asks another question: whether the received observation supports every decision available from a better one. Neither comparison turns entropy into a measure of meaning.\n\n## Three directions to explore\n\n1. How does typical-set compression work?\n\n2. Why are zero-error and vanishing-error capacity different?\n\n3. How can a graph encode confusable symbols?\n\n## Sources\n\n- [MacTutor · historical biography](https://mathshistory.st-andrews.ac.uk/Biographies/Shannon/)\n\n- [Hamming · Error Detecting and Error Correcting Codes (1950)](https://ineffectivetheory.com/edu/papers/hamming-codes-1950.pdf)\n\n- [Blackwell · Equivalent Comparisons of Experiments (1953), abstract and publication record](https://celebratio.org/Blackwell_DH/article/255/)\n\n- [Shannon · A Mathematical Theory of Communication (1948)](https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf)\n\n- [Lovász · On the Shannon Capacity of a Graph (1979)](https://www.sfu.ca/~mdevos/notes/semidef/lovasz-theta.pdf)\n"
+}

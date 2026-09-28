@@ -1,0 +1,238 @@
+[
+  {
+    "source": "shannon",
+    "target": "hamming",
+    "label": "Capacity meets construction",
+    "kind": "Thematic comparison",
+    "description": "Shannon asks how much information a noisy channel can carry reliably; Hamming asks how to build and decode a particular code. Compare a long-block probabilistic guarantee with correction of every single-bit error in a short block. This is a reading comparison, not a claim that the 1950 paper followed directly from the 1948 theorem.",
+    "sources": [
+      {
+        "label": "Hamming · Error Detecting and Error Correcting Codes (1950)",
+        "url": "https://ineffectivetheory.com/edu/papers/hamming-codes-1950.pdf",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Shannon · A Mathematical Theory of Communication (1948)",
+        "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+        "type": "primary / scholarly"
+      }
+    ]
+  },
+  {
+    "source": "lovasz",
+    "target": "hamming",
+    "label": "Separating confusable messages",
+    "kind": "Thematic comparison",
+    "description": "A distance code separates words that a bounded number of bit changes could confuse. Zero-error graph theory instead records which channel inputs can produce a common output. Both select mutually distinguishable messages, but their noise models and guarantees must be stated separately.",
+    "sources": [
+      {
+        "label": "Hamming · Error Detecting and Error Correcting Codes (1950)",
+        "url": "https://ineffectivetheory.com/edu/papers/hamming-codes-1950.pdf",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Lovász · On the Shannon Capacity of a Graph (1979)",
+        "url": "https://www.sfu.ca/~mdevos/notes/semidef/lovasz-theta.pdf",
+        "type": "primary / scholarly"
+      }
+    ]
+  },
+  {
+    "source": "turing",
+    "target": "hamming",
+    "label": "Correct computation on imperfect machines",
+    "kind": "Thematic comparison",
+    "description": "A universal machine specifies what a computation means; an error-correcting code helps protect its representation against damage. These address different obstacles: repairing bits does not make an undecidable problem decidable. No personal influence is asserted by this route.",
+    "sources": [
+      {
+        "label": "Turing · On Computable Numbers (1936)",
+        "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Hamming · Error Detecting and Error Correcting Codes (1950)",
+        "url": "https://ineffectivetheory.com/edu/papers/hamming-codes-1950.pdf",
+        "type": "primary / scholarly"
+      }
+    ]
+  },
+  {
+    "source": "hilbert",
+    "target": "julia-robinson",
+    "label": "Hilbert’s tenth problem",
+    "kind": "Documented research lineage",
+    "description": "Robinson worked on the decision problem Hilbert posed for integer polynomial equations. Her contributions with Davis and Putnam, completed by Matiyasevich, established the negative answer. This connects a published problem to work explicitly devoted to it; it does not imply that Hilbert and Robinson collaborated.",
+    "sources": [
+      {
+        "label": "University of California · Julia Robinson, memorial by her colleagues",
+        "url": "https://mathshistory.st-andrews.ac.uk/Obituaries/Robinson_Julia_UC/",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Poonen · Hilbert’s Tenth Problem, slides 2–4 (2006)",
+        "url": "https://math.mit.edu/~poonen/slides/h10.pdf",
+        "type": "primary / scholarly"
+      }
+    ]
+  },
+  {
+    "source": "turing",
+    "target": "julia-robinson",
+    "label": "From machines to integer equations",
+    "kind": "Mathematical connection",
+    "description": "The DPRM theorem represents computably enumerable sets by polynomial equations over integers. Since some such sets are undecidable, a universal solver for integer equations would contradict computability theory. The connection is a reduction of decision problems, not an assertion of a personal collaboration.",
+    "sources": [
+      {
+        "label": "Poonen · Hilbert’s Tenth Problem, slides 2–4 (2006)",
+        "url": "https://math.mit.edu/~poonen/slides/h10.pdf",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Turing · On Computable Numbers (1936)",
+        "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf",
+        "type": "primary / scholarly"
+      }
+    ]
+  },
+  {
+    "source": "tarski",
+    "target": "julia-robinson",
+    "label": "Logic meets number theory",
+    "kind": "Documented supervision",
+    "description": "Tarski supervised Robinson’s doctorate at Berkeley. Her thesis proved the full first-order theory of the rationals undecidable. Compare this with decidability for real closed fields: the domain and allowed language change what an algorithm can decide.",
+    "sources": [
+      {
+        "label": "University of California · Julia Robinson, memorial by her colleagues",
+        "url": "https://mathshistory.st-andrews.ac.uk/Obituaries/Robinson_Julia_UC/",
+        "type": "primary / scholarly"
+      }
+    ]
+  },
+  {
+    "source": "shannon",
+    "target": "blackwell",
+    "label": "Two meanings of information",
+    "kind": "Thematic comparison",
+    "description": "Shannon measures uncertainty and communication limits. Blackwell compares experiments by the decisions they permit. A channel matrix is a useful bridge, but mutual information for one prior is not a universal ranking of decision usefulness. This comparison asserts no direct historical influence.",
+    "sources": [
+      {
+        "label": "Shannon · A Mathematical Theory of Communication (1948)",
+        "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Blackwell · Equivalent Comparisons of Experiments (1953), abstract and publication record",
+        "url": "https://celebratio.org/Blackwell_DH/article/255/",
+        "type": "primary / scholarly"
+      }
+    ]
+  },
+  {
+    "source": "bellman",
+    "target": "blackwell",
+    "label": "Decisions over time",
+    "kind": "Thematic comparison",
+    "description": "Bellman’s dynamic programming organizes choices by their future consequences. Blackwell also made substantial contributions to dynamic programming and statistical decisions. Read the two profiles to distinguish the quality of an observation from the recursive planning problem that uses it. The route is thematic, not a claim of joint authorship.",
+    "sources": [
+      {
+        "label": "Bickel · David Blackwell: An explorer in mathematics and statistics (2020)",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7703635/",
+        "type": "primary / scholarly"
+      }
+    ]
+  },
+  {
+    "source": "kolmogorov",
+    "target": "blackwell",
+    "label": "From probability to a decision",
+    "kind": "Thematic comparison",
+    "description": "A probability model specifies uncertainty; a decision problem adds available actions and losses. Blackwell’s experiments illustrate why two observers with different signals may have different achievable risks even when they agree on the underlying probability model. This is an explanatory connection, not a claim of mentorship.",
+    "sources": [
+      {
+        "label": "Blackwell · Equivalent Comparisons of Experiments (1953), abstract and publication record",
+        "url": "https://celebratio.org/Blackwell_DH/article/255/",
+        "type": "primary / scholarly"
+      }
+    ]
+  },
+  {
+    "source": "cantor",
+    "target": "turing",
+    "label": "Diagonalization",
+    "kind": "Thematic comparison",
+    "description": "Both arguments turn an alleged complete listing or decision procedure against itself. Cantor constructs an object differing along a diagonal; Turing makes effective computation itself part of the contradiction. The resemblance is useful, but the theorem about uncountable sets and the theorem about undecidable computation have different premises.",
+    "sources": [
+      {
+        "label": "Turing · On Computable Numbers (1936)",
+        "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf",
+        "type": "primary / scholarly"
+      }
+    ]
+  },
+  {
+    "source": "church",
+    "target": "turing",
+    "label": "Models of computation",
+    "kind": "Documented mathematical equivalence",
+    "description": "Turing’s 1936 paper relates his machine model to Church’s effective calculability. Equivalent formal models support a common notion of computable function. The Church–Turing thesis additionally identifies this formal notion with informal effective procedure; that identification is not another equivalence theorem between two already formal definitions.",
+    "sources": [
+      {
+        "label": "Turing · On Computable Numbers (1936)",
+        "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf",
+        "type": "primary / scholarly"
+      }
+    ]
+  },
+  {
+    "source": "turing",
+    "target": "shannon",
+    "label": "Information processing",
+    "kind": "Thematic comparison",
+    "description": "Turing asks which transformations a rule-following machine can carry out. Shannon asks how reliably messages can pass through a specified channel. A perfectly reliable channel cannot decide the halting problem, and a universal computer cannot remove a channel’s information limits. This is a comparison of questions, not a historical influence claim.",
+    "sources": [
+      {
+        "label": "Turing · On Computable Numbers (1936)",
+        "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Shannon · A Mathematical Theory of Communication (1948)",
+        "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+        "type": "primary / scholarly"
+      }
+    ]
+  },
+  {
+    "source": "shannon",
+    "target": "lovasz",
+    "label": "Zero-error capacity",
+    "kind": "Documented research lineage",
+    "description": "Shannon represented confusable symbols by a graph. Lovász’s 1979 paper supplied a geometric upper bound and determined the five-cycle’s capacity as √5. Coding across several channel uses can outperform a one-use independent set. Zero error is stricter than the vanishing-error guarantee in the usual channel coding theorem.",
+    "sources": [
+      {
+        "label": "Lovász · On the Shannon Capacity of a Graph (1979)",
+        "url": "https://www.sfu.ca/~mdevos/notes/semidef/lovasz-theta.pdf",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Shannon · A Mathematical Theory of Communication (1948)",
+        "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+        "type": "primary / scholarly"
+      }
+    ]
+  },
+  {
+    "source": "hilbert",
+    "target": "godel",
+    "label": "Limits of formal proof",
+    "kind": "Thematic comparison",
+    "description": "Read this as a route between foundational questions, not a statement that every aspiration of Hilbert’s program failed. Keep the objects distinct: a theory is a set of formal claims, whereas a decision procedure must return an answer on every allowed input. Turing’s work provides the next step toward explicit limits on such procedures.",
+    "sources": [
+      {
+        "label": "Turing · On Computable Numbers (1936)",
+        "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf",
+        "type": "primary / scholarly"
+      }
+    ]
+  }
+]

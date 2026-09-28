@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "event_id": "edit-2026-09-28-julia-robinson-connected-ideas",
+  "source_key": "edit:2026-09-28:julia-robinson:connected-ideas",
+  "created_at": "2026-09-28T16:08:51Z",
+  "kind": "profile-edit",
+  "person_id": "julia-robinson",
+  "base_revision": null,
+  "summary": "Add Julia Robinson with shared attribution and the distinction between search and decision.",
+  "profile": {
+    "name": "Julia Robinson",
+    "aliases": [
+      "Julia Bowman Robinson",
+      "Julia Hall Bowman Robinson"
+    ],
+    "born": 1919,
+    "field": "logic",
+    "title": "When equations encode computation",
+    "bio": "Julia Robinson connected number theory with mathematical logic. Her work with Martin Davis and Hilary Putnam prepared the route to Yuri Matiyasevich’s 1970 resolution of Hilbert’s tenth problem.",
+    "formula": "a ∈ A ⇔ ∃x₁,…,xₙ ∈ ℤ : P(a,x₁,…,xₙ) = 0",
+    "impact": "A polynomial can encode a search. The surprise is that integer solutions can express every computably enumerable set, including sets whose membership cannot be decided by an algorithm.",
+    "extended": true,
+    "readMinutes": 4,
+    "sections": [
+      {
+        "title": "A question about every equation",
+        "text": "Hilbert’s tenth problem asks for one algorithm that takes any polynomial with integer coefficients and decides whether it has an integer solution. A collection of clever methods for particular equations is not yet that universal method. Robinson’s research helped show why the unrestricted demand cannot be met."
+      },
+      {
+        "title": "Finding a witness is not deciding absence",
+        "text": "For x² + y² = 25, the pair (3,4) is a witness that can be checked by substitution. For an arbitrary equation in finitely many integer variables, search successively through boxes of radius 0, 1, 2, and so on. Any existing solution eventually appears. If none exists, this search never announces that fact.\n\nThe difference between recognizing a successful search and deciding both outcomes is the bridge to computability. A bound on the search would change the task, but the unrestricted problem provides no such bound."
+      },
+      {
+        "title": "The theorem belongs to a chain of work",
+        "text": "Davis, Putnam, and Robinson established a crucial exponential-Diophantine representation result. Matiyasevich supplied the missing step in 1970. The resulting DPRM theorem says that computably enumerable sets are exactly the Diophantine sets. An algorithm deciding all integer polynomial equations would therefore decide sets known to be undecidable.\n\nCredit matters here: Robinson was a central contributor to a cumulative proof, not its sole author. The formula above describes representation of a set by a polynomial with extra variables; it is not a practical recipe for solving all equations."
+      },
+      {
+        "title": "The domain and the quantifiers matter",
+        "text": "Robinson’s doctoral work under Alfred Tarski established undecidability of the full first-order theory of the rational numbers. That theory allows alternating quantifiers and logical operations. Hilbert’s tenth problem asks only for existence of solutions. Do not identify these two decision problems, or silently replace integer solutions by rational or real solutions."
+      }
+    ],
+    "sources": [
+      {
+        "label": "University of California · Julia Robinson, memorial by her colleagues",
+        "url": "https://mathshistory.st-andrews.ac.uk/Obituaries/Robinson_Julia_UC/",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Poonen · Hilbert’s Tenth Problem, slides 2–4 (2006)",
+        "url": "https://math.mit.edu/~poonen/slides/h10.pdf",
+        "type": "primary / scholarly"
+      },
+      {
+        "label": "Turing · On Computable Numbers (1936)",
+        "url": "https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf",
+        "type": "primary / scholarly"
+      }
+    ],
+    "questions": [
+      "Why does enumeration find every existing integer solution but fail to decide all negative cases?",
+      "What must a reduction preserve when it turns a program into an equation?",
+      "How does changing the allowed domain or quantifiers change a decision problem?"
+    ]
+  },
+  "connections_add": [
+    {
+      "source": "hilbert",
+      "target": "julia-robinson",
+      "label": "Hilbert’s tenth problem",
+      "description": "Documented research lineage: Robinson worked on the decision problem Hilbert posed for integer polynomial equations. Her contributions with Davis and Putnam, completed by Matiyasevich, established the negative answer. This connects a published problem to work explicitly devoted to it; it does not imply that Hilbert and Robinson collaborated."
+    },
+    {
+      "source": "turing",
+      "target": "julia-robinson",
+      "label": "From machines to integer equations",
+      "description": "Mathematical connection: The DPRM theorem represents computably enumerable sets by polynomial equations over integers. Since some such sets are undecidable, a universal solver for integer equations would contradict computability theory. The connection is a reduction of decision problems, not an assertion of a personal collaboration."
+    },
+    {
+      "source": "tarski",
+      "target": "julia-robinson",
+      "label": "Logic meets number theory",
+      "description": "Documented supervision: Tarski supervised Robinson’s doctorate at Berkeley. Her thesis proved the full first-order theory of the rationals undecidable. Compare this with decidability for real closed fields: the domain and allowed language change what an algorithm can decide."
+    }
+  ],
+  "article_markdown": "# Julia Robinson — When equations encode computation\n\nJulia Robinson connected number theory with mathematical logic. Her work with Martin Davis and Hilary Putnam prepared the route to Yuri Matiyasevich’s 1970 resolution of Hilbert’s tenth problem.\n\nA polynomial can encode a search. The surprise is that integer solutions can express every computably enumerable set, including sets whose membership cannot be decided by an algorithm.\n\na ∈ A ⇔ ∃x₁,…,xₙ ∈ ℤ : P(a,x₁,…,xₙ) = 0\n\n## A question about every equation\n\nHilbert’s tenth problem asks for one algorithm that takes any polynomial with integer coefficients and decides whether it has an integer solution. A collection of clever methods for particular equations is not yet that universal method. Robinson’s research helped show why the unrestricted demand cannot be met.\n\n## Finding a witness is not deciding absence\n\nFor x² + y² = 25, the pair (3,4) is a witness that can be checked by substitution. For an arbitrary equation in finitely many integer variables, search successively through boxes of radius 0, 1, 2, and so on. Any existing solution eventually appears. If none exists, this search never announces that fact.\n\nThe difference between recognizing a successful search and deciding both outcomes is the bridge to computability. A bound on the search would change the task, but the unrestricted problem provides no such bound.\n\n## The theorem belongs to a chain of work\n\nDavis, Putnam, and Robinson established a crucial exponential-Diophantine representation result. Matiyasevich supplied the missing step in 1970. The resulting DPRM theorem says that computably enumerable sets are exactly the Diophantine sets. An algorithm deciding all integer polynomial equations would therefore decide sets known to be undecidable.\n\nCredit matters here: Robinson was a central contributor to a cumulative proof, not its sole author. The formula above describes representation of a set by a polynomial with extra variables; it is not a practical recipe for solving all equations.\n\n## The domain and the quantifiers matter\n\nRobinson’s doctoral work under Alfred Tarski established undecidability of the full first-order theory of the rational numbers. That theory allows alternating quantifiers and logical operations. Hilbert’s tenth problem asks only for existence of solutions. Do not identify these two decision problems, or silently replace integer solutions by rational or real solutions.\n\n## Three directions to explore\n\n1. Why does enumeration find every existing integer solution but fail to decide all negative cases?\n\n2. What must a reduction preserve when it turns a program into an equation?\n\n3. How does changing the allowed domain or quantifiers change a decision problem?\n\n## Sources\n\n- [University of California · Julia Robinson, memorial by her colleagues](https://mathshistory.st-andrews.ac.uk/Obituaries/Robinson_Julia_UC/)\n\n- [Poonen · Hilbert’s Tenth Problem, slides 2–4 (2006)](https://math.mit.edu/~poonen/slides/h10.pdf)\n\n- [Turing · On Computable Numbers (1936)](https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf)\n"
+}

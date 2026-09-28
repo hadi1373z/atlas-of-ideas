@@ -1,3 +1,12 @@
+# 2026-09-28 · Connected ideas
+
+- Add Hamming, Julia Robinson, and Blackwell; expand Turing and Shannon.
+- Add nine connections and expand five original links with sources and explicit relationship types.
+- Enrich six idea lenses with original diagrams, explanations, and twelve cross-idea bridges.
+- Keep reader style, offline operation, stable IDs, and local notebook storage.
+- Derive growing catalogue counts dynamically and fix Windows output checksum consistency.
+- Add editorial integrity checks to the publishing suite.
+
 # Reader’s edition — 2.0
 
 ## Preserved
