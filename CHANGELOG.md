@@ -1,3 +1,9 @@
+# 2026-09-28 · Restore the original Ideas presentation
+
+- Remove the six newly introduced diagrams from idea cards and idea detail pages.
+- Restore the original Start with an idea cards exactly, retaining the original orbit motifs and all other original artwork.
+- Keep the new profiles, sourced connections, idea explanations, and thematic links.
+
 # 2026-09-28 · Connected ideas
 
 - Add Hamming, Julia Robinson, and Blackwell; expand Turing and Shannon.

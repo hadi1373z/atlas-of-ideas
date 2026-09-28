@@ -1,5 +1,7 @@
 # Connected ideas · 28 September 2026
 
+Presentation correction: the six added diagrams have been removed at the reader’s request. The original idea cards and artwork are retained; the six explanatory essays and twelve thematic links remain. The descriptions below record the initial update, before that visual correction.
+
 This edition adds Richard Hamming, Julia Robinson, and David Blackwell through five immutable `profile-edit` records, including expansions of Turing and Shannon. These are requested editorial updates, not scheduled daily articles.
 
 The result has 121 thinkers and 159 connections. Nine connections are new. Five existing edges have expanded explanations, making fourteen source-linked editorial connection notes. The notes explicitly classify documented supervision, research lineage, mathematical equivalence, mathematical connections, and thematic comparisons. The original catalogue bytes and original endpoint/label triples remain unchanged.
