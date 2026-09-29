@@ -2,7 +2,7 @@
 import json
 from tools.catalogue import require, text, url
 
-PLATES={'computation','information','learning','verification','approximation','symmetry'}
+PLATES={'computation','information','learning','verification','approximation','symmetry','data-structures'}
 KINDS={'Thematic comparison','Mathematical connection','Documented research lineage','Documented mathematical equivalence','Documented supervision'}
 
 def enrich(root, data):

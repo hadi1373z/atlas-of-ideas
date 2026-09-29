@@ -353,6 +353,53 @@
         "programs"
       ],
       "start": "dijkstra"
+    },
+    {
+      "id": "data-structures",
+      "name": "Data structures",
+      "question": "How should information be organized for the next operation?",
+      "description": "Compare balance, adaptation, and storage locality through search trees, heaps, and union–find.",
+      "field": "algorithms",
+      "terms": [
+        "data structures",
+        "data-structure",
+        "splay",
+        "B-tree",
+        "red-black",
+        "heap",
+        "union–find",
+        "union-find",
+        "amortized"
+      ],
+      "start": "tarjan",
+      "plate": "data-structures",
+      "takeaway": "Choose the operations—and the cost you are trying to reduce.",
+      "caption": "Splaying 10 in the three-key tree uses a zig-zig: first rotate 20 above 30, then 10 above 20. Key order is preserved; the next access to 10 starts at the root.",
+      "explanation": "A data structure is a representation together with operations and guarantees. Ask what must stay true after an update, which operations are frequent, and what counts as expensive. An ordered tree supports interval queries; a heap exposes an extremal key; union–find maintains a partition. Their interfaces solve different problems.\n\nStart with Tarjan for amortized analysis and the 2026 almost-dynamic-optimality result for splay trees. Sleator develops the online viewpoint: compare an adaptive algorithm with a competitor that knows future requests. Sedgewick explains how local rules preserve balanced binary search trees. Bayer changes the unit of cost to storage-page transfers.\n\nThe diagram illustrates adaptation, not a proof of optimality. Splaying can leave a tall tree, a red-black tree retains a logarithmic height bound, and a B-tree keeps many keys in each page. Worst-case, amortized, competitive, and page-transfer bounds answer different questions. None alone establishes that one structure is best for every workload.",
+      "sources": [
+        {
+          "label": "Sleator and Tarjan · self-adjusting search trees",
+          "url": "https://www.cs.cmu.edu/~sleator/papers/self-adjusting.pdf"
+        },
+        {
+          "label": "Sedgewick and Wayne · balanced search trees",
+          "url": "https://algs4.cs.princeton.edu/33balanced/"
+        },
+        {
+          "label": "Chmel et al. · almost dynamic optimality (2026 preprint)",
+          "url": "https://arxiv.org/abs/2607.18498"
+        }
+      ],
+      "bridges": [
+        {
+          "to": "computation",
+          "why": "A representation determines the resources needed to execute an algorithm, even when the underlying mathematical problem stays the same."
+        },
+        {
+          "to": "verification",
+          "why": "Ordering, balance, and occupancy are invariants: each update must preserve the properties that make future operations correct."
+        }
+      ]
     }
   ]
 }

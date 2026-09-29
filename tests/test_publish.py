@@ -145,7 +145,7 @@ class EditorialTests(unittest.TestCase):
         self.assertGreaterEqual(sum('plate' in c for c in data['exploration']['concepts']),6)
         self.assertEqual([(e['source'],e['target'],e['label']) for e in original],[(e['source'],e['target'],e['label']) for e in data['connections']])
         for p in data['people']:
-            if p['id'] in {'hamming','julia-robinson','blackwell'}:
+            if p['id'] in {'hamming','julia-robinson','blackwell','sleator','bayer','sedgewick'}:
                 self.assertEqual(len(p['questions']),3)
                 archived=next(h['article_markdown'] for h in history if h['person_id']==p['id'])
                 for section in p['sections']:self.assertIn(section['text'],archived)

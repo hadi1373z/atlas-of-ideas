@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "event_id": "edit-2026-09-30-tarjan-splay-trees",
+  "source_key": "edit:2026-09-30:tarjan:splay-trees",
+  "created_at": "2026-09-29T23:31:51Z",
+  "kind": "profile-edit",
+  "person_id": "tarjan",
+  "base_revision": "3f39bbae566fc0ea3302c145821c56bda3c63a0df91e1c16f684a38591be3a14",
+  "summary": "Expand Tarjan on splay trees, amortized analysis, union–find and Fibonacci heaps; state the July 2026 almost-dynamic-optimality theorem precisely.",
+  "profile": {
+    "title": "Data structures that adapt, with proofs",
+    "bio": "Robert Endre Tarjan helped shape the analysis of data structures and graph algorithms. His work includes the analysis of union–find, splay trees with Daniel Sleator, and Fibonacci heaps with Michael Fredman. A recurring theme is that a structure can be efficient over an entire sequence even when one operation is expensive.",
+    "impact": "Splay trees make adaptation part of the algorithm: accessing a key changes the tree. Amortized and competitive analysis explain what this simple rule guarantees, and which stronger forms of optimality remain conjectural.",
+    "formula": "amortized cost = actual cost + change in potential",
+    "extended": true,
+    "readMinutes": 7,
+    "sections": [
+      {
+        "title": "A sequence is the right unit of analysis",
+        "text": "An expensive operation can improve a data structure enough to make later operations cheap. Tarjan’s work makes this intuition precise. Amortized analysis bounds the total cost of a sequence; it does not require a random input distribution.\n\nThree contributions show the range of the idea. Union–find compresses paths while identifying sets. Fibonacci heaps postpone some restructuring work. Splay trees reshape a search tree after each access. These structures solve different problems, but in each case a local change has consequences that must be accounted for across time."
+      },
+      {
+        "title": "Splay trees: change the tree after using it",
+        "text": "Sleator and Tarjan’s 1985 paper introduced and analyzed splay trees. After finding a key in a binary search tree, splaying moves its node to the root using rotations that preserve key order. No stored height or balance factor is required.\n\nThere are three cases. A zig rotates a node whose parent is the root. A zig-zig handles two successive left edges or two successive right edges: rotate the parent upward, then the node. A zig-zag handles opposite directions: rotate the node upward twice. The choice of paired rotations is part of the algorithm, not merely an implementation detail."
+      },
+      {
+        "title": "A three-key example",
+        "text": "Start with root 30, its left child 20, and 20’s left child 10. Searching for 10 follows two edges. This is a zig-zig case. First rotate 20 above 30; the root becomes 20 with children 10 and 30. Then rotate 10 above 20. The final tree has root 10, right child 20, and 20’s right child 30.\n\nThe sorted order remains 10,20,30, but a second access to 10 is now immediate. Notice that the final tree is still a chain: splaying does not promise a balanced shape after every operation. It adapts the shape to the accesses. Nor does this one example prove good performance for every sequence; that requires an amortized argument."
+      },
+      {
+        "title": "How potential pays for a long access",
+        "text": "For a tree T, let size(v) count the nodes in v’s subtree and define Φ(T) as the sum of log₂(size(v)) over all nodes. Charge an operation its actual cost plus the change in Φ. Summing these charges makes intermediate potentials cancel. The actual total is the amortized total plus Φ(initial)−Φ(final).\n\nThe access lemma bounds the amortized cost of splaying a node by a logarithmic quantity involving subtree sizes. It yields O((m+n) log n) total cost for m accesses starting from an arbitrary n-key tree, for n≥2. The n term accounts for the starting configuration. A single access can still cost Θ(n): amortized logarithmic cost is not a worst-case bound on each operation.",
+        "math": "Φ(T) = Σᵥ log₂(size(v));   Σ cᵢ = Σ ĉᵢ + Φ(T₀) − Φ(Tₘ)"
+      },
+      {
+        "title": "Static optimality and dynamic optimality compare different rivals",
+        "text": "Static optimality compares the total access cost with the best fixed binary search tree for that sequence. The 1985 paper already proves this form of optimality, up to constant factors, under its stated access conditions. In its frequency bound, every key is accessed at least once; more general presentations must account for initialization.\n\nDynamic optimality permits the competitor to change its tree throughout the sequence and even know future requests. Searches and restructuring both count toward its cost. The conjecture asks whether splaying stays within a constant factor of this stronger offline optimum, with appropriate initialization accounting. Matching the best fixed tree does not establish that stronger claim."
+      },
+      {
+        "title": "The July 2026 breakthrough: almost dynamically optimal",
+        "text": "The preprint Splay trees are almost dynamically optimal, submitted on 20 July 2026 by Petr Chmel, Bernhard Haeupler, Richard Hladík, Michal Koucký, Antti Roeyskoe, Václav Rozhoň, Ondřej Sladký, and Robert E. Tarjan, proves an O(log log n · (log log log n)²) competitive ratio.\n\nTheorem 1 gives the more precise total-cost bound below for an access sequence X on a fixed set of n keys, allowing an arbitrary initial splay tree. OPT(X) is the minimum cost in the dynamic binary-search-tree model. The additive n inside the parentheses matters when the initial tree is poor and the sequence is short.\n\nThis is a major advance for the original splay algorithm, rather than a replacement data structure. As checked on 30 September 2026, the cited result is a preprint proving almost dynamic optimality; its factor still grows with n, so it does not settle the constant-factor dynamic-optimality conjecture.",
+        "math": "cost(splay, X) = O((OPT(X) + n) · log log n · (log log log n)²)"
+      },
+      {
+        "title": "Beyond splaying: union–find and Fibonacci heaps",
+        "text": "Tarjan’s 1975 union–find analysis established inverse-Ackermann bounds for a set-union algorithm. For m≥n find operations interspersed with n−1 unions, the bound has the form O(m α(m,n)), where α grows extraordinarily slowly. This is a precise asymptotic statement, not literally a constant bound.\n\nWith Michael Fredman, Tarjan developed Fibonacci heaps. Their inexpensive amortized decrease-key operation yields O(m+n log n) time for single-source shortest paths with nonnegative edge lengths, using n vertices and m edges. This supplies a concrete connection to Dijkstra: better data structures improve the implementation’s complexity while the shortest-path correctness argument remains essential. Read Knuth for broader algorithm analysis, and Hopcroft for Tarjan’s collaborative work on graph algorithms."
+      }
+    ],
+    "questions": [
+      "In the three-key example, compute the subtree-size potential before and after each rotation. What does the calculation reveal about why a local example alone cannot establish the general amortized bound?",
+      "Construct an access sequence with two phases concentrated on different groups of keys. Why can a dynamically changing competitor have an advantage over every single fixed tree?",
+      "In the July 2026 bound, when does the initialization term dominate? What additional improvement in the competitive factor would be needed to establish full dynamic optimality?"
+    ],
+    "sources": [
+      {
+        "label": "Sleator and Tarjan · Self-Adjusting Binary Search Trees (1985)",
+        "url": "https://www.cs.cmu.edu/~sleator/papers/self-adjusting.pdf",
+        "type": "primary"
+      },
+      {
+        "label": "Chmel et al. · Splay trees are almost dynamically optimal (July 2026 preprint), Theorem 1",
+        "url": "https://arxiv.org/html/2607.18498v1",
+        "type": "primary / preprint"
+      },
+      {
+        "label": "Carnegie Mellon · Binary Search Trees and Dynamic Optimality (Spring 2026), amortized-analysis exposition",
+        "url": "https://www.cs.cmu.edu/~yangp/15-451/lecture23.pdf",
+        "type": "university lecture notes"
+      },
+      {
+        "label": "Tarjan · Efficiency of a Good But Not Linear Set Union Algorithm (1975)",
+        "url": "https://collaborate.princeton.edu/en/publications/efficiency-of-a-good-but-not-linear-set-union-algorithm/",
+        "type": "primary / publication record"
+      },
+      {
+        "label": "Fredman and Tarjan · Fibonacci heaps and their uses in improved network optimization algorithms (1987)",
+        "url": "https://collaborate.princeton.edu/en/publications/fibonacci-heaps-and-their-uses-in-improved-network-optimization-a-2/",
+        "type": "primary / publication record"
+      }
+    ]
+  },
+  "connections_add": [],
+  "article_markdown": "# Robert Tarjan — Data structures that adapt, with proofs\n\nRobert Endre Tarjan helped shape the analysis of data structures and graph algorithms. His work includes the analysis of union–find, splay trees with Daniel Sleator, and Fibonacci heaps with Michael Fredman. A recurring theme is that a structure can be efficient over an entire sequence even when one operation is expensive.\n\nSplay trees make adaptation part of the algorithm: accessing a key changes the tree. Amortized and competitive analysis explain what this simple rule guarantees, and which stronger forms of optimality remain conjectural.\n\namortized cost = actual cost + change in potential\n\n## A sequence is the right unit of analysis\n\nAn expensive operation can improve a data structure enough to make later operations cheap. Tarjan’s work makes this intuition precise. Amortized analysis bounds the total cost of a sequence; it does not require a random input distribution.\n\nThree contributions show the range of the idea. Union–find compresses paths while identifying sets. Fibonacci heaps postpone some restructuring work. Splay trees reshape a search tree after each access. These structures solve different problems, but in each case a local change has consequences that must be accounted for across time.\n\n## Splay trees: change the tree after using it\n\nSleator and Tarjan’s 1985 paper introduced and analyzed splay trees. After finding a key in a binary search tree, splaying moves its node to the root using rotations that preserve key order. No stored height or balance factor is required.\n\nThere are three cases. A zig rotates a node whose parent is the root. A zig-zig handles two successive left edges or two successive right edges: rotate the parent upward, then the node. A zig-zag handles opposite directions: rotate the node upward twice. The choice of paired rotations is part of the algorithm, not merely an implementation detail.\n\n## A three-key example\n\nStart with root 30, its left child 20, and 20’s left child 10. Searching for 10 follows two edges. This is a zig-zig case. First rotate 20 above 30; the root becomes 20 with children 10 and 30. Then rotate 10 above 20. The final tree has root 10, right child 20, and 20’s right child 30.\n\nThe sorted order remains 10,20,30, but a second access to 10 is now immediate. Notice that the final tree is still a chain: splaying does not promise a balanced shape after every operation. It adapts the shape to the accesses. Nor does this one example prove good performance for every sequence; that requires an amortized argument.\n\n## How potential pays for a long access\n\nFor a tree T, let size(v) count the nodes in v’s subtree and define Φ(T) as the sum of log₂(size(v)) over all nodes. Charge an operation its actual cost plus the change in Φ. Summing these charges makes intermediate potentials cancel. The actual total is the amortized total plus Φ(initial)−Φ(final).\n\nThe access lemma bounds the amortized cost of splaying a node by a logarithmic quantity involving subtree sizes. It yields O((m+n) log n) total cost for m accesses starting from an arbitrary n-key tree, for n≥2. The n term accounts for the starting configuration. A single access can still cost Θ(n): amortized logarithmic cost is not a worst-case bound on each operation.\n\nΦ(T) = Σᵥ log₂(size(v));   Σ cᵢ = Σ ĉᵢ + Φ(T₀) − Φ(Tₘ)\n\n## Static optimality and dynamic optimality compare different rivals\n\nStatic optimality compares the total access cost with the best fixed binary search tree for that sequence. The 1985 paper already proves this form of optimality, up to constant factors, under its stated access conditions. In its frequency bound, every key is accessed at least once; more general presentations must account for initialization.\n\nDynamic optimality permits the competitor to change its tree throughout the sequence and even know future requests. Searches and restructuring both count toward its cost. The conjecture asks whether splaying stays within a constant factor of this stronger offline optimum, with appropriate initialization accounting. Matching the best fixed tree does not establish that stronger claim.\n\n## The July 2026 breakthrough: almost dynamically optimal\n\nThe preprint Splay trees are almost dynamically optimal, submitted on 20 July 2026 by Petr Chmel, Bernhard Haeupler, Richard Hladík, Michal Koucký, Antti Roeyskoe, Václav Rozhoň, Ondřej Sladký, and Robert E. Tarjan, proves an O(log log n · (log log log n)²) competitive ratio.\n\nTheorem 1 gives the more precise total-cost bound below for an access sequence X on a fixed set of n keys, allowing an arbitrary initial splay tree. OPT(X) is the minimum cost in the dynamic binary-search-tree model. The additive n inside the parentheses matters when the initial tree is poor and the sequence is short.\n\nThis is a major advance for the original splay algorithm, rather than a replacement data structure. As checked on 30 September 2026, the cited result is a preprint proving almost dynamic optimality; its factor still grows with n, so it does not settle the constant-factor dynamic-optimality conjecture.\n\ncost(splay, X) = O((OPT(X) + n) · log log n · (log log log n)²)\n\n## Beyond splaying: union–find and Fibonacci heaps\n\nTarjan’s 1975 union–find analysis established inverse-Ackermann bounds for a set-union algorithm. For m≥n find operations interspersed with n−1 unions, the bound has the form O(m α(m,n)), where α grows extraordinarily slowly. This is a precise asymptotic statement, not literally a constant bound.\n\nWith Michael Fredman, Tarjan developed Fibonacci heaps. Their inexpensive amortized decrease-key operation yields O(m+n log n) time for single-source shortest paths with nonnegative edge lengths, using n vertices and m edges. This supplies a concrete connection to Dijkstra: better data structures improve the implementation’s complexity while the shortest-path correctness argument remains essential. Read Knuth for broader algorithm analysis, and Hopcroft for Tarjan’s collaborative work on graph algorithms.\n\n## Three directions to explore\n\n1. In the three-key example, compute the subtree-size potential before and after each rotation. What does the calculation reveal about why a local example alone cannot establish the general amortized bound?\n\n2. Construct an access sequence with two phases concentrated on different groups of keys. Why can a dynamically changing competitor have an advantage over every single fixed tree?\n\n3. In the July 2026 bound, when does the initialization term dominate? What additional improvement in the competitive factor would be needed to establish full dynamic optimality?\n\n## Sources\n\n- [Sleator and Tarjan · Self-Adjusting Binary Search Trees (1985)](https://www.cs.cmu.edu/~sleator/papers/self-adjusting.pdf)\n\n- [Chmel et al. · Splay trees are almost dynamically optimal (July 2026 preprint), Theorem 1](https://arxiv.org/html/2607.18498v1)\n\n- [Carnegie Mellon · Binary Search Trees and Dynamic Optimality (Spring 2026), amortized-analysis exposition](https://www.cs.cmu.edu/~yangp/15-451/lecture23.pdf)\n\n- [Tarjan · Efficiency of a Good But Not Linear Set Union Algorithm (1975)](https://collaborate.princeton.edu/en/publications/efficiency-of-a-good-but-not-linear-set-union-algorithm/)\n\n- [Fredman and Tarjan · Fibonacci heaps and their uses in improved network optimization algorithms (1987)](https://collaborate.princeton.edu/en/publications/fibonacci-heaps-and-their-uses-in-improved-network-optimization-a-2/)\n"
+}

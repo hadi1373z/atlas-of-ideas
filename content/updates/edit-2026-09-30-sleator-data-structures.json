@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "event_id": "edit-2026-09-30-sleator-data-structures",
+  "source_key": "edit:2026-09-30:sleator:data-structures",
+  "created_at": "2026-09-29T23:34:25Z",
+  "kind": "profile-edit",
+  "person_id": "sleator",
+  "base_revision": null,
+  "summary": "Add Daniel Sleator with worked data-structure examples and sourced connections.",
+  "profile": {
+    "name": "Daniel Sleator",
+    "born": 1953,
+    "field": "algorithms",
+    "title": "Adapt to requests without knowing the future",
+    "bio": "Daniel Sleator, working with Robert Tarjan, helped establish self-adjusting data structures and the comparison of online algorithms with an optimum that knows the future. Splay trees and list-update algorithms make these ideas concrete.",
+    "formula": "online cost ≤ c · offline optimum + initialization term",
+    "impact": "A data structure can respond to observed requests without predicting a probability distribution. Its guarantee must specify the competitor and which rearrangements cost time.",
+    "sections": [
+      {
+        "title": "Let the access change the representation",
+        "text": "Sleator’s work asks how a structure should reorganize itself while it is being used. An online algorithm receives requests one at a time. An offline benchmark may know the whole sequence, but it must still pay the costs allowed by the same model. Comparing the two separates a provable adaptive rule from a heuristic that merely seems reasonable.\n\nSplay trees, developed jointly with Tarjan, apply this viewpoint to ordered search. The move-to-front rule applies it to an unsorted list. The structures and proofs differ; the shared question is how much future efficiency can be bought by rearranging the present."
+      },
+      {
+        "title": "Move-to-front by hand",
+        "text": "Start with the list A,B,C,D. Let accessing the item at position i cost i, and allow the accessed item to move toward the front for free. Serve the requests D,D,B,D. The first D costs 4 and produces D,A,B,C. The second costs 1. Accessing B costs 3 and produces B,D,A,C. The final D costs 2 and restores D,B,A,C. Total access cost: 10.\n\nLeaving the original list fixed would cost 4+4+2+4=14. But 14 is not the offline optimum: a better competitor could rearrange its list. This small example shows adaptation, while also showing why comparing only with a deliberately weak baseline would not prove competitiveness."
+      },
+      {
+        "title": "The benchmark is part of the theorem",
+        "text": "Sleator and Tarjan’s 1985 list-update paper proves a constant-factor comparison for move-to-front in its specified model. Rearrangements have accounting rules; one cannot give the offline algorithm unlimited free reordering and expect the same theorem.\n\nTheir analysis also treats paging and least-recently-used replacement. There, the competitive guarantee depends on cache capacity. The lesson is to name the resource and the cost model before using the word optimal: list position, page faults, and tree rotations are different quantities."
+      },
+      {
+        "title": "From lists to search trees",
+        "text": "An ordered search tree must preserve key order, so arbitrary list moves are unavailable. Splaying uses rotations instead. It lifts the accessed key to the root using zig, zig-zig, and zig-zag steps, and can leave the tree temporarily tall. Its logarithmic guarantee is amortized across operations.\n\nTarjan’s profile gives a rotation example and the July 2026 almost-dynamic-optimality result. That recent preprint is about the original splay algorithm, and its nonconstant competitive factor should not be confused with a proof of the full constant-factor conjecture. Read Bayer and Sedgewick to compare access-driven adaptation with structures that maintain explicit balance constraints."
+      }
+    ],
+    "questions": [
+      "For the same initial list, find a short request sequence on which move-to-front costs more than leaving the list unchanged. Why does that not contradict a constant-factor theorem?",
+      "How would the model change if every move toward the front also cost its distance? Which part of the worked calculation would change?",
+      "Which workloads make the distinction between a worst-case per-operation guarantee and an amortized sequence guarantee operationally important?"
+    ],
+    "sources": [
+      {
+        "label": "Sleator and Tarjan · Amortized Efficiency of List Update and Paging Rules (1985)",
+        "url": "https://www.cs.cmu.edu/~sleator/papers/amortized-efficiency.pdf"
+      },
+      {
+        "label": "Sleator and Tarjan · Self-Adjusting Binary Search Trees (1985)",
+        "url": "https://www.cs.cmu.edu/~sleator/papers/self-adjusting.pdf"
+      },
+      {
+        "label": "Chmel et al. · Splay trees are almost dynamically optimal (2026 preprint)",
+        "url": "https://arxiv.org/abs/2607.18498"
+      },
+      {
+        "label": "Carnegie Mellon · Danny Sleator, research profile",
+        "url": "https://csd.cmu.edu/people/faculty/danny-sleator"
+      }
+    ],
+    "extended": true,
+    "readMinutes": 5
+  },
+  "connections_add": [
+    {
+      "source": "sleator",
+      "target": "tarjan",
+      "label": "Self-adjusting data structures",
+      "description": "Documented collaboration: Sleator and Tarjan jointly developed splay trees and analyzed move-to-front and paging rules. Their papers compare total sequence costs under explicit models."
+    },
+    {
+      "source": "sleator",
+      "target": "sedgewick",
+      "label": "Adaptation and balance",
+      "description": "Thematic comparison: splay trees reorganize around accesses, while red-black trees preserve balance constraints. The distinction is amortized adaptation versus a logarithmic worst-case height guarantee."
+    }
+  ],
+  "article_markdown": "# Daniel Sleator — Adapt to requests without knowing the future\n\nDaniel Sleator, working with Robert Tarjan, helped establish self-adjusting data structures and the comparison of online algorithms with an optimum that knows the future. Splay trees and list-update algorithms make these ideas concrete.\n\nA data structure can respond to observed requests without predicting a probability distribution. Its guarantee must specify the competitor and which rearrangements cost time.\n\nonline cost ≤ c · offline optimum + initialization term\n\n## Let the access change the representation\n\nSleator’s work asks how a structure should reorganize itself while it is being used. An online algorithm receives requests one at a time. An offline benchmark may know the whole sequence, but it must still pay the costs allowed by the same model. Comparing the two separates a provable adaptive rule from a heuristic that merely seems reasonable.\n\nSplay trees, developed jointly with Tarjan, apply this viewpoint to ordered search. The move-to-front rule applies it to an unsorted list. The structures and proofs differ; the shared question is how much future efficiency can be bought by rearranging the present.\n\n## Move-to-front by hand\n\nStart with the list A,B,C,D. Let accessing the item at position i cost i, and allow the accessed item to move toward the front for free. Serve the requests D,D,B,D. The first D costs 4 and produces D,A,B,C. The second costs 1. Accessing B costs 3 and produces B,D,A,C. The final D costs 2 and restores D,B,A,C. Total access cost: 10.\n\nLeaving the original list fixed would cost 4+4+2+4=14. But 14 is not the offline optimum: a better competitor could rearrange its list. This small example shows adaptation, while also showing why comparing only with a deliberately weak baseline would not prove competitiveness.\n\n## The benchmark is part of the theorem\n\nSleator and Tarjan’s 1985 list-update paper proves a constant-factor comparison for move-to-front in its specified model. Rearrangements have accounting rules; one cannot give the offline algorithm unlimited free reordering and expect the same theorem.\n\nTheir analysis also treats paging and least-recently-used replacement. There, the competitive guarantee depends on cache capacity. The lesson is to name the resource and the cost model before using the word optimal: list position, page faults, and tree rotations are different quantities.\n\n## From lists to search trees\n\nAn ordered search tree must preserve key order, so arbitrary list moves are unavailable. Splaying uses rotations instead. It lifts the accessed key to the root using zig, zig-zig, and zig-zag steps, and can leave the tree temporarily tall. Its logarithmic guarantee is amortized across operations.\n\nTarjan’s profile gives a rotation example and the July 2026 almost-dynamic-optimality result. That recent preprint is about the original splay algorithm, and its nonconstant competitive factor should not be confused with a proof of the full constant-factor conjecture. Read Bayer and Sedgewick to compare access-driven adaptation with structures that maintain explicit balance constraints.\n\n## Three directions to explore\n\n1. For the same initial list, find a short request sequence on which move-to-front costs more than leaving the list unchanged. Why does that not contradict a constant-factor theorem?\n\n2. How would the model change if every move toward the front also cost its distance? Which part of the worked calculation would change?\n\n3. Which workloads make the distinction between a worst-case per-operation guarantee and an amortized sequence guarantee operationally important?\n\n## Sources\n\n- [Sleator and Tarjan · Amortized Efficiency of List Update and Paging Rules (1985)](https://www.cs.cmu.edu/~sleator/papers/amortized-efficiency.pdf)\n\n- [Sleator and Tarjan · Self-Adjusting Binary Search Trees (1985)](https://www.cs.cmu.edu/~sleator/papers/self-adjusting.pdf)\n\n- [Chmel et al. · Splay trees are almost dynamically optimal (2026 preprint)](https://arxiv.org/abs/2607.18498)\n\n- [Carnegie Mellon · Danny Sleator, research profile](https://csd.cmu.edu/people/faculty/danny-sleator)\n"
+}

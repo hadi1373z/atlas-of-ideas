@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "event_id": "edit-2026-09-30-sedgewick-data-structures",
+  "source_key": "edit:2026-09-30:sedgewick:data-structures",
+  "created_at": "2026-09-29T23:34:25Z",
+  "kind": "profile-edit",
+  "person_id": "sedgewick",
+  "base_revision": null,
+  "summary": "Add Robert Sedgewick with worked data-structure examples and sourced connections.",
+  "profile": {
+    "name": "Robert Sedgewick",
+    "born": 1946,
+    "field": "algorithms",
+    "title": "Understand balance through representation",
+    "bio": "Robert Sedgewick connects algorithm design, mathematical analysis, and implementation. His work with Leonidas Guibas on a dichromatic framework explains balanced search trees using red and black links; his later exposition makes the relationship with multiway trees especially tangible.",
+    "formula": "red-black tree height = O(log n)",
+    "impact": "A representation can turn a global balance requirement into local rotation and color rules. Correctness depends on preserving both key order and the balance invariant.",
+    "sections": [
+      {
+        "title": "One tree, two representations",
+        "text": "With Leonidas Guibas, Sedgewick developed the 1978 dichromatic framework for balanced trees. This belongs to a history that also includes Bayer’s earlier symmetric binary B-trees; it should not be presented as an isolated invention without predecessors.\n\nSedgewick’s later left-leaning red-black presentation offers a particularly clear reading path. A red link joins two ordinary binary nodes into one conceptual two-key node. Black links connect the conceptual nodes. The binary implementation can therefore be understood through a balanced multiway structure."
+      },
+      {
+        "title": "Encode a two-key node",
+        "text": "Take a conceptual node containing keys 10 and 20, with three child ranges: keys below 10, keys between 10 and 20, and keys above 20. Encode it as a black-rooted binary subtree with key 20 and a red left child 10. Attach the three child ranges to 10’s left, 10’s right, and 20’s right respectively.\n\nSearching for 15 compares first with 20, then with 10, and enters the middle range. Searching for 25 follows 20’s right link. The encoded search preserves exactly the interval decisions of the multiway node. The red link is representation metadata, not a reversal of key order."
+      },
+      {
+        "title": "Why local constraints limit height",
+        "text": "A standard red-black invariant gives every root-to-null path the same number of black nodes and prohibits consecutive red nodes. If that common black-height is b under a consistent counting convention, the tree contains at least 2^b−1 internal nodes. No path can be more than roughly twice as long as its black portion. Together these facts give logarithmic height.\n\nRotations preserve binary-search order, but they do not by themselves establish every color invariant. Insertion and deletion must combine rotations with recoloring and restore the required conditions. The left-leaning variant further restricts the orientation of red links; it is useful to state which variant a proof or implementation uses."
+      },
+      {
+        "title": "An algorithm is also something to examine",
+        "text": "Sedgewick’s work with Kevin Wayne supplies implementations and explanations that connect the abstract invariant with actual operations. One can test a proposed implementation by checking sorted traversal, black-height agreement, and the absence of forbidden red-link patterns after every update. Passing such checks on examples is evidence, while a proof explains why every permitted update preserves the invariants.\n\nCompare this with Tarjan and Sleator: a splay tree need not retain logarithmic height after each access. Its guarantee concerns a sequence. Compare it with Bayer: grouping keys into storage pages reduces transfers, whereas a red-black encoding uses binary nodes. These are distinct design choices even when the word tree appears in all three names."
+      }
+    ],
+    "questions": [
+      "Draw the binary encoding of a two-key node 15,35 and attach three nonempty child subtrees. Verify that every key retains its proper interval.",
+      "Prove the minimum-node bound in terms of black-height by induction, then identify where prohibiting adjacent red nodes enters the height argument.",
+      "Which invariant checks would distinguish a general red-black tree from the left-leaning variant? Why should a test suite avoid silently mixing their rules?"
+    ],
+    "sources": [
+      {
+        "label": "Sedgewick and Wayne · Balanced Search Trees",
+        "url": "https://algs4.cs.princeton.edu/33balanced/"
+      },
+      {
+        "label": "Princeton · original algorithm references, including Guibas and Sedgewick (1978)",
+        "url": "https://algs4.cs.princeton.edu/references/"
+      },
+      {
+        "label": "Princeton · Robert Sedgewick, career and biography",
+        "url": "https://faculty.princeton.edu/people/robert-sedgewick-0"
+      }
+    ],
+    "extended": true,
+    "readMinutes": 5
+  },
+  "connections_add": [
+    {
+      "source": "sedgewick",
+      "target": "knuth",
+      "label": "Algorithm analysis and supervision",
+      "description": "Documented supervision: Sedgewick completed his doctorate with Donald Knuth. Their profiles also form a reading route through the mathematical analysis of algorithms."
+    },
+    {
+      "source": "bayer",
+      "target": "sedgewick",
+      "label": "Balanced-tree representations",
+      "description": "Documented research lineage: Bayer’s symmetric binary B-trees preceded Guibas and Sedgewick’s dichromatic framework. Multiway and binary views expose related balance invariants."
+    }
+  ],
+  "article_markdown": "# Robert Sedgewick — Understand balance through representation\n\nRobert Sedgewick connects algorithm design, mathematical analysis, and implementation. His work with Leonidas Guibas on a dichromatic framework explains balanced search trees using red and black links; his later exposition makes the relationship with multiway trees especially tangible.\n\nA representation can turn a global balance requirement into local rotation and color rules. Correctness depends on preserving both key order and the balance invariant.\n\nred-black tree height = O(log n)\n\n## One tree, two representations\n\nWith Leonidas Guibas, Sedgewick developed the 1978 dichromatic framework for balanced trees. This belongs to a history that also includes Bayer’s earlier symmetric binary B-trees; it should not be presented as an isolated invention without predecessors.\n\nSedgewick’s later left-leaning red-black presentation offers a particularly clear reading path. A red link joins two ordinary binary nodes into one conceptual two-key node. Black links connect the conceptual nodes. The binary implementation can therefore be understood through a balanced multiway structure.\n\n## Encode a two-key node\n\nTake a conceptual node containing keys 10 and 20, with three child ranges: keys below 10, keys between 10 and 20, and keys above 20. Encode it as a black-rooted binary subtree with key 20 and a red left child 10. Attach the three child ranges to 10’s left, 10’s right, and 20’s right respectively.\n\nSearching for 15 compares first with 20, then with 10, and enters the middle range. Searching for 25 follows 20’s right link. The encoded search preserves exactly the interval decisions of the multiway node. The red link is representation metadata, not a reversal of key order.\n\n## Why local constraints limit height\n\nA standard red-black invariant gives every root-to-null path the same number of black nodes and prohibits consecutive red nodes. If that common black-height is b under a consistent counting convention, the tree contains at least 2^b−1 internal nodes. No path can be more than roughly twice as long as its black portion. Together these facts give logarithmic height.\n\nRotations preserve binary-search order, but they do not by themselves establish every color invariant. Insertion and deletion must combine rotations with recoloring and restore the required conditions. The left-leaning variant further restricts the orientation of red links; it is useful to state which variant a proof or implementation uses.\n\n## An algorithm is also something to examine\n\nSedgewick’s work with Kevin Wayne supplies implementations and explanations that connect the abstract invariant with actual operations. One can test a proposed implementation by checking sorted traversal, black-height agreement, and the absence of forbidden red-link patterns after every update. Passing such checks on examples is evidence, while a proof explains why every permitted update preserves the invariants.\n\nCompare this with Tarjan and Sleator: a splay tree need not retain logarithmic height after each access. Its guarantee concerns a sequence. Compare it with Bayer: grouping keys into storage pages reduces transfers, whereas a red-black encoding uses binary nodes. These are distinct design choices even when the word tree appears in all three names.\n\n## Three directions to explore\n\n1. Draw the binary encoding of a two-key node 15,35 and attach three nonempty child subtrees. Verify that every key retains its proper interval.\n\n2. Prove the minimum-node bound in terms of black-height by induction, then identify where prohibiting adjacent red nodes enters the height argument.\n\n3. Which invariant checks would distinguish a general red-black tree from the left-leaning variant? Why should a test suite avoid silently mixing their rules?\n\n## Sources\n\n- [Sedgewick and Wayne · Balanced Search Trees](https://algs4.cs.princeton.edu/33balanced/)\n\n- [Princeton · original algorithm references, including Guibas and Sedgewick (1978)](https://algs4.cs.princeton.edu/references/)\n\n- [Princeton · Robert Sedgewick, career and biography](https://faculty.princeton.edu/people/robert-sedgewick-0)\n"
+}

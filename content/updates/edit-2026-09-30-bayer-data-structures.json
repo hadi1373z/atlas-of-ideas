@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "event_id": "edit-2026-09-30-bayer-data-structures",
+  "source_key": "edit:2026-09-30:bayer:data-structures",
+  "created_at": "2026-09-29T23:34:25Z",
+  "kind": "profile-edit",
+  "person_id": "bayer",
+  "base_revision": null,
+  "summary": "Add Rudolf Bayer with worked data-structure examples and sourced connections.",
+  "profile": {
+    "name": "Rudolf Bayer",
+    "born": 1939,
+    "field": "systems",
+    "title": "Make the storage page the unit of search",
+    "bio": "Rudolf Bayer and Edward McCreight developed B-trees for maintaining large ordered indexes. The design treats a page containing many keys as one node, matching the structure to storage where fetching a page is expensive.",
+    "formula": "search page transfers = O(1 + log_B n)",
+    "impact": "High branching reduces the number of page fetches, while occupancy and equal-depth invariants keep the index usable as keys are inserted and deleted.",
+    "sections": [
+      {
+        "title": "A different machine suggests a different tree",
+        "text": "A binary tree branches only twice at a node. That is a natural representation when following a pointer is cheap. An index stored mainly on disk changes the question: fetching a page costs much more than comparing several keys already on that page.\n\nBayer and McCreight’s work, published in Acta Informatica in 1972, organizes ordered indexes into pages with multiple separator keys. A page directs the search into one of many child ranges. The point is to reduce expensive transfers while preserving the ability to search and update an ordered collection."
+      },
+      {
+        "title": "Read one page, choose one interval",
+        "text": "Imagine a root page holding separator keys 20 and 40. Its three child pages contain [5,10], [25,30], and [45,50]. To look up 30, compare it with the root separators and follow the middle pointer. That child page contains the answer. With neither page cached, this example uses two page reads.\n\nTo search for 35, follow exactly the same pointer and conclude absence after inspecting [25,30]. The ordering invariant rules out the other pages: their keys are below 20 or above 40. A failed search therefore needs a proof of absence just as a successful search needs a match."
+      },
+      {
+        "title": "A split preserves order and depth",
+        "text": "Use a small B-tree convention in which a non-root page holds between two and four keys. Suppose the middle leaf has become [25,28,30,35], and we insert 32. Its temporary five-key content is [25,28,30,32,35]. Promote the median 30 to the parent and leave two pages [25,28] and [32,35]. The root becomes [20,30,40] with four children.\n\nEach resulting leaf meets the occupancy rule, every key remains in the correct interval, and all leaves remain at the same depth. If the parent overflows, split it too. When a root splits, introducing a new root increases every leaf’s depth together. Deletion requires the corresponding care with redistribution or merging."
+      },
+      {
+        "title": "What the logarithm measures",
+        "text": "When page capacity is proportional to B and non-root pages retain a constant fraction of capacity, branching grows proportionally to B. This yields O(1+log_B n) page transfers for a search among n keys, in the usual page model. It does not say that all computation inside each page is free in real time.\n\nRead Codd for a useful conceptual separation: a relational data model describes data and queries; a B-tree is one possible physical access structure. Read Sedgewick for binary encodings of balanced multiway trees, and Tarjan for a different strategy in which accesses themselves reshape the search tree."
+      }
+    ],
+    "questions": [
+      "After promoting 30 in the example, which child range contains an absent key 31, and why is looking there sufficient?",
+      "Why are both minimum occupancy and equal leaf depth needed to prove a logarithmic height bound? Construct a failure when either condition is dropped.",
+      "If the root and first level remain cached, how does the number of actual page fetches differ from the tree’s full height?"
+    ],
+    "sources": [
+      {
+        "label": "Bayer and McCreight · Organization and Maintenance of Large Ordered Indexes (1972), paper copy",
+        "url": "https://scispace.com/pdf/organization-and-maintenance-of-large-ordered-indices-4gyd1n5dhb.pdf"
+      },
+      {
+        "label": "Bayer and McCreight · publisher record",
+        "url": "https://doi.org/10.1007/BF00288683"
+      }
+    ],
+    "extended": true,
+    "readMinutes": 5
+  },
+  "connections_add": [
+    {
+      "source": "bayer",
+      "target": "codd",
+      "label": "Logical data and physical indexes",
+      "description": "Thematic comparison: Codd’s relational model describes data logically; Bayer and McCreight’s B-trees organize ordered keys for physical access. A relational system can use a B-tree without making it part of the relational model."
+    },
+    {
+      "source": "bayer",
+      "target": "tarjan",
+      "label": "Balance and self-adjustment",
+      "description": "Thematic comparison: B-trees maintain occupancy and equal leaf depth, while splay trees adjust to accesses. Their guarantees count different resources and should be compared within an explicit memory model."
+    }
+  ],
+  "article_markdown": "# Rudolf Bayer — Make the storage page the unit of search\n\nRudolf Bayer and Edward McCreight developed B-trees for maintaining large ordered indexes. The design treats a page containing many keys as one node, matching the structure to storage where fetching a page is expensive.\n\nHigh branching reduces the number of page fetches, while occupancy and equal-depth invariants keep the index usable as keys are inserted and deleted.\n\nsearch page transfers = O(1 + log_B n)\n\n## A different machine suggests a different tree\n\nA binary tree branches only twice at a node. That is a natural representation when following a pointer is cheap. An index stored mainly on disk changes the question: fetching a page costs much more than comparing several keys already on that page.\n\nBayer and McCreight’s work, published in Acta Informatica in 1972, organizes ordered indexes into pages with multiple separator keys. A page directs the search into one of many child ranges. The point is to reduce expensive transfers while preserving the ability to search and update an ordered collection.\n\n## Read one page, choose one interval\n\nImagine a root page holding separator keys 20 and 40. Its three child pages contain [5,10], [25,30], and [45,50]. To look up 30, compare it with the root separators and follow the middle pointer. That child page contains the answer. With neither page cached, this example uses two page reads.\n\nTo search for 35, follow exactly the same pointer and conclude absence after inspecting [25,30]. The ordering invariant rules out the other pages: their keys are below 20 or above 40. A failed search therefore needs a proof of absence just as a successful search needs a match.\n\n## A split preserves order and depth\n\nUse a small B-tree convention in which a non-root page holds between two and four keys. Suppose the middle leaf has become [25,28,30,35], and we insert 32. Its temporary five-key content is [25,28,30,32,35]. Promote the median 30 to the parent and leave two pages [25,28] and [32,35]. The root becomes [20,30,40] with four children.\n\nEach resulting leaf meets the occupancy rule, every key remains in the correct interval, and all leaves remain at the same depth. If the parent overflows, split it too. When a root splits, introducing a new root increases every leaf’s depth together. Deletion requires the corresponding care with redistribution or merging.\n\n## What the logarithm measures\n\nWhen page capacity is proportional to B and non-root pages retain a constant fraction of capacity, branching grows proportionally to B. This yields O(1+log_B n) page transfers for a search among n keys, in the usual page model. It does not say that all computation inside each page is free in real time.\n\nRead Codd for a useful conceptual separation: a relational data model describes data and queries; a B-tree is one possible physical access structure. Read Sedgewick for binary encodings of balanced multiway trees, and Tarjan for a different strategy in which accesses themselves reshape the search tree.\n\n## Three directions to explore\n\n1. After promoting 30 in the example, which child range contains an absent key 31, and why is looking there sufficient?\n\n2. Why are both minimum occupancy and equal leaf depth needed to prove a logarithmic height bound? Construct a failure when either condition is dropped.\n\n3. If the root and first level remain cached, how does the number of actual page fetches differ from the tree’s full height?\n\n## Sources\n\n- [Bayer and McCreight · Organization and Maintenance of Large Ordered Indexes (1972), paper copy](https://scispace.com/pdf/organization-and-maintenance-of-large-ordered-indices-4gyd1n5dhb.pdf)\n\n- [Bayer and McCreight · publisher record](https://doi.org/10.1007/BF00288683)\n"
+}
