@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "event_id": "daily-2026-09-29",
+  "source_key": "daily:2026-09-29",
+  "created_at": "2026-10-06T23:17:58Z",
+  "kind": "daily-profile",
+  "person_id": "lyons",
+  "base_revision": null,
+  "summary": "Publish the 2026-09-29 profile of Russell Lyons: Probability on infinite graphs and mass transport.",
+  "profile": {
+    "name": "Russell Lyons",
+    "born": 1957,
+    "field": "graphs",
+    "title": "Probability on infinite graphs and mass transport",
+    "bio": "Russell Lyons works at the intersection of probability, infinite graphs, group actions and measurable structures. With Yuval Peres he wrote Probability on Trees and Networks, a systematic account of random walks, electrical networks, percolation and spanning forests. [1]",
+    "formula": "E[Σᵥ f(G,o,v)] = E[Σᵥ f(G,v,o)]",
+    "impact": "Mass transport carries finite double counting into random infinite graphs. It separates a necessary consistency law for finite approximation from the harder question of realizing that law by actual finite models.",
+    "sections": [
+      {
+        "title": "A network has several mathematical faces",
+        "text": "An infinite locally finite graph can be studied by running a random walk, putting resistors on its edges, deleting edges independently, or sampling a spanning forest. Each experiment extracts different information, but the answers are linked.\n\nFor example, effective resistance to infinity governs recurrence and transience in the standard reversible network setting. On trees, growth and branching influence both percolation and biased random walks. Lyons's work and the Lyons–Peres book make these connections into reusable methods rather than isolated analogies. [1]\n\nThe important change of viewpoint is to seek an invariant mechanism behind a finite construction and then ask which parts survive at infinity."
+      },
+      {
+        "title": "Unimodularity is a conservation law",
+        "text": "A probability law on rooted, connected, locally finite graphs is unimodular if it satisfies the mass-transport identity for every nonnegative measurable isomorphism-invariant function f of a graph with an ordered pair of vertices. The two sides are allowed to be infinite.\n\nFor a finite graph with a uniform root, the identity follows simply by summing f over all ordered vertex pairs and interchanging the sums. Local weak limits of uniformly rooted finite graphs retain this identity. Aldous and Lyons developed unimodular random networks as a common setting for random walks, percolation, amenability and spanning forests. [2]\n\nThe root is not an arbitrarily favored vertex. The identity expresses a precise balance between what the sampled root sends and what it receives.",
+        "math": "E[Σᵥ f(G,o,v)] = E[Σᵥ f(G,v,o)]",
+        "tex": "\\mathbb E\\sum_v f(G,o,v)=\\mathbb E\\sum_v f(G,v,o)"
+      },
+      {
+        "title": "A mass-transport proof pattern",
+        "text": "Suppose an equivariant marking rule selected exactly one vertex in each infinite connected graph. Have every vertex send one unit to the selected vertex. Outgoing mass at the root is always one. Incoming mass is either zero or infinite, so its expectation is either zero or infinite, never one. This contradicts unimodularity.\n\nThe argument requires an equivariant measurable selection whose marked law remains unimodular; an arbitrary choice using an external labeling does not satisfy the premise. With that qualification, the calculation explains how a global impossibility can follow from a simple local rule for sending mass. [1,2]"
+      },
+      {
+        "title": "Trees locate a positive approximation boundary",
+        "text": "A rooted random graph law is called sofic here when it is a local weak limit of uniformly rooted finite graphs. Unimodularity is necessary; an approximation theorem must establish more than the mass-transport identity.\n\nBenjamini, Lyons and Schramm gave a characterization of bounded-degree unimodular random trees as root components of invariant percolations on regular trees. They used it to give another proof of the soficity of unimodular random trees, crediting the earlier result to Gábor Elek. [3]\n\nThis is a valuable control case. Complex branching alone does not obstruct finite approximation. A proposed obstruction for more general graphs must detect something the tree setting lacks, rather than merely restating mass transport."
+      },
+      {
+        "title": "Spanning forests and determinants",
+        "text": "An infinite graph has two natural limits of finite uniform spanning trees, depending on free or wired boundary conditions. The resulting free and wired uniform spanning forests connect random walks, resistance and harmonic functions. [1]\n\nLyons also developed discrete determinantal probability measures. For a positive contraction Q on ℓ²(W), a random subset S of the countable set W can satisfy Pr(A ⊆ S) = det(Q_A) for every finite A. These measures have strong negative-dependence properties and connect Hilbert-space operators to matroids and spanning forests. [4]\n\nWith Andreas Thom, Lyons proved invariant coupling results for such measures on sofic groups and analogous random rooted graphs. Finite approximation is therefore useful not only for drawing a graph but for transferring structured probability laws. [5]",
+        "math": "Pr(A ⊆ S) = det(Q_A)"
+      },
+      {
+        "title": "What should survive a finite approximation?",
+        "text": "The common question is which information is retained when large finite networks are replaced by local probability laws. The unmarked rooted law of a graphing records component geometry, but not necessarily every global measurable coloring or coupling carried by that graphing.\n\nA useful distinction is between consequences of unimodularity and stronger hypotheses used by a particular finite-approximation theorem. Entropy, invariant couplings and local–global statistics are possible directions to investigate; none is asserted here to be a complete characterization of soficity."
+      }
+    ],
+    "sources": [
+      {
+        "label": "[1] Lyons–Peres, Probability on Trees and Networks",
+        "url": "https://rdlyons.pages.iu.edu/prbtree/",
+        "type": "primary source"
+      },
+      {
+        "label": "[2] Aldous–Lyons, Processes on Unimodular Random Networks",
+        "url": "https://arxiv.org/abs/math/0603062",
+        "type": "primary source"
+      },
+      {
+        "label": "[3] Benjamini–Lyons–Schramm, Unimodular Random Trees",
+        "url": "https://arxiv.org/abs/1207.1752",
+        "type": "primary source"
+      },
+      {
+        "label": "[4] Lyons, Determinantal probability measures",
+        "url": "https://arxiv.org/abs/math/0204325",
+        "type": "primary source"
+      },
+      {
+        "label": "[5] Lyons–Thom, Invariant Coupling of Determinantal Measures on Sofic Groups",
+        "url": "https://arxiv.org/abs/1402.0969",
+        "type": "primary source"
+      }
+    ],
+    "questions": [
+      "Should the next profile follow David Aldous and the objective method for local weak convergence?",
+      "Would several short mass-transport proofs about ends and invariant forests be more useful than a broad biography?",
+      "Should the next topic compare positive finite-approximation theorems with nonsofic constructions?"
+    ],
+    "extended": true,
+    "readMinutes": 6
+  },
+  "connections_add": [
+    {
+      "source": "lyons",
+      "target": "lovasz",
+      "label": "Sparse laws and dense kernels",
+      "description": "Conceptual reading link: distinguish unimodular rooted graph laws from dense graphons, rather than treating them as interchangeable limits."
+    }
+  ],
+  "article_markdown": "# Russell Lyons — Probability on infinite graphs and mass transport\n\nRussell Lyons works at the intersection of probability, infinite graphs, group actions and measurable structures. With Yuval Peres he wrote Probability on Trees and Networks, a systematic account of random walks, electrical networks, percolation and spanning forests. [1]\n\nMass transport carries finite double counting into random infinite graphs. It separates a necessary consistency law for finite approximation from the harder question of realizing that law by actual finite models.\n\nE[Σᵥ f(G,o,v)] = E[Σᵥ f(G,v,o)]\n\n## A network has several mathematical faces\n\nAn infinite locally finite graph can be studied by running a random walk, putting resistors on its edges, deleting edges independently, or sampling a spanning forest. Each experiment extracts different information, but the answers are linked.\n\nFor example, effective resistance to infinity governs recurrence and transience in the standard reversible network setting. On trees, growth and branching influence both percolation and biased random walks. Lyons's work and the Lyons–Peres book make these connections into reusable methods rather than isolated analogies. [1]\n\nThe important change of viewpoint is to seek an invariant mechanism behind a finite construction and then ask which parts survive at infinity.\n\n## Unimodularity is a conservation law\n\nA probability law on rooted, connected, locally finite graphs is unimodular if it satisfies the mass-transport identity for every nonnegative measurable isomorphism-invariant function f of a graph with an ordered pair of vertices. The two sides are allowed to be infinite.\n\nFor a finite graph with a uniform root, the identity follows simply by summing f over all ordered vertex pairs and interchanging the sums. Local weak limits of uniformly rooted finite graphs retain this identity. Aldous and Lyons developed unimodular random networks as a common setting for random walks, percolation, amenability and spanning forests. [2]\n\nThe root is not an arbitrarily favored vertex. The identity expresses a precise balance between what the sampled root sends and what it receives.\n\nE[Σᵥ f(G,o,v)] = E[Σᵥ f(G,v,o)]\n\n```tex\n\\mathbb E\\sum_v f(G,o,v)=\\mathbb E\\sum_v f(G,v,o)\n```\n\n## A mass-transport proof pattern\n\nSuppose an equivariant marking rule selected exactly one vertex in each infinite connected graph. Have every vertex send one unit to the selected vertex. Outgoing mass at the root is always one. Incoming mass is either zero or infinite, so its expectation is either zero or infinite, never one. This contradicts unimodularity.\n\nThe argument requires an equivariant measurable selection whose marked law remains unimodular; an arbitrary choice using an external labeling does not satisfy the premise. With that qualification, the calculation explains how a global impossibility can follow from a simple local rule for sending mass. [1,2]\n\n## Trees locate a positive approximation boundary\n\nA rooted random graph law is called sofic here when it is a local weak limit of uniformly rooted finite graphs. Unimodularity is necessary; an approximation theorem must establish more than the mass-transport identity.\n\nBenjamini, Lyons and Schramm gave a characterization of bounded-degree unimodular random trees as root components of invariant percolations on regular trees. They used it to give another proof of the soficity of unimodular random trees, crediting the earlier result to Gábor Elek. [3]\n\nThis is a valuable control case. Complex branching alone does not obstruct finite approximation. A proposed obstruction for more general graphs must detect something the tree setting lacks, rather than merely restating mass transport.\n\n## Spanning forests and determinants\n\nAn infinite graph has two natural limits of finite uniform spanning trees, depending on free or wired boundary conditions. The resulting free and wired uniform spanning forests connect random walks, resistance and harmonic functions. [1]\n\nLyons also developed discrete determinantal probability measures. For a positive contraction Q on ℓ²(W), a random subset S of the countable set W can satisfy Pr(A ⊆ S) = det(Q_A) for every finite A. These measures have strong negative-dependence properties and connect Hilbert-space operators to matroids and spanning forests. [4]\n\nWith Andreas Thom, Lyons proved invariant coupling results for such measures on sofic groups and analogous random rooted graphs. Finite approximation is therefore useful not only for drawing a graph but for transferring structured probability laws. [5]\n\nPr(A ⊆ S) = det(Q_A)\n\n## What should survive a finite approximation?\n\nThe common question is which information is retained when large finite networks are replaced by local probability laws. The unmarked rooted law of a graphing records component geometry, but not necessarily every global measurable coloring or coupling carried by that graphing.\n\nA useful distinction is between consequences of unimodularity and stronger hypotheses used by a particular finite-approximation theorem. Entropy, invariant couplings and local–global statistics are possible directions to investigate; none is asserted here to be a complete characterization of soficity.\n\n## Three directions to explore\n\n1. Should the next profile follow David Aldous and the objective method for local weak convergence?\n\n2. Would several short mass-transport proofs about ends and invariant forests be more useful than a broad biography?\n\n3. Should the next topic compare positive finite-approximation theorems with nonsofic constructions?\n\n## Sources\n\n- [[1] Lyons–Peres, Probability on Trees and Networks](https://rdlyons.pages.iu.edu/prbtree/)\n\n- [[2] Aldous–Lyons, Processes on Unimodular Random Networks](https://arxiv.org/abs/math/0603062)\n\n- [[3] Benjamini–Lyons–Schramm, Unimodular Random Trees](https://arxiv.org/abs/1207.1752)\n\n- [[4] Lyons, Determinantal probability measures](https://arxiv.org/abs/math/0204325)\n\n- [[5] Lyons–Thom, Invariant Coupling of Determinantal Measures on Sofic Groups](https://arxiv.org/abs/1402.0969)\n"
+}

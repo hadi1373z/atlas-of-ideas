@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "event_id": "daily-2026-10-04",
+  "source_key": "daily:2026-10-04",
+  "created_at": "2026-10-06T23:22:51Z",
+  "kind": "daily-profile",
+  "person_id": "weiss",
+  "base_revision": null,
+  "summary": "Publish the 2026-10-04 profile of Benjamin Weiss: Finite models for infinite dynamics.",
+  "profile": {
+    "name": "Benjamin Weiss",
+    "born": 1941,
+    "field": "analysis",
+    "title": "Finite models for infinite dynamics",
+    "bio": "Benjamin Weiss is a mathematician whose work connects ergodic theory, symbolic dynamics and group actions. Finite descriptions and approximate finite models recur across his work, from sofic symbolic systems to amenable actions and sofic groups. [1–4]",
+    "formula": "d_Ham(σ_gσ_h, σ_gh) < ε",
+    "tex": "d_{\\mathrm{Ham}}(\\sigma_g\\sigma_h,\\sigma_{gh})<\\varepsilon",
+    "impact": "Finite quotients, Følner sets and sofic approximations provide different mechanisms for comparing finite and infinite structures. Weiss helped develop the distinctions and their dynamical consequences.",
+    "sections": [
+      {
+        "title": "Sofic symbolic systems",
+        "text": "A shift of finite type is a space of sequences over a finite alphabet specified by finitely many forbidden local patterns. A sofic shift is a factor of a shift of finite type; equivalently in the one-dimensional setting, it has a presentation by a finite labeled graph.\n\nWeiss's 1973 paper Subshifts of finite type and sofic systems studies this broader class. [1] The distinction is between a finite list of local constraints and a finite-state presentation whose hidden states may be forgotten. An infinite collection of sequences can still have a finite description."
+      },
+      {
+        "title": "Approximating a group by permutations",
+        "text": "Gromov introduced the relevant group-approximation idea, and Weiss's 2000 paper supplied the term sofic and developed its link with dynamics. [2]\n\nFor permutations α and β of a finite set V, normalized Hamming distance is the fraction of points on which they disagree. A sofic approximation assigns finite permutations σ_g to group elements so that, on each prescribed finite part of the group, multiplication is almost respected and distinct elements act differently on almost every point. One can require σ_e to be the identity.\n\nThe finite set and approximation can change as the tested part grows and the allowed error decreases. This is not an exact representation of the whole group into one finite symmetric group.",
+        "math": "d_Ham(α,β) = |{v ∈ V : α(v) ≠ β(v)}| / |V|;  d_Ham(σ_g,σ_h) > 1−ε for distinct tested g,h."
+      },
+      {
+        "title": "Two reasons finite approximation can work",
+        "text": "Residual finiteness supplies genuine finite quotients separating any prescribed finite set of group elements. Amenability supplies finite Følner sets with a negligible translation boundary.\n\nBoth mechanisms produce sofic approximations, but neither is the definition of soficity. For finitely generated groups, the graph picture is a finite generator-labeled graph whose fixed-radius neighborhood is correct around almost every vertex. The approximating graph need not itself be a finite Cayley graph. [2]\n\nThe useful separation is exact finite quotient versus approximately correct finite model. Conflating them would impose an unnecessary symmetry requirement on the approximants.",
+        "math": "|gFₙ △ Fₙ| / |Fₙ| → 0 for every fixed g."
+      },
+      {
+        "title": "Ornstein–Weiss: finite towers for amenable actions",
+        "text": "With Donald Ornstein, Weiss extended fundamental approximation methods from one measure-preserving transformation, or a ℤ-action, to actions of countable amenable groups.\n\nTheir Rokhlin-lemma work gives a way to approximate free probability-preserving amenable actions by large finite tower structures, with small errors. [3] The more general theory uses suitable families of shapes and approximate tilings; it should not be reduced to the claim that every action has an exact tiling by one arbitrary Følner set.\n\nThese methods made entropy and isomorphism theory possible in a substantially broader dynamical setting. Finite pieces are useful because amenability allows boundary effects to be controlled."
+      },
+      {
+        "title": "Mean topological dimension",
+        "text": "With Elon Lindenstrauss, Weiss developed mean topological dimension, building on an invariant introduced by Gromov. It measures effective dimension per iterate rather than the dimension of the state space alone. [4]\n\nFor a compact metric system with transformation T, compare points using dₙ(x,y) = max₀≤j<n d(Tʲx,Tʲy). Roughly, mean dimension normalizes by n the topological dimension needed to describe orbit segments at a fixed resolution, then lets the resolution improve.\n\nThis is not simply entropy with a different name. It can distinguish behavior when ordinary topological dimension and entropy are both infinite.",
+        "math": "dₙ(x,y) = max {d(Tʲx,Tʲy) : 0 ≤ j < n}."
+      },
+      {
+        "title": "Finite approximation now has a boundary",
+        "text": "The existence of nonsofic examples has made it especially important to separate sufficient approximation mechanisms from a general characterization. A 2026 preprint by Gábor Kun and Andreas Thom constructs nonsofic wreath products from suitable residually finite groups and builds on earlier nonsofic constructions. [5]\n\nThat is a specific theorem about particular constructions, not a claim that all property-(T) groups or all nonamenable groups are nonsofic. This profile records the preprint as a source, not as an independently audited proof.\n\nWeiss's lasting conceptual contribution is to look for a useful intermediate notion between finite and infinite: weak enough to capture many examples, but strong enough to retain algebraic and dynamical consequences."
+      }
+    ],
+    "sources": [
+      {
+        "label": "[1] Weiss, Subshifts of finite type and sofic systems (1973)",
+        "url": "https://cris.huji.ac.il/en/publications/subshifts-of-finite-type-and-sofic-systems/",
+        "type": "primary source"
+      },
+      {
+        "label": "[2] Weiss, Sofic groups and dynamical systems (2000)",
+        "url": "https://cris.huji.ac.il/en/publications/sofic-groups-and-dynamical-systems/",
+        "type": "primary source"
+      },
+      {
+        "label": "[3] Ornstein–Weiss, Ergodic theory of amenable group actions I: the Rohlin lemma",
+        "url": "https://doi.org/10.1090/S0273-0979-1980-14702-3",
+        "type": "primary source"
+      },
+      {
+        "label": "[4] Lindenstrauss–Weiss, Mean topological dimension (2000)",
+        "url": "https://cris.huji.ac.il/en/publications/mean-topological-dimension/",
+        "type": "primary source"
+      },
+      {
+        "label": "[5] Kun–Thom, Nonsofic wreath products of residually finite groups (2026 preprint)",
+        "url": "https://arxiv.org/abs/2608.06222",
+        "type": "primary source"
+      }
+    ],
+    "questions": [
+      "Should the next profile explain mechanisms behind nonsofic constructions, including the role of property (T) and expansion?",
+      "Would amenability and Følner approximations, where finite models work particularly well, be more useful next?",
+      "Should the next entry connect sofic groups to graphings, invariant random graphs, and co-soficity?"
+    ],
+    "extended": true,
+    "readMinutes": 6
+  },
+  "connections_add": [
+    {
+      "source": "gromov",
+      "target": "weiss",
+      "label": "Sofic approximation and dynamics",
+      "description": "Gromov's group-approximation framework and Weiss's naming and dynamical treatment of sofic groups provide a documented connection."
+    },
+    {
+      "source": "weiss",
+      "target": "kechris",
+      "label": "Actions and equivalence relations",
+      "description": "Conceptual reading link: compare finite approximation of actions with Borel and measured orbit-equivalence theory."
+    }
+  ],
+  "article_markdown": "# Benjamin Weiss — Finite models for infinite dynamics\n\nBenjamin Weiss is a mathematician whose work connects ergodic theory, symbolic dynamics and group actions. Finite descriptions and approximate finite models recur across his work, from sofic symbolic systems to amenable actions and sofic groups. [1–4]\n\nFinite quotients, Følner sets and sofic approximations provide different mechanisms for comparing finite and infinite structures. Weiss helped develop the distinctions and their dynamical consequences.\n\nd_Ham(σ_gσ_h, σ_gh) < ε\n\n## Sofic symbolic systems\n\nA shift of finite type is a space of sequences over a finite alphabet specified by finitely many forbidden local patterns. A sofic shift is a factor of a shift of finite type; equivalently in the one-dimensional setting, it has a presentation by a finite labeled graph.\n\nWeiss's 1973 paper Subshifts of finite type and sofic systems studies this broader class. [1] The distinction is between a finite list of local constraints and a finite-state presentation whose hidden states may be forgotten. An infinite collection of sequences can still have a finite description.\n\n## Approximating a group by permutations\n\nGromov introduced the relevant group-approximation idea, and Weiss's 2000 paper supplied the term sofic and developed its link with dynamics. [2]\n\nFor permutations α and β of a finite set V, normalized Hamming distance is the fraction of points on which they disagree. A sofic approximation assigns finite permutations σ_g to group elements so that, on each prescribed finite part of the group, multiplication is almost respected and distinct elements act differently on almost every point. One can require σ_e to be the identity.\n\nThe finite set and approximation can change as the tested part grows and the allowed error decreases. This is not an exact representation of the whole group into one finite symmetric group.\n\nd_Ham(α,β) = |{v ∈ V : α(v) ≠ β(v)}| / |V|;  d_Ham(σ_g,σ_h) > 1−ε for distinct tested g,h.\n\n## Two reasons finite approximation can work\n\nResidual finiteness supplies genuine finite quotients separating any prescribed finite set of group elements. Amenability supplies finite Følner sets with a negligible translation boundary.\n\nBoth mechanisms produce sofic approximations, but neither is the definition of soficity. For finitely generated groups, the graph picture is a finite generator-labeled graph whose fixed-radius neighborhood is correct around almost every vertex. The approximating graph need not itself be a finite Cayley graph. [2]\n\nThe useful separation is exact finite quotient versus approximately correct finite model. Conflating them would impose an unnecessary symmetry requirement on the approximants.\n\n|gFₙ △ Fₙ| / |Fₙ| → 0 for every fixed g.\n\n## Ornstein–Weiss: finite towers for amenable actions\n\nWith Donald Ornstein, Weiss extended fundamental approximation methods from one measure-preserving transformation, or a ℤ-action, to actions of countable amenable groups.\n\nTheir Rokhlin-lemma work gives a way to approximate free probability-preserving amenable actions by large finite tower structures, with small errors. [3] The more general theory uses suitable families of shapes and approximate tilings; it should not be reduced to the claim that every action has an exact tiling by one arbitrary Følner set.\n\nThese methods made entropy and isomorphism theory possible in a substantially broader dynamical setting. Finite pieces are useful because amenability allows boundary effects to be controlled.\n\n## Mean topological dimension\n\nWith Elon Lindenstrauss, Weiss developed mean topological dimension, building on an invariant introduced by Gromov. It measures effective dimension per iterate rather than the dimension of the state space alone. [4]\n\nFor a compact metric system with transformation T, compare points using dₙ(x,y) = max₀≤j<n d(Tʲx,Tʲy). Roughly, mean dimension normalizes by n the topological dimension needed to describe orbit segments at a fixed resolution, then lets the resolution improve.\n\nThis is not simply entropy with a different name. It can distinguish behavior when ordinary topological dimension and entropy are both infinite.\n\ndₙ(x,y) = max {d(Tʲx,Tʲy) : 0 ≤ j < n}.\n\n## Finite approximation now has a boundary\n\nThe existence of nonsofic examples has made it especially important to separate sufficient approximation mechanisms from a general characterization. A 2026 preprint by Gábor Kun and Andreas Thom constructs nonsofic wreath products from suitable residually finite groups and builds on earlier nonsofic constructions. [5]\n\nThat is a specific theorem about particular constructions, not a claim that all property-(T) groups or all nonamenable groups are nonsofic. This profile records the preprint as a source, not as an independently audited proof.\n\nWeiss's lasting conceptual contribution is to look for a useful intermediate notion between finite and infinite: weak enough to capture many examples, but strong enough to retain algebraic and dynamical consequences.\n\n## Three directions to explore\n\n1. Should the next profile explain mechanisms behind nonsofic constructions, including the role of property (T) and expansion?\n\n2. Would amenability and Følner approximations, where finite models work particularly well, be more useful next?\n\n3. Should the next entry connect sofic groups to graphings, invariant random graphs, and co-soficity?\n\n## Sources\n\n- [[1] Weiss, Subshifts of finite type and sofic systems (1973)](https://cris.huji.ac.il/en/publications/subshifts-of-finite-type-and-sofic-systems/)\n\n- [[2] Weiss, Sofic groups and dynamical systems (2000)](https://cris.huji.ac.il/en/publications/sofic-groups-and-dynamical-systems/)\n\n- [[3] Ornstein–Weiss, Ergodic theory of amenable group actions I: the Rohlin lemma](https://doi.org/10.1090/S0273-0979-1980-14702-3)\n\n- [[4] Lindenstrauss–Weiss, Mean topological dimension (2000)](https://cris.huji.ac.il/en/publications/mean-topological-dimension/)\n\n- [[5] Kun–Thom, Nonsofic wreath products of residually finite groups (2026 preprint)](https://arxiv.org/abs/2608.06222)\n"
+}

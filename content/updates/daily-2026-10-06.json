@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "event_id": "daily-2026-10-06",
+  "source_key": "daily:2026-10-06",
+  "created_at": "2026-10-06T23:14:32Z",
+  "kind": "daily-profile",
+  "person_id": "edmonds",
+  "base_revision": "7f294ab707c5ffe89b0b62a003fed3a7fb7a169958a0f49d55756dea390a670a",
+  "summary": "Publish the 2026-10-06 profile of Jack Edmonds: The moment efficiency became mathematics.",
+  "profile": {
+    "name": "Jack Edmonds",
+    "born": 1934,
+    "field": "graphs",
+    "title": "The moment efficiency became mathematics",
+    "bio": "Jack Edmonds helped establish combinatorial optimization as a meeting point of graph theory, linear programming, convex geometry and algorithms. His work made efficient construction, not merely abstract existence, a central mathematical objective. [1]",
+    "formula": "matching = augmenting paths + blossoms; odd-set inequalities restore integrality",
+    "impact": "The blossom algorithm, matching polytope and matroid greedy theorem reveal three faces of a strategy: identify the obstruction, express its structure, and exploit it algorithmically.",
+    "sections": [
+      {
+        "title": "Matching: why odd cycles matter",
+        "text": "Let M be a matching in a finite loopless graph. An augmenting path alternates between edges outside and inside M, with unmatched endpoints. Flipping membership along the path produces M △ E(P), a matching with one more edge. Berge's criterion says that M is maximum exactly when no augmenting path exists.\n\nBipartite graphs allow a comparatively direct alternating search. In a general graph, the search can encounter an odd alternating cycle. Edmonds's 1965 paper Paths, Trees, and Flowers handles this obstruction by contracting an appropriately rooted blossom, continuing the search, and later expanding it to recover an augmenting path in the original graph. [2]\n\nThe matching and search-tree conditions matter: this is not permission to contract an arbitrary odd cycle. For a blossom found by the alternating search, contraction preserves the relevant augmenting-path problem. Nested blossoms can be handled recursively, giving a polynomial-time maximum-cardinality matching algorithm.\n\nThe general lesson is to compress a precisely identified obstruction while preserving the question being solved.",
+        "math": "|M △ E(P)| = |M| + 1",
+        "tex": "|M\\triangle E(P)|=|M|+1"
+      },
+      {
+        "title": "The same obstruction becomes an inequality",
+        "text": "Write a matching as its edge-incidence vector x. Every such vector satisfies x_e ≥ 0 and x(δ(v)) ≤ 1 for each vertex v. These obvious constraints are not enough: on a triangle, assigning 1/2 to each edge satisfies all vertex constraints but has total weight 3/2, whereas a matching contains at most one edge.\n\nIf S is any odd vertex set, a matching uses at most (|S|−1)/2 edges internal to S. Edmonds proved that adding all these odd-set inequalities gives exactly the convex hull of matchings. [3]\n\nThus an algorithmic obstruction and a geometric obstruction have the same origin. Blossoms explain why the alternating search needs extra machinery; odd sets explain why the first linear relaxation is fractional. This is a foundational example of polyhedral combinatorics: study the convex body whose vertices encode the desired discrete objects.",
+        "math": "P_match(G) = {x ≥ 0 : x(δ(v)) ≤ 1 for every v; x(E(S)) ≤ (|S|−1)/2 for every odd S}"
+      },
+      {
+        "title": "Matroids: when greedy is a theorem",
+        "text": "A matroid (E,I) is a finite independence system closed under taking subsets and satisfying exchange: if A,B are independent and |A| < |B|, some b in B∖A can be added to A while preserving independence.\n\nSort the elements by decreasing weight and add an element whenever independence is preserved. For a matroid this finds a maximum-weight basis, for arbitrary real weights. For maximum-weight independent sets, use nonnegative weights or skip negative-weight elements. This qualification prevents greedy from needlessly adding costly elements.\n\nThe Rado–Edmonds characterization shows that universal success of the appropriate greedy rule characterizes matroid structure among hereditary independence systems. Edmonds's 1971 paper makes the link to optimization and polyhedra explicit. [4]\n\nGraphic matroids recover the spanning-tree setting; linear matroids recover linear independence. The abstract exchange axiom explains why apparently different greedy algorithms work.",
+        "math": "A,B ∈ I and |A| < |B| ⇒ ∃b ∈ B∖A with A ∪ {b} ∈ I"
+      },
+      {
+        "title": "Why polynomial time became the standard",
+        "text": "There can be exponentially many matchings. Edmonds nevertheless looked for a procedure whose work is bounded by a polynomial in the input size. His matching papers helped turn this demand into a systematic mathematical theory of efficient combinatorial algorithms. [1,2]\n\nThis does not mean every polynomial is practical, or every exponential algorithm useless. Polynomial time is a robust structural benchmark: changing reasonable encodings and composing efficient procedures usually preserves it.\n\nThe conceptual advance is the separation of three questions: does an object exist, can a proposed answer be checked, and can a correct answer be found efficiently? Edmonds's positive algorithms complemented the later Cook–Karp program of hardness reductions."
+      },
+      {
+        "title": "The link to approximation algorithms",
+        "text": "The blossom algorithm tells us to understand the obstruction to search. The matching polytope tells us to express that obstruction by inequalities. Matroid theory tells us to locate the structural axiom behind an algorithmic principle.\n\nThese are useful guides when exact structure is lost. If a relaxation is fractional, one studies its integrality gap and rounding. If exchange is weaker, greedy may yield only an approximation. The connections to Lovász's convex methods and Goemans–Williamson rounding are conceptual reading links, not claims that one paper directly caused every later algorithm."
+      }
+    ],
+    "sources": [
+      {
+        "label": "[1] NIST: Edmonds and efficient combinatorial algorithms",
+        "url": "https://www.nist.gov/mathematics-statistics/first-mathematical-theory-efficient-combinatorial-algorithms-jack-edmonds",
+        "type": "primary source"
+      },
+      {
+        "label": "[2] Edmonds (1965), Paths, Trees, and Flowers",
+        "url": "https://doi.org/10.4153/CJM-1965-045-4",
+        "type": "primary source"
+      },
+      {
+        "label": "[3] Edmonds (1965), Maximum matching and a polyhedron with 0,1-vertices",
+        "url": "https://doi.org/10.6028/jres.069B.013",
+        "type": "primary source"
+      },
+      {
+        "label": "[4] Edmonds (1971), Matroids and the greedy algorithm",
+        "url": "https://doi.org/10.1007/BF01584082",
+        "type": "primary source"
+      }
+    ],
+    "questions": [
+      "Should the next profile stay with combinatorial optimization or return to graph limits and infinite graphs?",
+      "Would a proof-centered mathematician or someone known for a major algorithmic paradigm be more useful next?",
+      "Should the next profile go deeper into polyhedral methods, matroids, or approximation algorithms?"
+    ],
+    "extended": true,
+    "readMinutes": 6
+  },
+  "connections_add": [
+    {
+      "source": "edmonds",
+      "target": "goemans",
+      "label": "From integral polytopes to rounding",
+      "description": "Conceptual reading link: compare the exact matching polytope with the semidefinite relaxation and rounding used for MAX-CUT."
+    },
+    {
+      "source": "whitney",
+      "target": "edmonds",
+      "label": "Matroid structure and optimization",
+      "description": "Whitney’s matroid viewpoint provides the independence structure whose exchange axiom underlies the greedy optimization discussed in this profile."
+    }
+  ],
+  "article_markdown": "# Jack Edmonds — The moment efficiency became mathematics\n\nJack Edmonds helped establish combinatorial optimization as a meeting point of graph theory, linear programming, convex geometry and algorithms. His work made efficient construction, not merely abstract existence, a central mathematical objective. [1]\n\nThe blossom algorithm, matching polytope and matroid greedy theorem reveal three faces of a strategy: identify the obstruction, express its structure, and exploit it algorithmically.\n\nmatching = augmenting paths + blossoms; odd-set inequalities restore integrality\n\n## Matching: why odd cycles matter\n\nLet M be a matching in a finite loopless graph. An augmenting path alternates between edges outside and inside M, with unmatched endpoints. Flipping membership along the path produces M △ E(P), a matching with one more edge. Berge's criterion says that M is maximum exactly when no augmenting path exists.\n\nBipartite graphs allow a comparatively direct alternating search. In a general graph, the search can encounter an odd alternating cycle. Edmonds's 1965 paper Paths, Trees, and Flowers handles this obstruction by contracting an appropriately rooted blossom, continuing the search, and later expanding it to recover an augmenting path in the original graph. [2]\n\nThe matching and search-tree conditions matter: this is not permission to contract an arbitrary odd cycle. For a blossom found by the alternating search, contraction preserves the relevant augmenting-path problem. Nested blossoms can be handled recursively, giving a polynomial-time maximum-cardinality matching algorithm.\n\nThe general lesson is to compress a precisely identified obstruction while preserving the question being solved.\n\n|M △ E(P)| = |M| + 1\n\n```tex\n|M\\triangle E(P)|=|M|+1\n```\n\n## The same obstruction becomes an inequality\n\nWrite a matching as its edge-incidence vector x. Every such vector satisfies x_e ≥ 0 and x(δ(v)) ≤ 1 for each vertex v. These obvious constraints are not enough: on a triangle, assigning 1/2 to each edge satisfies all vertex constraints but has total weight 3/2, whereas a matching contains at most one edge.\n\nIf S is any odd vertex set, a matching uses at most (|S|−1)/2 edges internal to S. Edmonds proved that adding all these odd-set inequalities gives exactly the convex hull of matchings. [3]\n\nThus an algorithmic obstruction and a geometric obstruction have the same origin. Blossoms explain why the alternating search needs extra machinery; odd sets explain why the first linear relaxation is fractional. This is a foundational example of polyhedral combinatorics: study the convex body whose vertices encode the desired discrete objects.\n\nP_match(G) = {x ≥ 0 : x(δ(v)) ≤ 1 for every v; x(E(S)) ≤ (|S|−1)/2 for every odd S}\n\n## Matroids: when greedy is a theorem\n\nA matroid (E,I) is a finite independence system closed under taking subsets and satisfying exchange: if A,B are independent and |A| < |B|, some b in B∖A can be added to A while preserving independence.\n\nSort the elements by decreasing weight and add an element whenever independence is preserved. For a matroid this finds a maximum-weight basis, for arbitrary real weights. For maximum-weight independent sets, use nonnegative weights or skip negative-weight elements. This qualification prevents greedy from needlessly adding costly elements.\n\nThe Rado–Edmonds characterization shows that universal success of the appropriate greedy rule characterizes matroid structure among hereditary independence systems. Edmonds's 1971 paper makes the link to optimization and polyhedra explicit. [4]\n\nGraphic matroids recover the spanning-tree setting; linear matroids recover linear independence. The abstract exchange axiom explains why apparently different greedy algorithms work.\n\nA,B ∈ I and |A| < |B| ⇒ ∃b ∈ B∖A with A ∪ {b} ∈ I\n\n## Why polynomial time became the standard\n\nThere can be exponentially many matchings. Edmonds nevertheless looked for a procedure whose work is bounded by a polynomial in the input size. His matching papers helped turn this demand into a systematic mathematical theory of efficient combinatorial algorithms. [1,2]\n\nThis does not mean every polynomial is practical, or every exponential algorithm useless. Polynomial time is a robust structural benchmark: changing reasonable encodings and composing efficient procedures usually preserves it.\n\nThe conceptual advance is the separation of three questions: does an object exist, can a proposed answer be checked, and can a correct answer be found efficiently? Edmonds's positive algorithms complemented the later Cook–Karp program of hardness reductions.\n\n## The link to approximation algorithms\n\nThe blossom algorithm tells us to understand the obstruction to search. The matching polytope tells us to express that obstruction by inequalities. Matroid theory tells us to locate the structural axiom behind an algorithmic principle.\n\nThese are useful guides when exact structure is lost. If a relaxation is fractional, one studies its integrality gap and rounding. If exchange is weaker, greedy may yield only an approximation. The connections to Lovász's convex methods and Goemans–Williamson rounding are conceptual reading links, not claims that one paper directly caused every later algorithm.\n\n## Three directions to explore\n\n1. Should the next profile stay with combinatorial optimization or return to graph limits and infinite graphs?\n\n2. Would a proof-centered mathematician or someone known for a major algorithmic paradigm be more useful next?\n\n3. Should the next profile go deeper into polyhedral methods, matroids, or approximation algorithms?\n\n## Sources\n\n- [[1] NIST: Edmonds and efficient combinatorial algorithms](https://www.nist.gov/mathematics-statistics/first-mathematical-theory-efficient-combinatorial-algorithms-jack-edmonds)\n\n- [[2] Edmonds (1965), Paths, Trees, and Flowers](https://doi.org/10.4153/CJM-1965-045-4)\n\n- [[3] Edmonds (1965), Maximum matching and a polyhedron with 0,1-vertices](https://doi.org/10.6028/jres.069B.013)\n\n- [[4] Edmonds (1971), Matroids and the greedy algorithm](https://doi.org/10.1007/BF01584082)\n"
+}

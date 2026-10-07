@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "event_id": "daily-2026-10-05",
+  "source_key": "daily:2026-10-05",
+  "created_at": "2026-10-06T23:22:51Z",
+  "kind": "daily-profile",
+  "person_id": "ornstein",
+  "base_revision": null,
+  "summary": "Publish the 2026-10-05 profile of Donald Ornstein: When entropy classifies an infinite random system.",
+  "profile": {
+    "name": "Donald Ornstein",
+    "born": 1934,
+    "field": "analysis",
+    "aliases": [
+      "Donald S. Ornstein"
+    ],
+    "title": "When entropy classifies an infinite random system",
+    "bio": "Donald Ornstein transformed ergodic theory by proving that equal entropy is sufficient for isomorphism of Bernoulli shifts. His later work with Benjamin Weiss extended classification and finite-approximation methods to amenable-group actions. [1–3]",
+    "formula": "Bernoulli ℤ-shifts: equal entropy ⇔ measure-preserving isomorphism",
+    "impact": "The striking lesson is not that one number classifies all dynamics. It is that a complete invariant can emerge after the right structural class and the right notion of equivalence have been identified.",
+    "sections": [
+      {
+        "title": "What a Bernoulli shift is",
+        "text": "Choose a finite alphabet A with probability vector p. A point of A^ℤ is a bi-infinite sequence, sampled with independent p-distributed coordinates. The transformation T shifts each coordinate one place: (Tx)ₙ = xₙ₊₁.\n\nThe entropy of this Bernoulli system is H(p) = −Σₐ pₐ log₂ pₐ. Entropy was already known to be invariant under measure-preserving isomorphism. Ornstein's theorem proves the difficult converse within the Bernoulli class: equal base entropy implies isomorphism. [1]\n\nThus different alphabets and probability vectors can describe equivalent shift systems. The isomorphism is measurable, defined up to null sets, and intertwines the shifts. It is not asserted to be a topological conjugacy or a one-symbol recoding.",
+        "math": "h(T) = −Σₐ pₐ log₂ pₐ;  Φ ∘ T = S ∘ Φ almost everywhere."
+      },
+      {
+        "title": "Why the converse was difficult",
+        "text": "Entropy compresses a process into one asymptotic information rate. At first it provides only a necessary test: unequal values rule out isomorphism. A complete invariant requires a construction or existence argument in the opposite direction.\n\nOrnstein's machinery compares long finite blocks and increasingly accurate joinings and recodings. The important step is not simply observing that typical blocks have comparable counts. It is making successive approximations consistent enough to obtain an invertible measurable map on the infinite processes.\n\nThis is why the theorem is stronger than a counting calculation. It upgrades controlled finite approximations to an exact equivalence modulo null sets. [1,2]"
+      },
+      {
+        "title": "The d-bar viewpoint",
+        "text": "For stationary processes on a common finite alphabet, let λ range over stationary couplings with the required marginal laws. Define d-bar as the infimum of the probability of a mismatch at coordinate zero.\n\nThis compares whole processes through compatible joint distributions, not independent one-coordinate comparisons. Stationarity makes the mismatch probability representative of the mismatch rate.\n\nThe d-bar framework is one of the tools of Ornstein theory. Equal entropy does not imply d-bar distance zero between arbitrary original codings. Recoding and the special structural properties of Bernoulli processes are essential. [2]",
+        "math": "d̄(μ,ν) = inf {λ(X₀ ≠ Y₀) : λ is a stationary coupling of μ and ν}."
+      },
+      {
+        "title": "The structural hypothesis is indispensable",
+        "text": "Entropy does not classify arbitrary measure-preserving systems. A simple warning comes from finite probability spaces: the identity map and a nontrivial cyclic permutation both have zero entropy but are not isomorphic as transformations.\n\nThe Bernoulli theorem is therefore not an instruction to search for a single number and ignore structure. Its force comes from identifying a class where enough randomness is present to support a very strong classification argument.\n\nA necessary invariant, a complete invariant on one class, and a universal classification are three different achievements. Ornstein established the middle one in a major and initially unexpected setting."
+      },
+      {
+        "title": "From ℤ to amenable groups",
+        "text": "For a countable amenable group, Følner sets have small relative boundary under each fixed translation. Ornstein and Weiss used finite towers and quasi-tiling ideas to extend approximation, entropy and isomorphism theory from ℤ-actions to amenable-group actions. [3]\n\nAn informal picture is an infinite action approximated by many large finite pieces, with boundary errors controlled in measure. The precise action, freeness and measure assumptions must be retained; this is not a purely combinatorial tiling assertion.\n\nThe result connects classification with the same finite-versus-infinite theme that occurs in graph decompositions and local limits, while remaining a theorem in measured dynamics."
+      },
+      {
+        "title": "A later continuation beyond amenability",
+        "text": "Seward proved that Bernoulli shifts over any countably infinite group with equal base Shannon entropy are isomorphic, extending Ornstein's sufficiency theorem beyond the amenable case. The paper builds on work of Lewis Bowen and also treats finitary isomorphisms for finite bases. [4]\n\nThe statement here is equal entropy implies isomorphism. It should not silently be strengthened to a complete two-way entropy classification for arbitrary countable groups.\n\nThe broader methodological lesson is to separate the invariant, the structural class and the equivalence relation. Only after these are specified can approximate finite information be asked to determine an infinite object."
+      }
+    ],
+    "sources": [
+      {
+        "label": "[1] Ornstein, Bernoulli shifts with the same entropy are isomorphic (1970)",
+        "url": "https://doi.org/10.1016/0001-8708(70)90029-0",
+        "type": "primary source"
+      },
+      {
+        "label": "[2] Donald Ornstein, Ornstein Theory (author-written survey, 2008)",
+        "url": "https://www.scholarpedia.org/article/Ornstein_theorem",
+        "type": "primary source"
+      },
+      {
+        "label": "[3] Ornstein–Weiss, Entropy and isomorphism theorems for actions of amenable groups (1987)",
+        "url": "https://doi.org/10.1007/BF02790325",
+        "type": "primary source"
+      },
+      {
+        "label": "[4] Seward, Bernoulli shifts with bases of equal entropy are isomorphic (2022)",
+        "url": "https://www.aimsciences.org/article/doi/10.3934/jmd.2022011",
+        "type": "primary source"
+      }
+    ],
+    "questions": [
+      "Should the next profile follow this theory into sofic entropy and Lewis Bowen's work?",
+      "Should the next focus be property (T), expansion and rigidity rather than amenable approximation?",
+      "Would hyperfiniteness and measurable equivalence relations, with almost-finite decompositions, be the most useful continuation?"
+    ],
+    "extended": true,
+    "readMinutes": 6
+  },
+  "connections_add": [
+    {
+      "source": "ornstein",
+      "target": "weiss",
+      "label": "Amenable entropy and isomorphism",
+      "description": "Ornstein and Weiss jointly developed entropy and isomorphism theory for amenable-group actions."
+    },
+    {
+      "source": "shannon",
+      "target": "ornstein",
+      "label": "Information rate becomes an invariant",
+      "description": "Conceptual reading link: Shannon entropy of the base distribution is the complete invariant for classical Bernoulli ℤ-shifts."
+    },
+    {
+      "source": "ornstein",
+      "target": "aldous",
+      "label": "Different uses of finite approximation",
+      "description": "Conceptual reading link: contrast classification by compatible process approximations with Aldous's objective method for asymptotic optimization."
+    }
+  ],
+  "article_markdown": "# Donald Ornstein — When entropy classifies an infinite random system\n\nDonald Ornstein transformed ergodic theory by proving that equal entropy is sufficient for isomorphism of Bernoulli shifts. His later work with Benjamin Weiss extended classification and finite-approximation methods to amenable-group actions. [1–3]\n\nThe striking lesson is not that one number classifies all dynamics. It is that a complete invariant can emerge after the right structural class and the right notion of equivalence have been identified.\n\nBernoulli ℤ-shifts: equal entropy ⇔ measure-preserving isomorphism\n\n## What a Bernoulli shift is\n\nChoose a finite alphabet A with probability vector p. A point of A^ℤ is a bi-infinite sequence, sampled with independent p-distributed coordinates. The transformation T shifts each coordinate one place: (Tx)ₙ = xₙ₊₁.\n\nThe entropy of this Bernoulli system is H(p) = −Σₐ pₐ log₂ pₐ. Entropy was already known to be invariant under measure-preserving isomorphism. Ornstein's theorem proves the difficult converse within the Bernoulli class: equal base entropy implies isomorphism. [1]\n\nThus different alphabets and probability vectors can describe equivalent shift systems. The isomorphism is measurable, defined up to null sets, and intertwines the shifts. It is not asserted to be a topological conjugacy or a one-symbol recoding.\n\nh(T) = −Σₐ pₐ log₂ pₐ;  Φ ∘ T = S ∘ Φ almost everywhere.\n\n## Why the converse was difficult\n\nEntropy compresses a process into one asymptotic information rate. At first it provides only a necessary test: unequal values rule out isomorphism. A complete invariant requires a construction or existence argument in the opposite direction.\n\nOrnstein's machinery compares long finite blocks and increasingly accurate joinings and recodings. The important step is not simply observing that typical blocks have comparable counts. It is making successive approximations consistent enough to obtain an invertible measurable map on the infinite processes.\n\nThis is why the theorem is stronger than a counting calculation. It upgrades controlled finite approximations to an exact equivalence modulo null sets. [1,2]\n\n## The d-bar viewpoint\n\nFor stationary processes on a common finite alphabet, let λ range over stationary couplings with the required marginal laws. Define d-bar as the infimum of the probability of a mismatch at coordinate zero.\n\nThis compares whole processes through compatible joint distributions, not independent one-coordinate comparisons. Stationarity makes the mismatch probability representative of the mismatch rate.\n\nThe d-bar framework is one of the tools of Ornstein theory. Equal entropy does not imply d-bar distance zero between arbitrary original codings. Recoding and the special structural properties of Bernoulli processes are essential. [2]\n\nd̄(μ,ν) = inf {λ(X₀ ≠ Y₀) : λ is a stationary coupling of μ and ν}.\n\n## The structural hypothesis is indispensable\n\nEntropy does not classify arbitrary measure-preserving systems. A simple warning comes from finite probability spaces: the identity map and a nontrivial cyclic permutation both have zero entropy but are not isomorphic as transformations.\n\nThe Bernoulli theorem is therefore not an instruction to search for a single number and ignore structure. Its force comes from identifying a class where enough randomness is present to support a very strong classification argument.\n\nA necessary invariant, a complete invariant on one class, and a universal classification are three different achievements. Ornstein established the middle one in a major and initially unexpected setting.\n\n## From ℤ to amenable groups\n\nFor a countable amenable group, Følner sets have small relative boundary under each fixed translation. Ornstein and Weiss used finite towers and quasi-tiling ideas to extend approximation, entropy and isomorphism theory from ℤ-actions to amenable-group actions. [3]\n\nAn informal picture is an infinite action approximated by many large finite pieces, with boundary errors controlled in measure. The precise action, freeness and measure assumptions must be retained; this is not a purely combinatorial tiling assertion.\n\nThe result connects classification with the same finite-versus-infinite theme that occurs in graph decompositions and local limits, while remaining a theorem in measured dynamics.\n\n## A later continuation beyond amenability\n\nSeward proved that Bernoulli shifts over any countably infinite group with equal base Shannon entropy are isomorphic, extending Ornstein's sufficiency theorem beyond the amenable case. The paper builds on work of Lewis Bowen and also treats finitary isomorphisms for finite bases. [4]\n\nThe statement here is equal entropy implies isomorphism. It should not silently be strengthened to a complete two-way entropy classification for arbitrary countable groups.\n\nThe broader methodological lesson is to separate the invariant, the structural class and the equivalence relation. Only after these are specified can approximate finite information be asked to determine an infinite object.\n\n## Three directions to explore\n\n1. Should the next profile follow this theory into sofic entropy and Lewis Bowen's work?\n\n2. Should the next focus be property (T), expansion and rigidity rather than amenable approximation?\n\n3. Would hyperfiniteness and measurable equivalence relations, with almost-finite decompositions, be the most useful continuation?\n\n## Sources\n\n- [[1] Ornstein, Bernoulli shifts with the same entropy are isomorphic (1970)](https://doi.org/10.1016/0001-8708(70)90029-0)\n\n- [[2] Donald Ornstein, Ornstein Theory (author-written survey, 2008)](https://www.scholarpedia.org/article/Ornstein_theorem)\n\n- [[3] Ornstein–Weiss, Entropy and isomorphism theorems for actions of amenable groups (1987)](https://doi.org/10.1007/BF02790325)\n\n- [[4] Seward, Bernoulli shifts with bases of equal entropy are isomorphic (2022)](https://www.aimsciences.org/article/doi/10.3934/jmd.2022011)\n"
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "event_id": "daily-2026-10-02",
+  "source_key": "daily:2026-10-02",
+  "created_at": "2026-10-06T23:21:32Z",
+  "kind": "daily-profile",
+  "person_id": "schramm",
+  "base_revision": null,
+  "summary": "Publish the 2026-10-02 profile of Oded Schramm: From local graph limits to stochastic geometry.",
+  "profile": {
+    "name": "Oded Schramm",
+    "born": 1961,
+    "field": "analysis",
+    "title": "From local graph limits to stochastic geometry",
+    "bio": "Oded Schramm (1961–2008) connected probability, conformal geometry and combinatorics. His work on Schramm–Loewner evolution and on sparse graph limits gave different ways to understand large discrete structures through limiting objects. [1–5]",
+    "formula": "∂ₜgₜ(z) = 2 / (gₜ(z) − √κ Bₜ)",
+    "tex": "\\partial_t g_t(z)=\\frac{2}{g_t(z)-\\sqrt{\\kappa}B_t}",
+    "impact": "A common theme is to identify which structure survives a limit, then use that structure to obtain information invisible in any individual finite neighborhood.",
+    "sections": [
+      {
+        "title": "A random curve encoded by Brownian motion",
+        "text": "The chordal Loewner equation describes a growing planar hull by a real-valued driving function ξₜ. Schramm's insight was that conformal invariance, an appropriate domain Markov property and symmetry put strong restrictions on the driving process. In the standard normalization the resulting family has ξₜ = √κ Bₜ, with B standard Brownian motion.\n\nThis does not mean every random planar curve is SLE, or that conformal invariance alone proves convergence of a discrete model. Schramm's initial work proposed and characterized scaling limits in the loop-erased random walk and uniform spanning tree setting. Lawler, Schramm and Werner subsequently established convergence to SLE₂ for planar loop-erased random walk, and to SLE₈ for the uniform-spanning-tree Peano curve under appropriate boundary conditions. [1,2]\n\nThe change of language is the breakthrough: a fractal geometric object can be analyzed using a one-dimensional stochastic process and complex analysis."
+      },
+      {
+        "title": "What a typical vertex sees",
+        "text": "For a finite graph Gₙ, choose a root oₙ uniformly from its vertices. With a common degree bound, local weak convergence means that for every fixed radius r and finite rooted ball H, the probability that Bᵣ(Gₙ,oₙ) is isomorphic to H converges.\n\nThis records rooted neighborhood distributions, not a vertex-by-vertex identification of successive graphs. The limit may be supported on finite components; an infinite limit needs additional conditions. Benjamini–Schramm convergence became a central language for sparse graph limits. [3]\n\nThe distinction from a metric scaling limit is important. SLE and continuum trees involve rescaling geometry; local weak convergence keeps the graph-distance scale fixed and samples a typical neighborhood.",
+        "math": "Pr[Bᵣ(Gₙ,oₙ) ≅ H] → Pr[Bᵣ(G,o) ≅ H]"
+      },
+      {
+        "title": "A global conclusion from planar finite approximants",
+        "text": "Benjamini and Schramm proved that a distributional limit of uniformly rooted finite connected planar graphs, with uniformly bounded degrees, is almost surely recurrent for simple random walk. [3]\n\nRecurrence is an infinite-time statement: a walk returns to its starting point almost surely. No fixed-radius inspection decides it in general. The theorem obtains it from the combination of local convergence, planarity and the way the finite root is sampled.\n\nCircle packing is an essential geometric ingredient. The conclusion is not that every bounded-degree infinite planar graph is recurrent: regular trees supply counterexamples. Being a limit of the specified finite planar graphs imposes additional restrictions."
+      },
+      {
+        "title": "Hyperfiniteness: cutting into uniformly small pieces",
+        "text": "Following Elek's terminology, a bounded-degree finite graph family is hyperfinite if for every ε > 0 there is a finite k(ε) such that every graph in the family can be split into components of at most k(ε) vertices by removing at most ε|V| edges.\n\nSchramm extended this notion to the space of random rooted limits and proved a transfer theorem: if a sequence of finite bounded-degree graphs converges to a hyperfinite limit, then the sequence is a hyperfinite family. [4]\n\nThe uniform quantifiers matter. Merely saying that each individual finite graph can be partitioned into finite pieces is vacuous. A single component-size bound must work across the entire family, once ε is fixed. The random-rooted definition also requires a compatible invariant probabilistic deletion rule, not arbitrary root-dependent choices.",
+        "math": "∀ε > 0 ∃k < ∞ ∀G in the family: deleting ≤ ε|V(G)| edges leaves components of size ≤ k."
+      },
+      {
+        "title": "From graph limits to algorithms",
+        "text": "With Itai Benjamini and Asaf Shapira, Schramm proved that every minor-closed graph property is testable with a number of queries independent of the graph's size in the bounded-degree model. The query bound may depend on the degree bound and the distance parameter ε. [5]\n\nA property tester distinguishes graphs satisfying the property from graphs requiring many edge changes to satisfy it, with bounded error. It does not decide exact membership on all graphs after inspecting a constant number of vertices. That promise gap is what makes local sampling useful.\n\nThese results show a recurring pattern: local statistics alone can forget important global features, but local statistics together with the right structural restrictions can yield both infinite probabilistic conclusions and finite algorithmic guarantees."
+      }
+    ],
+    "sources": [
+      {
+        "label": "[1] Schramm, Scaling limits of loop-erased random walks and uniform spanning trees",
+        "url": "https://arxiv.org/abs/math/9904022",
+        "type": "primary source"
+      },
+      {
+        "label": "[2] Lawler–Schramm–Werner, Conformal invariance of planar loop-erased random walks and uniform spanning trees",
+        "url": "https://arxiv.org/abs/math/0112234",
+        "type": "primary source"
+      },
+      {
+        "label": "[3] Benjamini–Schramm, Recurrence of distributional limits of finite planar graphs",
+        "url": "https://arxiv.org/abs/math/0011019",
+        "type": "primary source"
+      },
+      {
+        "label": "[4] Schramm, Hyperfinite graph limits",
+        "url": "https://arxiv.org/abs/0711.3808",
+        "type": "primary source"
+      },
+      {
+        "label": "[5] Benjamini–Schramm–Shapira, Every minor-closed property of sparse graphs is testable",
+        "url": "https://arxiv.org/abs/0801.2797",
+        "type": "primary source"
+      }
+    ],
+    "questions": [
+      "Should the next profile stay with local-to-global graph limits, especially hyperfiniteness and graphings?",
+      "Would a proof sketch of the hyperfinite-limit theorem be more useful than another broad biography?",
+      "Should the next person come from the sofic-group side, Borel-graph side, or sparse property-testing side?"
+    ],
+    "extended": true,
+    "readMinutes": 6
+  },
+  "connections_add": [
+    {
+      "source": "schramm",
+      "target": "aldous",
+      "label": "Two views of random limits",
+      "description": "Conceptual reading link: compare Benjamini–Schramm neighborhood limits with Aldous's objective method and continuum random tree."
+    },
+    {
+      "source": "schramm",
+      "target": "lyons",
+      "label": "Random rooted networks",
+      "description": "Conceptual reading link: local weak limits of finite graphs satisfy the mass-transport identities developed systematically by Aldous and Lyons."
+    }
+  ],
+  "article_markdown": "# Oded Schramm — From local graph limits to stochastic geometry\n\nOded Schramm (1961–2008) connected probability, conformal geometry and combinatorics. His work on Schramm–Loewner evolution and on sparse graph limits gave different ways to understand large discrete structures through limiting objects. [1–5]\n\nA common theme is to identify which structure survives a limit, then use that structure to obtain information invisible in any individual finite neighborhood.\n\n∂ₜgₜ(z) = 2 / (gₜ(z) − √κ Bₜ)\n\n## A random curve encoded by Brownian motion\n\nThe chordal Loewner equation describes a growing planar hull by a real-valued driving function ξₜ. Schramm's insight was that conformal invariance, an appropriate domain Markov property and symmetry put strong restrictions on the driving process. In the standard normalization the resulting family has ξₜ = √κ Bₜ, with B standard Brownian motion.\n\nThis does not mean every random planar curve is SLE, or that conformal invariance alone proves convergence of a discrete model. Schramm's initial work proposed and characterized scaling limits in the loop-erased random walk and uniform spanning tree setting. Lawler, Schramm and Werner subsequently established convergence to SLE₂ for planar loop-erased random walk, and to SLE₈ for the uniform-spanning-tree Peano curve under appropriate boundary conditions. [1,2]\n\nThe change of language is the breakthrough: a fractal geometric object can be analyzed using a one-dimensional stochastic process and complex analysis.\n\n## What a typical vertex sees\n\nFor a finite graph Gₙ, choose a root oₙ uniformly from its vertices. With a common degree bound, local weak convergence means that for every fixed radius r and finite rooted ball H, the probability that Bᵣ(Gₙ,oₙ) is isomorphic to H converges.\n\nThis records rooted neighborhood distributions, not a vertex-by-vertex identification of successive graphs. The limit may be supported on finite components; an infinite limit needs additional conditions. Benjamini–Schramm convergence became a central language for sparse graph limits. [3]\n\nThe distinction from a metric scaling limit is important. SLE and continuum trees involve rescaling geometry; local weak convergence keeps the graph-distance scale fixed and samples a typical neighborhood.\n\nPr[Bᵣ(Gₙ,oₙ) ≅ H] → Pr[Bᵣ(G,o) ≅ H]\n\n## A global conclusion from planar finite approximants\n\nBenjamini and Schramm proved that a distributional limit of uniformly rooted finite connected planar graphs, with uniformly bounded degrees, is almost surely recurrent for simple random walk. [3]\n\nRecurrence is an infinite-time statement: a walk returns to its starting point almost surely. No fixed-radius inspection decides it in general. The theorem obtains it from the combination of local convergence, planarity and the way the finite root is sampled.\n\nCircle packing is an essential geometric ingredient. The conclusion is not that every bounded-degree infinite planar graph is recurrent: regular trees supply counterexamples. Being a limit of the specified finite planar graphs imposes additional restrictions.\n\n## Hyperfiniteness: cutting into uniformly small pieces\n\nFollowing Elek's terminology, a bounded-degree finite graph family is hyperfinite if for every ε > 0 there is a finite k(ε) such that every graph in the family can be split into components of at most k(ε) vertices by removing at most ε|V| edges.\n\nSchramm extended this notion to the space of random rooted limits and proved a transfer theorem: if a sequence of finite bounded-degree graphs converges to a hyperfinite limit, then the sequence is a hyperfinite family. [4]\n\nThe uniform quantifiers matter. Merely saying that each individual finite graph can be partitioned into finite pieces is vacuous. A single component-size bound must work across the entire family, once ε is fixed. The random-rooted definition also requires a compatible invariant probabilistic deletion rule, not arbitrary root-dependent choices.\n\n∀ε > 0 ∃k < ∞ ∀G in the family: deleting ≤ ε|V(G)| edges leaves components of size ≤ k.\n\n## From graph limits to algorithms\n\nWith Itai Benjamini and Asaf Shapira, Schramm proved that every minor-closed graph property is testable with a number of queries independent of the graph's size in the bounded-degree model. The query bound may depend on the degree bound and the distance parameter ε. [5]\n\nA property tester distinguishes graphs satisfying the property from graphs requiring many edge changes to satisfy it, with bounded error. It does not decide exact membership on all graphs after inspecting a constant number of vertices. That promise gap is what makes local sampling useful.\n\nThese results show a recurring pattern: local statistics alone can forget important global features, but local statistics together with the right structural restrictions can yield both infinite probabilistic conclusions and finite algorithmic guarantees.\n\n## Three directions to explore\n\n1. Should the next profile stay with local-to-global graph limits, especially hyperfiniteness and graphings?\n\n2. Would a proof sketch of the hyperfinite-limit theorem be more useful than another broad biography?\n\n3. Should the next person come from the sofic-group side, Borel-graph side, or sparse property-testing side?\n\n## Sources\n\n- [[1] Schramm, Scaling limits of loop-erased random walks and uniform spanning trees](https://arxiv.org/abs/math/9904022)\n\n- [[2] Lawler–Schramm–Werner, Conformal invariance of planar loop-erased random walks and uniform spanning trees](https://arxiv.org/abs/math/0112234)\n\n- [[3] Benjamini–Schramm, Recurrence of distributional limits of finite planar graphs](https://arxiv.org/abs/math/0011019)\n\n- [[4] Schramm, Hyperfinite graph limits](https://arxiv.org/abs/0711.3808)\n\n- [[5] Benjamini–Schramm–Shapira, Every minor-closed property of sparse graphs is testable](https://arxiv.org/abs/0801.2797)\n"
+}

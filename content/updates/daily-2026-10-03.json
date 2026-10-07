@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "event_id": "daily-2026-10-03",
+  "source_key": "daily:2026-10-03",
+  "created_at": "2026-10-06T23:21:32Z",
+  "kind": "daily-profile",
+  "person_id": "kechris",
+  "base_revision": null,
+  "summary": "Publish the 2026-10-03 profile of Alexander S. Kechris: When definability changes the combinatorics.",
+  "profile": {
+    "name": "Alexander S. Kechris",
+    "born": 1946,
+    "field": "logic",
+    "aliases": [
+      "Alexander Kechris"
+    ],
+    "title": "When definability changes the combinatorics",
+    "bio": "Alexander S. Kechris helped develop descriptive set theory as a framework for classification, group actions and infinite combinatorics. His work with Solecki and Todorčević made Borel graph coloring a central example of how requiring definable solutions changes a combinatorial problem. [1,2]",
+    "formula": "ordinary existence ≠ Borel existence",
+    "impact": "Definability is an additional mathematical constraint, not an automatic by-product of an existence theorem. This distinction is essential in graphings and measurable dynamics.",
+    "sections": [
+      {
+        "title": "A coloring must be a definable function",
+        "text": "Let X be a standard Borel space and E ⊆ X×X an irreflexive symmetric Borel relation. An ordinary proper coloring is any function assigning different colors to adjacent points. A Borel coloring must additionally be Borel measurable.\n\nEvery acyclic graph is combinatorially 2-colorable. Yet acyclic Borel graphs can fail to have even a countable Borel coloring. A choice of a bipartition in each component may exist abstractly without being selectable in a Borel fashion across all components.\n\nKechris, Solecki and Todorčević's Borel Chromatic Numbers systematically develops this difference. Their bounded-degree theorem gives a contrasting positive result: a Borel graph of finite maximum degree d admits a Borel proper coloring with d+1 colors. [1]",
+        "math": "c is proper ⇔ xEy implies c(x) ≠ c(y)."
+      },
+      {
+        "title": "The G₀ dichotomy",
+        "text": "The same paper identifies a fixed analytic graph G₀ on Cantor space with a universal obstruction property. For an analytic graph on a Polish space, either it has a countable Borel coloring, or G₀ admits a continuous graph homomorphism into it. The alternatives are mutually exclusive. [1]\n\nThis is not a literal forbidden-subgraph characterization. A continuous homomorphism need not be injective and need not preserve nonedges. Its job is to transfer adjacency and the obstruction to countable Borel colorability.\n\nThe methodological change is important: a definable reduction, rather than literal containment, can be the right way to compare the complexity of infinite structures.",
+        "math": "countable Borel coloring  OR  a continuous homomorphism G₀ → G"
+      },
+      {
+        "title": "Orbit equivalence and graphings",
+        "text": "A countable group Γ acting by Borel automorphisms on X defines an orbit equivalence relation: x and y are related when y = γx for some γ in Γ. A generating set gives a graph connecting x to its generator translates; connected components are the orbits.\n\nA probability-preserving action can also supply a measured graphing. The measure-preserving hypothesis is essential: an arbitrary Borel action on a standard Borel space is not automatically a probability graphing.\n\nKechris and Benjamin Miller's Topics in Orbit Equivalence develops hyperfiniteness, amenability and cost in this setting, including the relation between Borel statements and measure-theoretic statements. [2]",
+        "math": "x EΓ y ⇔ ∃γ ∈ Γ such that γx = y"
+      },
+      {
+        "title": "What hyperfinite means here",
+        "text": "A countable Borel equivalence relation E is hyperfinite when it is the increasing union of finite Borel equivalence relations Eₙ. Finite here means that every Eₙ-class is finite; there need not be one bound on their sizes. [2]\n\nThis resembles cutting finite graphs into small components, but the definitions live in different categories. Borel hyperfiniteness is a statement on the whole space. Measured hyperfiniteness may disregard a null exceptional set. Finite-graph hyperfiniteness asks for uniform small-component bounds after deleting a small fraction of edges.\n\nConnections between these notions require the relevant hypotheses. They should not be identified merely because all three involve finite pieces.",
+        "math": "E₁ ⊆ E₂ ⊆ ⋯ and E = ⋃ₙ Eₙ"
+      },
+      {
+        "title": "The two separate local-to-global problems",
+        "text": "For infinite graphs, one question is whether local constraints permit a global matching, coloring or decomposition. Another is whether that global solution can be selected with the required regularity.\n\nBorel, measurable for a specified measure, and Baire measurable for a specified topology are different requirements. A Borel solution meets the corresponding measurability requirements, but abstract existence alone supplies none of them. Working outside a null or meager exceptional set changes the assertion again.\n\nKechris's broader framework is to code objects in standard Borel or Polish spaces, formulate the regularity requirement precisely, and compare obstructions through definable maps. This makes it possible to distinguish combinatorial impossibility from the failure of definable choice. [1,2]"
+      }
+    ],
+    "sources": [
+      {
+        "label": "[1] Kechris–Solecki–Todorčević, Borel Chromatic Numbers (1999)",
+        "url": "https://authors.library.caltech.edu/records/mbe97-y1b24",
+        "type": "primary source"
+      },
+      {
+        "label": "[2] Kechris–Miller, Topics in Orbit Equivalence (2004)",
+        "url": "https://link.springer.com/book/10.1007/b99421",
+        "type": "primary source"
+      }
+    ],
+    "questions": [
+      "Should the next profile continue into Borel graph theory or return to graph limits?",
+      "Would a worked proof of one Borel-combinatorics theorem be more useful than a broad biography?",
+      "Should the next focus be Borel versus measurable and Baire-measurable phenomena, or finite approximability and soficity?"
+    ],
+    "extended": true,
+    "readMinutes": 6
+  },
+  "connections_add": [
+    {
+      "source": "kechris",
+      "target": "gaifman",
+      "label": "Two different logical constraints",
+      "description": "Conceptual reading link: Gaifman locality concerns first-order descriptions, whereas Borel combinatorics constrains the definability of global solutions."
+    },
+    {
+      "source": "kechris",
+      "target": "schramm",
+      "label": "Which hyperfiniteness?",
+      "description": "Conceptual reading link: compare finite graph decompositions, random rooted limits, and Borel or measured equivalence relations without conflating their definitions."
+    }
+  ],
+  "article_markdown": "# Alexander S. Kechris — When definability changes the combinatorics\n\nAlexander S. Kechris helped develop descriptive set theory as a framework for classification, group actions and infinite combinatorics. His work with Solecki and Todorčević made Borel graph coloring a central example of how requiring definable solutions changes a combinatorial problem. [1,2]\n\nDefinability is an additional mathematical constraint, not an automatic by-product of an existence theorem. This distinction is essential in graphings and measurable dynamics.\n\nordinary existence ≠ Borel existence\n\n## A coloring must be a definable function\n\nLet X be a standard Borel space and E ⊆ X×X an irreflexive symmetric Borel relation. An ordinary proper coloring is any function assigning different colors to adjacent points. A Borel coloring must additionally be Borel measurable.\n\nEvery acyclic graph is combinatorially 2-colorable. Yet acyclic Borel graphs can fail to have even a countable Borel coloring. A choice of a bipartition in each component may exist abstractly without being selectable in a Borel fashion across all components.\n\nKechris, Solecki and Todorčević's Borel Chromatic Numbers systematically develops this difference. Their bounded-degree theorem gives a contrasting positive result: a Borel graph of finite maximum degree d admits a Borel proper coloring with d+1 colors. [1]\n\nc is proper ⇔ xEy implies c(x) ≠ c(y).\n\n## The G₀ dichotomy\n\nThe same paper identifies a fixed analytic graph G₀ on Cantor space with a universal obstruction property. For an analytic graph on a Polish space, either it has a countable Borel coloring, or G₀ admits a continuous graph homomorphism into it. The alternatives are mutually exclusive. [1]\n\nThis is not a literal forbidden-subgraph characterization. A continuous homomorphism need not be injective and need not preserve nonedges. Its job is to transfer adjacency and the obstruction to countable Borel colorability.\n\nThe methodological change is important: a definable reduction, rather than literal containment, can be the right way to compare the complexity of infinite structures.\n\ncountable Borel coloring  OR  a continuous homomorphism G₀ → G\n\n## Orbit equivalence and graphings\n\nA countable group Γ acting by Borel automorphisms on X defines an orbit equivalence relation: x and y are related when y = γx for some γ in Γ. A generating set gives a graph connecting x to its generator translates; connected components are the orbits.\n\nA probability-preserving action can also supply a measured graphing. The measure-preserving hypothesis is essential: an arbitrary Borel action on a standard Borel space is not automatically a probability graphing.\n\nKechris and Benjamin Miller's Topics in Orbit Equivalence develops hyperfiniteness, amenability and cost in this setting, including the relation between Borel statements and measure-theoretic statements. [2]\n\nx EΓ y ⇔ ∃γ ∈ Γ such that γx = y\n\n## What hyperfinite means here\n\nA countable Borel equivalence relation E is hyperfinite when it is the increasing union of finite Borel equivalence relations Eₙ. Finite here means that every Eₙ-class is finite; there need not be one bound on their sizes. [2]\n\nThis resembles cutting finite graphs into small components, but the definitions live in different categories. Borel hyperfiniteness is a statement on the whole space. Measured hyperfiniteness may disregard a null exceptional set. Finite-graph hyperfiniteness asks for uniform small-component bounds after deleting a small fraction of edges.\n\nConnections between these notions require the relevant hypotheses. They should not be identified merely because all three involve finite pieces.\n\nE₁ ⊆ E₂ ⊆ ⋯ and E = ⋃ₙ Eₙ\n\n## The two separate local-to-global problems\n\nFor infinite graphs, one question is whether local constraints permit a global matching, coloring or decomposition. Another is whether that global solution can be selected with the required regularity.\n\nBorel, measurable for a specified measure, and Baire measurable for a specified topology are different requirements. A Borel solution meets the corresponding measurability requirements, but abstract existence alone supplies none of them. Working outside a null or meager exceptional set changes the assertion again.\n\nKechris's broader framework is to code objects in standard Borel or Polish spaces, formulate the regularity requirement precisely, and compare obstructions through definable maps. This makes it possible to distinguish combinatorial impossibility from the failure of definable choice. [1,2]\n\n## Three directions to explore\n\n1. Should the next profile continue into Borel graph theory or return to graph limits?\n\n2. Would a worked proof of one Borel-combinatorics theorem be more useful than a broad biography?\n\n3. Should the next focus be Borel versus measurable and Baire-measurable phenomena, or finite approximability and soficity?\n\n## Sources\n\n- [[1] Kechris–Solecki–Todorčević, Borel Chromatic Numbers (1999)](https://authors.library.caltech.edu/records/mbe97-y1b24)\n\n- [[2] Kechris–Miller, Topics in Orbit Equivalence (2004)](https://link.springer.com/book/10.1007/b99421)\n"
+}

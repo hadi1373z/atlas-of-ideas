@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "event_id": "daily-2026-10-01",
+  "source_key": "daily:2026-10-01",
+  "created_at": "2026-10-06T23:17:58Z",
+  "kind": "daily-profile",
+  "person_id": "aldous",
+  "base_revision": null,
+  "summary": "Publish the 2026-10-01 profile of David Aldous: Turning finite graphs into infinite probability objects.",
+  "profile": {
+    "name": "David Aldous",
+    "born": 1952,
+    "field": "analysis",
+    "title": "Turning finite graphs into infinite probability objects",
+    "bio": "David Aldous is a probabilist known for exchangeability, Markov chains, continuum random trees and local weak limits. His objective method uses an infinite random limit to study asymptotic questions about large finite combinatorial structures. [1,2]",
+    "formula": "(Gₙ,oₙ) → (G,o) locally; E[Aₙ] → ζ(2) = π²/6",
+    "impact": "The objective method can turn a globally coupled finite optimization problem into a recursive problem on an infinite object, provided the transfer back to finite systems is rigorously justified.",
+    "sections": [
+      {
+        "title": "What a typical vertex sees",
+        "text": "Choose a vertex oₙ uniformly from a finite graph Gₙ. Local weak convergence means that for every fixed radius r, the distribution of the rooted ball B_r(Gₙ,oₙ) converges. In bounded-degree unmarked graphs these distributions can be expressed using finite rooted isomorphism types. Weighted networks require the corresponding marked topology.\n\nThe limiting object is a law on rooted graphs, not necessarily one deterministic graph. If component sizes grow appropriately the limit can be infinite; growing total vertex count alone does not ensure this. A disjoint union of triangles can have arbitrarily many vertices while its rooted local limit is still a triangle.\n\nAldous's objective method asks which finite questions become easier on this limit, then proves a transfer theorem. Local convergence by itself is not such a transfer theorem. [2]",
+        "math": "Pr[B_r(Gₙ,oₙ) ≅ H] → Pr[B_r(G,o) ≅ H]"
+      },
+      {
+        "title": "The random assignment problem",
+        "text": "Let c(i,j) be independent exponential random variables of mean one, for 1 ≤ i,j ≤ n. Define Aₙ as the minimum of Σᵢ c(i,π(i)) over permutations π. Each cheap choice competes with all choices in the same row and column, so the objective is globally coupled.\n\nAldous proved that E[Aₙ] tends to ζ(2) = π²/6. His construction solves a matching problem on the Poisson weighted infinite tree, an infinite limit that exposes a recursive structure absent from the original matrix. The result also describes edge costs in optimal assignments and an essential uniqueness property for near-optimal matchings. [3]\n\nThe lesson is not that every global optimization parameter is local. It is that a particular infinite model can organize a proof of its asymptotics, with substantial work needed to justify convergence of optimal solutions and costs.",
+        "math": "Aₙ = min_π Σᵢ c(i,π(i)); lim E[Aₙ] = π²/6"
+      },
+      {
+        "title": "The continuum random tree",
+        "text": "For a critical Galton–Watson tree conditioned to have n vertices, with finite nonzero offspring variance, distances typically scale as √n. After rescaling, the trees converge to a Brownian continuum random tree, up to the variance-dependent scale factor. [4]\n\nA Brownian excursion e on [0,1] constructs the limit through the pseudometric d(s,t)=e(s)+e(t)−2 min e(u), where the minimum is over u between s and t. Identify pairs at distance zero to obtain a genuine real tree.\n\nThis is a scaling limit, not the same object as a fixed-radius local weak limit. The continuum tree retains rescaled metric shape and a mass measure. The distinction gives a useful example of two different limit procedures applied to discrete trees.",
+        "math": "d(s,t) = e(s)+e(t)−2 min{e(u): min(s,t) ≤ u ≤ max(s,t)}"
+      },
+      {
+        "title": "Mass transport and finite approximability",
+        "text": "Aldous and Lyons formulated unimodular random networks using an invariant mass-transport identity. For every nonnegative invariant transport f, expected total mass sent from the root equals expected total mass received there. Finite uniformly rooted graphs satisfy the identity by double counting, and their local weak limits do too. [5]\n\nThe identity is necessary for finite approximation, but it does not by itself construct an approximating sequence. Probability laws of unmarked rooted components also forget some information carried by a particular graphing, such as the organization of measurable colorings.\n\nThis gives three distinct tasks: define the local limit, identify its invariant consistency laws, and establish an actual finite realization theorem. They should not be collapsed into one claim.",
+        "math": "E[Σᵥ f(G,o,v)] = E[Σᵥ f(G,v,o)]"
+      },
+      {
+        "title": "What the objective method does not promise",
+        "text": "Two locally convergent sequences can have the same unmarked rooted limit while differing in important global behavior. For instance, putting two large pieces next to each other with very few connecting edges creates a global bottleneck that typical fixed-radius observations may miss.\n\nAccordingly, possible tools such as spectral control, decomposition, couplings or local–global information need to be matched to the parameter under investigation. The research suggestion is to identify the exact additional hypothesis that makes a chosen global quantity transfer, not to assume all finite approximability is captured by one extra number."
+      }
+    ],
+    "sources": [
+      {
+        "label": "[1] Berkeley: David Aldous",
+        "url": "https://statistics.berkeley.edu/people/david-aldous",
+        "type": "primary source"
+      },
+      {
+        "label": "[2] Aldous–Steele, The objective method",
+        "url": "https://doi.org/10.1007/978-3-662-09444-0_1",
+        "type": "primary source"
+      },
+      {
+        "label": "[3] Aldous, The zeta(2) limit in the random assignment problem",
+        "url": "https://arxiv.org/abs/math/0010063",
+        "type": "primary source"
+      },
+      {
+        "label": "[4] Aldous: The Continuum Random Tree",
+        "url": "https://www.stat.berkeley.edu/~aldous/Research/research-crt.html",
+        "type": "primary source"
+      },
+      {
+        "label": "[5] Aldous–Lyons, Processes on Unimodular Random Networks",
+        "url": "https://arxiv.org/abs/math/0603062",
+        "type": "primary source"
+      }
+    ],
+    "questions": [
+      "Should the next profile focus on local–global convergence and graphings rather than ordinary local weak convergence?",
+      "Would a concrete mass-transport proof be the best way to clarify what unimodularity does and does not enforce?",
+      "Should the next mathematician come from probability and unimodularity or the group-theoretic side of soficity?"
+    ],
+    "extended": true,
+    "readMinutes": 6
+  },
+  "connections_add": [
+    {
+      "source": "aldous",
+      "target": "lyons",
+      "label": "Unimodular random networks",
+      "description": "Documented collaboration: Aldous and Lyons developed the theory in Processes on Unimodular Random Networks."
+    },
+    {
+      "source": "aldous",
+      "target": "gromov",
+      "label": "Two notions of limit",
+      "description": "Conceptual reading link: compare probabilistic local limits with rescaled metric limits such as the continuum random tree."
+    },
+    {
+      "source": "edmonds",
+      "target": "aldous",
+      "label": "Matching: algorithms and random asymptotics",
+      "description": "Conceptual reading link: exact finite matching algorithms and the infinite-tree analysis of random assignment answer different questions about matching."
+    }
+  ],
+  "article_markdown": "# David Aldous — Turning finite graphs into infinite probability objects\n\nDavid Aldous is a probabilist known for exchangeability, Markov chains, continuum random trees and local weak limits. His objective method uses an infinite random limit to study asymptotic questions about large finite combinatorial structures. [1,2]\n\nThe objective method can turn a globally coupled finite optimization problem into a recursive problem on an infinite object, provided the transfer back to finite systems is rigorously justified.\n\n(Gₙ,oₙ) → (G,o) locally; E[Aₙ] → ζ(2) = π²/6\n\n## What a typical vertex sees\n\nChoose a vertex oₙ uniformly from a finite graph Gₙ. Local weak convergence means that for every fixed radius r, the distribution of the rooted ball B_r(Gₙ,oₙ) converges. In bounded-degree unmarked graphs these distributions can be expressed using finite rooted isomorphism types. Weighted networks require the corresponding marked topology.\n\nThe limiting object is a law on rooted graphs, not necessarily one deterministic graph. If component sizes grow appropriately the limit can be infinite; growing total vertex count alone does not ensure this. A disjoint union of triangles can have arbitrarily many vertices while its rooted local limit is still a triangle.\n\nAldous's objective method asks which finite questions become easier on this limit, then proves a transfer theorem. Local convergence by itself is not such a transfer theorem. [2]\n\nPr[B_r(Gₙ,oₙ) ≅ H] → Pr[B_r(G,o) ≅ H]\n\n## The random assignment problem\n\nLet c(i,j) be independent exponential random variables of mean one, for 1 ≤ i,j ≤ n. Define Aₙ as the minimum of Σᵢ c(i,π(i)) over permutations π. Each cheap choice competes with all choices in the same row and column, so the objective is globally coupled.\n\nAldous proved that E[Aₙ] tends to ζ(2) = π²/6. His construction solves a matching problem on the Poisson weighted infinite tree, an infinite limit that exposes a recursive structure absent from the original matrix. The result also describes edge costs in optimal assignments and an essential uniqueness property for near-optimal matchings. [3]\n\nThe lesson is not that every global optimization parameter is local. It is that a particular infinite model can organize a proof of its asymptotics, with substantial work needed to justify convergence of optimal solutions and costs.\n\nAₙ = min_π Σᵢ c(i,π(i)); lim E[Aₙ] = π²/6\n\n## The continuum random tree\n\nFor a critical Galton–Watson tree conditioned to have n vertices, with finite nonzero offspring variance, distances typically scale as √n. After rescaling, the trees converge to a Brownian continuum random tree, up to the variance-dependent scale factor. [4]\n\nA Brownian excursion e on [0,1] constructs the limit through the pseudometric d(s,t)=e(s)+e(t)−2 min e(u), where the minimum is over u between s and t. Identify pairs at distance zero to obtain a genuine real tree.\n\nThis is a scaling limit, not the same object as a fixed-radius local weak limit. The continuum tree retains rescaled metric shape and a mass measure. The distinction gives a useful example of two different limit procedures applied to discrete trees.\n\nd(s,t) = e(s)+e(t)−2 min{e(u): min(s,t) ≤ u ≤ max(s,t)}\n\n## Mass transport and finite approximability\n\nAldous and Lyons formulated unimodular random networks using an invariant mass-transport identity. For every nonnegative invariant transport f, expected total mass sent from the root equals expected total mass received there. Finite uniformly rooted graphs satisfy the identity by double counting, and their local weak limits do too. [5]\n\nThe identity is necessary for finite approximation, but it does not by itself construct an approximating sequence. Probability laws of unmarked rooted components also forget some information carried by a particular graphing, such as the organization of measurable colorings.\n\nThis gives three distinct tasks: define the local limit, identify its invariant consistency laws, and establish an actual finite realization theorem. They should not be collapsed into one claim.\n\nE[Σᵥ f(G,o,v)] = E[Σᵥ f(G,v,o)]\n\n## What the objective method does not promise\n\nTwo locally convergent sequences can have the same unmarked rooted limit while differing in important global behavior. For instance, putting two large pieces next to each other with very few connecting edges creates a global bottleneck that typical fixed-radius observations may miss.\n\nAccordingly, possible tools such as spectral control, decomposition, couplings or local–global information need to be matched to the parameter under investigation. The research suggestion is to identify the exact additional hypothesis that makes a chosen global quantity transfer, not to assume all finite approximability is captured by one extra number.\n\n## Three directions to explore\n\n1. Should the next profile focus on local–global convergence and graphings rather than ordinary local weak convergence?\n\n2. Would a concrete mass-transport proof be the best way to clarify what unimodularity does and does not enforce?\n\n3. Should the next mathematician come from probability and unimodularity or the group-theoretic side of soficity?\n\n## Sources\n\n- [[1] Berkeley: David Aldous](https://statistics.berkeley.edu/people/david-aldous)\n\n- [[2] Aldous–Steele, The objective method](https://doi.org/10.1007/978-3-662-09444-0_1)\n\n- [[3] Aldous, The zeta(2) limit in the random assignment problem](https://arxiv.org/abs/math/0010063)\n\n- [[4] Aldous: The Continuum Random Tree](https://www.stat.berkeley.edu/~aldous/Research/research-crt.html)\n\n- [[5] Aldous–Lyons, Processes on Unimodular Random Networks](https://arxiv.org/abs/math/0603062)\n"
+}

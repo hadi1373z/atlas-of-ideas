@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "event_id": "daily-2026-09-30",
+  "source_key": "daily:2026-09-30",
+  "created_at": "2026-10-06T23:17:58Z",
+  "kind": "daily-profile",
+  "person_id": "gromov",
+  "base_revision": null,
+  "summary": "Publish the 2026-09-30 profile of Mikhail Gromov: When algebra becomes geometry.",
+  "profile": {
+    "name": "Mikhail Gromov",
+    "aliases": [
+      "Mikhael Gromov"
+    ],
+    "born": 1943,
+    "field": "geometry",
+    "title": "When algebra becomes geometry",
+    "bio": "Mikhail Gromov reshaped geometry by studying structures after exact coordinates and small-scale details have been forgotten. His work on growth, hyperbolicity, metric limits and pseudoholomorphic curves connected geometry with groups, dynamics and probability.",
+    "formula": "polynomial growth ⇔ virtually nilpotent; coarse geometry retains algebraic structure",
+    "impact": "Changing the notion of equivalence can expose invariants invisible in an exact coordinate description. Finite approximation, quasi-isometry and metric convergence illustrate different versions of that strategy.",
+    "sections": [
+      {
+        "title": "A group can be read as a graph",
+        "text": "A finitely generated group Γ with a finite symmetric generating set S has a Cayley graph. Word length is graph distance from the identity, and the ball B(n) consists of elements representable by words of length at most n.\n\nGromov proved that polynomial growth forces Γ to contain a nilpotent subgroup of finite index. Combined with the earlier converse, this gives the equivalence between polynomial growth and virtual nilpotence. The growth type does not depend on the finite generating set. [1]\n\nThis is a striking rigidity statement: a bound on the number of elements at distance at most n determines substantial algebraic structure. It is not merely an estimate on a particular drawing of the Cayley graph.",
+        "math": "|B(n)| ≤ Cnᵈ for all n ⇒ Γ is virtually nilpotent"
+      },
+      {
+        "title": "Curvature without a manifold",
+        "text": "A geodesic metric space is δ-hyperbolic when each side of a geodesic triangle lies within distance δ of the union of the other two sides. Trees are the limiting case with δ = 0.\n\nGromov's hyperbolic-group framework applies this condition to Cayley graphs and makes it independent of the chosen finite generating set. Quasi-isometries preserve the relevant large-scale geometry: distances may change by multiplicative and additive constants, and every target point must lie a bounded distance from the image. [2]\n\nThe coarse viewpoint connects boundary geometry with algebra and algorithms, including solutions of the word problem for hyperbolic groups. It deliberately discards exact distances while retaining the structure that controls long paths.",
+        "math": "A⁻¹d_X(x,y)−B ≤ d_Y(f(x),f(y)) ≤ A d_X(x,y)+B"
+      },
+      {
+        "title": "Finite models need not be finite Cayley graphs",
+        "text": "A finite quotient of Γ supplies an exact action on a finite set. Sofic approximation allows much weaker finite permutation models: multiplication relations hold at almost every point, and different group elements act differently at almost every point.\n\nFor a finitely generated group, this can be expressed by finite generator-labeled graphs in which almost every radius-r neighborhood agrees with the Cayley graph, for every prescribed r and error tolerance. The approximating graph need not itself be a Cayley graph. Gromov introduced the underlying direction; Weiss's paper supplied the terminology and its dynamical development. [3]\n\nThus exact finite quotients, finite local models and approximate models should not be identified. Requiring all relations everywhere is stronger than allowing a vanishing exceptional set.",
+        "math": "Prᵥ[B_r(X,v) ≅ B_r(Cay(Γ,S),e)] ≥ 1−ε"
+      },
+      {
+        "title": "Metric limits without shared vertices",
+        "text": "Gromov–Hausdorff distance compares compact metric spaces by embedding them isometrically in a common space and minimizing their Hausdorff distance there. No correspondence of vertices or coordinates is prescribed beforehand. [2]\n\nThis differs from Benjamini–Schramm convergence. The former controls global metric shape, often after rescaling. The latter records the distribution of fixed-radius neighborhoods around a random vertex. A graph sequence can behave differently under the two notions.\n\nThe useful habit is to state exactly what a limit retains before trying to transfer a theorem through it. “The graphs converge” is not a sufficient specification."
+      },
+      {
+        "title": "Pseudoholomorphic curves reveal another rigidity",
+        "text": "Gromov introduced pseudoholomorphic curves as a central tool in symplectic geometry. A map u from a Riemann surface to an almost-complex manifold satisfies du ∘ j = J ∘ du, a nonlinear analogue of the Cauchy–Riemann equation. [4]\n\nOne application is non-squeezing: a standard symplectic ball B²ⁿ(R) cannot be symplectically embedded into the cylinder B²(r) × R²ⁿ⁻² unless R ≤ r. Volume alone cannot see this obstruction because the cylinder has infinite volume.\n\nThe theory made curves into probes of symplectic rigidity and became part of the foundation for later symplectic topology. This is a different setting from group theory but shares the strategy of detecting structure through the right invariant objects.",
+        "math": "du ∘ j = J ∘ du; B²ⁿ(R) ↪ B²(r) × R²ⁿ⁻² symplectically ⇒ R ≤ r"
+      },
+      {
+        "title": "The principle to retain",
+        "text": "The common thread is not that every weakening loses information harmlessly. It is that a carefully chosen weaker equivalence exposes robust structure: quasi-isometry for groups, metric limits for geometric spaces, approximate actions for finite models, and curve invariants for symplectic manifolds.\n\nQuestions about local graph neighborhoods and global reconstruction fit this perspective, but need their own hypotheses. A local approximation theorem is not automatically an isomorphism or rigidity theorem."
+      }
+    ],
+    "sources": [
+      {
+        "label": "[1] Gromov (1981), Groups of polynomial growth and expanding maps",
+        "url": "https://numdam.org/articles/10.1007/BF02698687/",
+        "type": "primary source"
+      },
+      {
+        "label": "[2] Gromov: papers and metric geometry",
+        "url": "https://www.ihes.fr/~gromov/",
+        "type": "primary source"
+      },
+      {
+        "label": "[3] Weiss (2000), Sofic groups and dynamical systems",
+        "url": "https://cris.huji.ac.il/en/publications/sofic-groups-and-dynamical-systems/",
+        "type": "primary source"
+      },
+      {
+        "label": "[4] Gromov (1985), Pseudo-holomorphic curves in symplectic manifolds",
+        "url": "https://www.ihes.fr/~gromov/symplecticmanifolds/160/",
+        "type": "primary source"
+      }
+    ],
+    "questions": [
+      "Should the next profile stay with finite approximations of infinite groups and graphs?",
+      "Would probability and local convergence, or group actions and geometry, be the more useful next viewpoint?",
+      "Should the next entry focus on one theorem with a detailed proof sketch rather than a broad biography?"
+    ],
+    "extended": true,
+    "readMinutes": 6
+  },
+  "connections_add": [
+    {
+      "source": "gromov",
+      "target": "lyons",
+      "label": "Geometry and random infinite networks",
+      "description": "Conceptual reading link: compare coarse group geometry with invariant probabilistic structure on infinite graphs."
+    }
+  ],
+  "article_markdown": "# Mikhail Gromov — When algebra becomes geometry\n\nMikhail Gromov reshaped geometry by studying structures after exact coordinates and small-scale details have been forgotten. His work on growth, hyperbolicity, metric limits and pseudoholomorphic curves connected geometry with groups, dynamics and probability.\n\nChanging the notion of equivalence can expose invariants invisible in an exact coordinate description. Finite approximation, quasi-isometry and metric convergence illustrate different versions of that strategy.\n\npolynomial growth ⇔ virtually nilpotent; coarse geometry retains algebraic structure\n\n## A group can be read as a graph\n\nA finitely generated group Γ with a finite symmetric generating set S has a Cayley graph. Word length is graph distance from the identity, and the ball B(n) consists of elements representable by words of length at most n.\n\nGromov proved that polynomial growth forces Γ to contain a nilpotent subgroup of finite index. Combined with the earlier converse, this gives the equivalence between polynomial growth and virtual nilpotence. The growth type does not depend on the finite generating set. [1]\n\nThis is a striking rigidity statement: a bound on the number of elements at distance at most n determines substantial algebraic structure. It is not merely an estimate on a particular drawing of the Cayley graph.\n\n|B(n)| ≤ Cnᵈ for all n ⇒ Γ is virtually nilpotent\n\n## Curvature without a manifold\n\nA geodesic metric space is δ-hyperbolic when each side of a geodesic triangle lies within distance δ of the union of the other two sides. Trees are the limiting case with δ = 0.\n\nGromov's hyperbolic-group framework applies this condition to Cayley graphs and makes it independent of the chosen finite generating set. Quasi-isometries preserve the relevant large-scale geometry: distances may change by multiplicative and additive constants, and every target point must lie a bounded distance from the image. [2]\n\nThe coarse viewpoint connects boundary geometry with algebra and algorithms, including solutions of the word problem for hyperbolic groups. It deliberately discards exact distances while retaining the structure that controls long paths.\n\nA⁻¹d_X(x,y)−B ≤ d_Y(f(x),f(y)) ≤ A d_X(x,y)+B\n\n## Finite models need not be finite Cayley graphs\n\nA finite quotient of Γ supplies an exact action on a finite set. Sofic approximation allows much weaker finite permutation models: multiplication relations hold at almost every point, and different group elements act differently at almost every point.\n\nFor a finitely generated group, this can be expressed by finite generator-labeled graphs in which almost every radius-r neighborhood agrees with the Cayley graph, for every prescribed r and error tolerance. The approximating graph need not itself be a Cayley graph. Gromov introduced the underlying direction; Weiss's paper supplied the terminology and its dynamical development. [3]\n\nThus exact finite quotients, finite local models and approximate models should not be identified. Requiring all relations everywhere is stronger than allowing a vanishing exceptional set.\n\nPrᵥ[B_r(X,v) ≅ B_r(Cay(Γ,S),e)] ≥ 1−ε\n\n## Metric limits without shared vertices\n\nGromov–Hausdorff distance compares compact metric spaces by embedding them isometrically in a common space and minimizing their Hausdorff distance there. No correspondence of vertices or coordinates is prescribed beforehand. [2]\n\nThis differs from Benjamini–Schramm convergence. The former controls global metric shape, often after rescaling. The latter records the distribution of fixed-radius neighborhoods around a random vertex. A graph sequence can behave differently under the two notions.\n\nThe useful habit is to state exactly what a limit retains before trying to transfer a theorem through it. “The graphs converge” is not a sufficient specification.\n\n## Pseudoholomorphic curves reveal another rigidity\n\nGromov introduced pseudoholomorphic curves as a central tool in symplectic geometry. A map u from a Riemann surface to an almost-complex manifold satisfies du ∘ j = J ∘ du, a nonlinear analogue of the Cauchy–Riemann equation. [4]\n\nOne application is non-squeezing: a standard symplectic ball B²ⁿ(R) cannot be symplectically embedded into the cylinder B²(r) × R²ⁿ⁻² unless R ≤ r. Volume alone cannot see this obstruction because the cylinder has infinite volume.\n\nThe theory made curves into probes of symplectic rigidity and became part of the foundation for later symplectic topology. This is a different setting from group theory but shares the strategy of detecting structure through the right invariant objects.\n\ndu ∘ j = J ∘ du; B²ⁿ(R) ↪ B²(r) × R²ⁿ⁻² symplectically ⇒ R ≤ r\n\n## The principle to retain\n\nThe common thread is not that every weakening loses information harmlessly. It is that a carefully chosen weaker equivalence exposes robust structure: quasi-isometry for groups, metric limits for geometric spaces, approximate actions for finite models, and curve invariants for symplectic manifolds.\n\nQuestions about local graph neighborhoods and global reconstruction fit this perspective, but need their own hypotheses. A local approximation theorem is not automatically an isomorphism or rigidity theorem.\n\n## Three directions to explore\n\n1. Should the next profile stay with finite approximations of infinite groups and graphs?\n\n2. Would probability and local convergence, or group actions and geometry, be the more useful next viewpoint?\n\n3. Should the next entry focus on one theorem with a detailed proof sketch rather than a broad biography?\n\n## Sources\n\n- [[1] Gromov (1981), Groups of polynomial growth and expanding maps](https://numdam.org/articles/10.1007/BF02698687/)\n\n- [[2] Gromov: papers and metric geometry](https://www.ihes.fr/~gromov/)\n\n- [[3] Weiss (2000), Sofic groups and dynamical systems](https://cris.huji.ac.il/en/publications/sofic-groups-and-dynamical-systems/)\n\n- [[4] Gromov (1985), Pseudo-holomorphic curves in symplectic manifolds](https://www.ihes.fr/~gromov/symplecticmanifolds/160/)\n"
+}
